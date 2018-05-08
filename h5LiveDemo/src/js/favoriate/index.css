@@ -1,0 +1,54 @@
+.favorite-animation-container
+{
+	left:7.066667rem;
+  /*202*/
+  // bottom: 0.933333rem;
+  height:5.6rem;
+  width:2.4rem;
+  margin-left: 0.133333rem;
+  position:absolute;
+}
+
+
+.favorite-animation-container img
+{
+	position:absolute;
+	bottom:0px;
+  left:45%;
+}
+
+.favorite-animation
+{
+  animation-name: appear-from-bottom;
+  animation-duration: 2s;
+  animation-fill-mode:forwards;
+  animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+/*easeInSine: cubic-bezier(0.47, 0, 0.745, 0.715);*/
+
+@keyframes appear-from-bottom {
+  0% {
+    opacity: 0.5;
+    width:0.56rem;
+    height:0.533333rem;
+    display:block;
+  }
+  10% {
+    opacity: 1;
+  }
+  20%{
+    width:1.12rem;
+    height:1.066667rem;
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+  	/*900*/
+    transform: translateY(-5.6rem);
+    opacity: 0;
+    width:0.56rem;
+    height:0.533333rem;
+    display:none;
+  }
+}

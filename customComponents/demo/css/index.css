@@ -1,0 +1,62 @@
+.video-area
+{
+	width:500px;
+	height:400px;
+	top:30px;
+	margin: auto;
+}
+
+.video-filter
+{
+	margin-bottom:20px;
+}
+
+.video-filter input[type=text]
+{
+	width: 100%;
+    margin-bottom: 5px;
+    height: 30px;
+}
+
+.video-filter button
+{
+    width: 45%;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    border-style: solid;
+    margin-top: 5px;
+    background: transparent;
+    font-size: 20px;
+    cursor:pointer;
+}
+
+.video-filter button:focus
+{
+	outline: none;
+}
+
+.video-filter .submit
+{
+    margin-left: 5%;
+    border-color:rgba(0,193,222,.5);
+}
+
+.video-filter .change
+{
+    border-color:green;
+}
+
+.video-filter .submit:hover
+{
+    background:floralwhite;
+}
+
+.video-filter .change:hover
+{
+    border-color:green;
+    background:floralwhite;
+}
+@media screen(max-width:980) {
+	width:100%;
+}

@@ -1,0 +1,52 @@
+.live-list-item{
+    float:left;
+    width:130px;
+    padding: 5px;
+    .item-wrapper{
+      cursor: pointer;
+      width:130px;
+      position: relative;
+      img{
+        width:130px;
+        height:73px;
+      }
+      .isPlaying{
+        display: none;
+        position: absolute;
+        left:4px;
+        bottom:4px;
+        i{
+          display: inline-block;
+          width:4px;
+          margin:0 1px;
+          background: #fff;
+          border-radius: 4px;
+        }
+      }
+      .live-date{
+        position:absolute;
+        right: 4px;
+        bottom: 4px;
+        line-height: 12px;
+        padding:2px;
+        background:rgba(0,0,0,.6);
+      }
+      .isLive{
+        width:38px;
+        height:20px;
+        background: url(../../../images/live@3x.png) no-repeat;
+        background-size: contain;
+        position:absolute;
+        top:4px;
+        left:2px;
+      }
+    }
+    &.curr-item{
+      .isPlaying{
+        display: block;
+      }
+      .item-wrapper{
+        cursor: default;
+      }
+    }
+} 

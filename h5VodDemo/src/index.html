@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="x-ua-compatible" content="IE=edge" >
+     <meta name="viewport"   content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+     <title>H5 Aliplayer Demo</title>
+    <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.5.1/skins/default/aliplayer-min.css" />
+    
+     <link rel="stylesheet" href="lib/css/frozen.css"/>
+     <script type="text/javascript" src="//common.qupai.me/player/lib/flexible.min.js"></script>
+    </head>
+
+    <body>
+        <div class="player-area">
+            ${require('./js/videoplayer/index.html')}
+            <div class="ui-tab content-container">
+                <ul class="ui-tab-nav ui-border-b">
+                    <li class="current">评论</li>
+                    <li class="">播放列表</li>
+                </ul>
+                <ul class="ui-tab-content" style="width:200%">
+                    ${require('./js/comment/index.html')}
+                    ${require('./js/videolist/index.html')}
+                </ul>
+            </div>
+        </div>
+        ${require('./js/commentsender/index.html')}
+    </body>
+    <script>
+        $(function (){
+            var option = {
+                role: 'tab',
+                autoplay: false
+            };
+            var tab = new fz.Scroll('.ui-tab', option);
+            /* 滑动开始前 */
+            tab.on('beforeScrollStart', function(fromIndex, toIndex) {
+                if(toIndex==1)
+                {
+                    $('.comment-textbox').hide();
+                }
+                else
+                {
+                    $('.comment-textbox').show();
+                }
+            });
+       });
+    </script>
+</html>
+
+
+

@@ -1,0 +1,177 @@
+.author-round{
+	/*padding: 0.044118rem 0 0.014706rem 0.014706rem;*/
+	border-radius: 1.333333rem;
+	background-color: rgba(0,0,0,0.4);
+  z-index:100;
+}
+
+.video-header
+{
+	top:0px;
+}
+
+.author
+{
+  position:absolute;
+  margin-left: 0.266667rem;
+  top: 0.24rem;
+  height: 0.92rem;
+  padding-right: 0.2rem;
+}
+
+.author .user-head-img{
+	width:0.92rem;
+	height:0.92rem;
+	float:left;
+	border-radius: 50%;
+	vertical-align:middle;
+  border:0.030667rem solid #ffffff;
+}
+.author .user-info
+{
+	float:left;
+  margin-left:0.08rem;
+  margin-right:0.266667rem;
+  /*padding: 0.147059rem 0;*/
+}
+.author .user-name{
+	color:#ffffff;
+  line-height: 0.533333rem;
+/*	text-overflow : ellipsis;
+  white-space : nowrap;
+  overflow : hidden;
+  max-width:2.941176rem;*/
+}
+
+
+
+html[data-dpr="1"] .author .user-name
+{
+  font-size: 14px;
+}
+html[data-dpr="2"] .author .user-name
+{
+   font-size: 28px;
+}
+html[data-dpr="3"] .author .user-name {
+  font-size: 42px;
+}
+
+@media all and (min-device-width:980px)
+{
+  .author .user-name
+  {
+    font-size: 28px;
+  }
+}
+
+{
+}
+
+.audience .audience-img{
+    background: url(../../images/ico_live_online@3x.png) no-repeat 0 0/0.32rem 100%;
+    height:0.32rem;
+}
+
+.audience .audience-count
+{
+  margin-left:0.4rem;
+  line-height:0.333333rem;
+  color:#ffffff;
+  display: block;
+}
+
+html[data-dpr="1"] .audience .audience-count
+{
+  font-size:9px;
+}
+
+html[data-dpr="2"] .audience .audience-count
+{
+   font-size: 18px;
+}
+html[data-dpr="3"] .audience .audience-count{
+  font-size: 27px;
+}
+
+@media all and (min-width:980px)
+{
+  .audience .audience-count
+  {
+    font-size: 18px;
+  }
+}
+
+.audience-detail
+{
+  overflow: hidden;
+  top: 0.293333rem;
+  margin-left:0.146667rem;
+  position:absolute;
+  height: 0.85rem;
+  z-index: 100;
+  clear:both;
+}
+
+.audience-detail .audience-header
+{
+  width:0.8rem;
+  height:0.8rem;
+  border-radius: 50%;
+  vertical-align:middle;
+  margin-left:0.133333rem;
+  border:0.030667rem solid #ffffff;
+}
+
+.audience-detail .ellipsis
+{
+  vertical-align: middle;
+  width:0.8rem;
+  height:0.8rem;
+}
+
+.favorite-info
+{
+  top:1.453333rem;
+  position:absolute;
+	margin-left: 0.266667rem;
+  background:rgba(0, 0, 0, 0.3);
+  height:0.64rem;
+  border-radius:0.6rem;
+  z-index: 100;
+}
+
+.favorite-info .favorite-img{
+/*  margin-top:0.08rem;*/
+  margin-left: 0.066667rem;
+  background: url(../../images/ico_live@3x.png) no-repeat 0 0/0.64rem 100%;
+  height:0.64rem;
+}
+
+.favorite-info .user-favorite{
+  color:#ffffff;
+  margin-left:0.693333rem;
+  margin-right:0.226667rem;
+  line-height: 0.64rem;
+}
+
+html[data-dpr="1"] .favorite-info .user-favorite
+{
+  font-size:14px;
+}
+
+html[data-dpr="2"] .favorite-info .user-favorite
+{
+   font-size: 28px;
+}
+html[data-dpr="3"] .favorite-info .user-favorite {
+  font-size: 42px;
+}
+
+@media all and (min-width:980px)
+{
+  .favorite-info .user-favorite
+  {
+    font-size: 28px;
+  }
+}

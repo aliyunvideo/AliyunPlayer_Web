@@ -1,0 +1,50 @@
+.video{
+  width:748px;
+  .video-title{
+    padding:11px 12px;
+    background: #2B2F3F;
+    border-radius: 4px 4px 0 0;
+    h3{
+      float:left;
+      font-size: 18px;
+      line-height: 18px;
+      font-weight: normal;
+    }
+    .online{
+      float:right;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+  .player-box{
+    position: relative;
+    width:748px;
+    height:407px;
+    background: #000;
+    .overtip{
+      display:none;
+      position: absolute;
+      left:0;
+      top:0;
+      width:100%;
+      height:360px;
+      line-height:360px;
+      text-align: center;
+      background:#000;
+      font-size: 16px;
+    }
+  }
+  .video-foot{
+    height:40px;
+    background: #2B2F3F;
+    border-radius: 0 0 4px 4px;
+    position: relative;
+  }
+
+}
+
+.prism-progress-cursor 
+{
+  margin-left:0px !important;
+}
+

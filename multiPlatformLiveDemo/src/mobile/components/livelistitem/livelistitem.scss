@@ -1,0 +1,93 @@
+@import '../../../common/scss/mixins.scss';
+
+.live-list-item{
+  width:pxToRem(600px);
+  height:pxToRem(152px);
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  border-bottom:1px solid #E6E6E6;
+  position:relative;
+
+  &:hover
+  {
+    cursor:pointer;
+  }
+  .list-item-img .img-bg
+  {
+    height:pxToRem(112px);
+    width:pxToRem(200px);
+  }
+
+  .list-item-img .img-live
+  {
+    width:pxToRem(60px);
+    height:pxToRem(30px);
+    position:absolute;
+    top:pxToRem(25px);
+    left:pxToRem(4px);
+  }
+
+ .list-item-img .live-playing
+{
+  position:absolute;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  height:pxToRem(30px);
+  i {
+    width:pxToRem(8px);
+    border-radius: pxToRem(4px);
+    background: #fffff;
+    margin-right:pxToRem(3px);
+  }
+  left:pxToRem(4px);
+  bottom:pxToRem(25px);
+}
+
+  .list-item-info{
+    width:pxToRem(400px);
+    margin-left:pxToRem(20px);
+    @at-root & .description
+    {
+      color: #4C4C4C;
+      max-height:pxToRem(80px);
+      width:pxToRem(366px);
+      word-break: break-all;
+      overflow: auto;
+    }
+    @at-root{
+      @include fontSize(28px, ".list-item-info .description")
+    }
+
+    @at-root & .live-audience-info
+    {
+      display:flex;
+      justify-content: space-between;
+      margin-top:pxToRem(16px);
+
+      @at-root & .audience-count-info
+      {
+        color: #666666;
+        @at-root & img{
+          width:pxToRem(25px);
+          height:pxToRem(16px);
+        }
+
+        @at-root & span{
+          margin-left:pxToRem(10px);
+        }
+      }
+
+      @at-root & .live-date
+      {
+        color: #CCCCCC;
+      }
+    }
+    @at-root{
+      @include fontSize(20px, ".list-item-info .live-audience-info")
+    }
+
+
+  }
+
+}

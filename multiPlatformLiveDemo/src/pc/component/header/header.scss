@@ -1,0 +1,147 @@
+header .contain{
+  width:1160px;
+  height: 60px;
+  margin:0 auto;
+  position:relative;
+
+  .code-view
+  {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: aliceblue;
+    font-size: 16px;
+
+    &:hover
+    {
+      cursor:pointer;
+      color:deeppink;
+    }
+
+  }
+}
+
+.head-right a{
+  color: #fff;
+}
+
+.head-right{
+  float:right;
+  .head-title{
+    display: inline-block;
+    width:64px;
+    text-align: center;
+    height:60px;
+    line-height: 60px;
+    &:hover{
+      cursor: pointer;
+    }
+    span{
+      padding-left:18px;
+      background: url(../../../images/share.png) no-repeat 0 2px;
+    }
+  }
+  ul{//share + login
+    display: none;
+    position: absolute;
+    top:60px;
+    left:(64px/2-110px/2);
+    z-index:999;
+    width:110px;
+    background:#2B2F3F;
+    li{
+      padding: 9px 0;
+      a{
+        padding-left: 34px;
+        display: inline-block;
+        height: 24px;
+        line-height: 24px;
+        margin-left:10px;
+      }
+    }
+  }
+  .share,.login{
+    float:left;
+    position: relative;
+    &:hover ul{
+      display: block;
+    }
+  }
+  .login .logined li{
+    text-align: center;
+    cursor: pointer;
+  }
+  .login .head-title{
+    overflow: hidden;
+    //white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.share li:nth-child(1) a{
+  background: url(../../../images/line.png) no-repeat;
+}
+.share li:nth-child(2) a,.login li:nth-child(1) a{
+  background: url(../../../images/weixin.png) no-repeat;
+}
+.share li:nth-child(3) a,.login li:nth-child(2) a{
+  background: url(../../../images/ding.png) no-repeat 3px center;
+  background-size:18px 18px;
+}
+.share li:nth-last-child(1){
+  text-align: center;
+  padding:0 0 7px;
+  color: #7C8096;
+  .sweep-code{
+    border-top: 1px solid #373C51;
+    width:80px;
+    height:94px;
+    background:url(../../../images/code.jpg) no-repeat center 10px;
+    background-size: 80px 80px;
+    margin:0 auto;
+  }
+}
+
+//二维码
+.wx,.dt{
+  width:100%;
+  height:630px-135px;
+  padding-top: 135px;
+  margin:0 auto;
+  position: fixed;
+  top:60px;
+  z-index: 9999;
+  display: none;
+  .codetip{
+    line-height:400px;
+  }
+  .con{
+    width:380px;
+    height:405px;
+    background:#fff;
+    border: 1px solid #E6E6E6;
+    border-radius: 4px;
+    margin:0 auto;
+    text-align: center;
+    color: #4A4A4A;
+    position: relative;
+    .close{
+      width:20px;
+      height:20px;
+      background: url(../../../images/close.jpg) no-repeat center;
+      border:1px solid #E6E6E6;
+      position: absolute;
+      right:6px;
+      top:6px;
+      cursor: pointer;
+    }
+  }
+}
+#dtcode iframe{
+  width:100%;
+}
+
+.dtcode-tit{
+  font-size:20px;
+  padding:11px 0 18px;
+}

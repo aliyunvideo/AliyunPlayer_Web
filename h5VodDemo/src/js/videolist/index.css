@@ -1,0 +1,38 @@
+.video-list-wrapper
+{
+  margin-top: 0.266667rem;
+	z-index:1000;
+}
+
+.video-list-wrapper .video-list
+{
+	display:flex;
+	flex-wra:wrap;
+	justify-content:space-around;
+}
+
+.video-list .video-list-item
+{
+	width:30%;
+	height:2.666667rem;
+
+}
+
+.video-list-item img
+{
+    width: 100%;
+    max-height: 2.666667rem;
+    border-radius: 0.026667rem;
+}
+
+.video-list-item img:hover
+{
+    opacity:0.8;
+    cursor: pointer;
+}
+
+.video-list-item p
+{
+	margin: 0;
+    font-size: 4px;
+}

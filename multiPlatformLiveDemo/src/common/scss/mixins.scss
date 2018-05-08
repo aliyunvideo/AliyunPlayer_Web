@@ -1,0 +1,76 @@
+@mixin fontSize($baseSize, $selector)
+{
+  html[data-dpr="1"] #{$selector}
+  {
+    font-size: $baseSize / 2;
+  }
+  html[data-dpr="2"] #{$selector}
+  {
+     font-size: $baseSize;
+  }
+  html[data-dpr="3"] #{$selector} {
+    font-size: $baseSize * 1.5;
+  }
+
+  @media all and (min-device-width:1024px)
+  {
+    #{$selector}
+    {
+      font-size: $baseSize;
+    }
+  }
+}
+
+@mixin pxsWithMedia($selector, $properties, $media:"all and (min-device-width:1024px)")
+{
+  @media #{getMediaQuery($media)}
+  {
+    #{$selector}
+    {
+      @each $property, $value in $properties
+      {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+@mixin propertiesToRem($selector, $properties, $baseWidth:64)
+{
+  #{$selector}
+  {
+    @each $property, $values in $properties
+    {
+      $length : length($values);
+      $propValues : "";
+      @for $i from 1 through $length {
+         $value: nth($values, $i);
+         $propValues : $propValues + " " + pxToRem($value,$baseWidth);
+      }
+      #{$property}: $propValues;
+    }
+  }
+}
+
+@function pxToRem($px, $baseWidth:64) {
+  @if (unitless($px)) {
+      @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+      @return pxToRem($px + 0px); // That may fail.
+  } @else if (unit($px) == em) {
+      @return $px;
+  }
+  @return (strip-unit($px) / strip-unit($baseWidth)) * 1rem;
+}
+
+@function getMediaQuery($query)
+{
+  @return $query;
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

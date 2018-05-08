@@ -1,0 +1,37 @@
+html,
+body
+{
+  height: 100%;
+	margin:0;
+	padding:0;
+}
+
+body
+{
+  font-size:16px !important;
+}
+
+ul
+{
+	padding:0px;
+	margin:0px;
+}
+
+ul li
+{
+    list-style-type:none;
+}
+
+.player-area
+{
+}
+
+.content-container
+{
+	position:absolute;
+	top:252px;
+}
+
+
+
+

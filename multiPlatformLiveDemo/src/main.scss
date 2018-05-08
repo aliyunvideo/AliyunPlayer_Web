@@ -1,0 +1,12 @@
+@import "./common/scss/mixins";
+.audience-count-info
+{
+  width:pxToRem(120px);
+}
+
+@include propertiesToRem(".audience-count-info",  (width: 120px, height: 200px, margin: 20px 30px 40px 12px))
+
+@include pxsWithMedia(".audience-count-info",(width: 120px, height: 200px, margin: 20px 30px 40px 12px))
+
+@include fontSize(36px, "p")
+

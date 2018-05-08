@@ -1,0 +1,82 @@
+.live-chat-area{
+  background: #232633;
+  border-radius: 0 0 4px 4px;
+  .msg-overflow{
+    height:398px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .msg-list{
+      padding: 0 15px 0 9px;
+      li{
+        overflow: hidden;
+        padding:14px 0 6px;
+        .avatar{
+          float:left;
+          width:40px;
+          height:40px;
+          border-radius: 50%;
+          margin-right: 7px;
+        }
+        .detail{
+          float:left;
+          width:211px;
+          line-height: 16px;
+          .head{
+            overflow: hidden;
+            padding:0 0 8px;
+            .nick{
+              float:left;
+              color: #F16C1C;
+            }
+            .time{
+              float:right;
+              color: #999;
+            }
+          }
+          .txt{
+          }
+        }
+      }
+    }
+  }
+  .textbox{
+    height:40px;
+    
+    .send-con{
+      position: relative;
+      float:left;
+      width:242px;
+      height:100%;
+      .send-txt{
+        width:190px;
+        padding:10px 42px 10px 10px;
+        height:20px;
+        line-height: 20px;
+        background:#fff;
+        border:0;
+        border-radius: 4px 0 0 4px;
+        resize : none;
+        color:#000;
+        img{
+          width:24px;
+          height:24px;
+        }
+      }
+    }
+    .send-btn{
+      float:left;
+      width:44px;
+      height:100%;
+      background: #343B59;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+
+      &:hover
+      {
+        background: #343445;
+      }
+    }
+  }
+}

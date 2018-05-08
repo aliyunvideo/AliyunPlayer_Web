@@ -1,0 +1,60 @@
+.loading-container
+{
+  position: absolute;
+  top:0;
+  height: 100%;
+  width: 100%;
+  opacity:1;
+  background: white;
+  z-index: 2000;
+}
+.loading-container .loading
+{
+  width:50px;
+  height:50px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  animation:loadingAnimation 1s infinite;
+}
+
+@keyframes loadingAnimation
+{
+  0% {
+    background: url('../../images/loading/1.png') no-repeat;
+  }
+  9% {
+    background: url('../../images/loading/2.png') no-repeat;
+  }
+  18% {
+    background: url('../../images/loading/3.png') no-repeat;
+  }
+  27% {
+    background: url('../../images/loading/4.png') no-repeat;
+  }
+  36% {
+    background: url('../../images/loading/5.png') no-repeat;
+  }
+  45% {
+    background: url('../../images/loading/6.png') no-repeat;
+  }
+  54% {
+    background: url('../../images/loading/7.png') no-repeat;
+  }
+  63% {
+    background: url('../../images/loading/8.png') no-repeat;
+  }
+  72% {
+    background: url('../../images/loading/9.png') no-repeat;
+  }
+  81% {
+    background: url('../../images/loading/10.png') no-repeat;
+  }
+  90% {
+    background: url('../../images/loading/11.png') no-repeat;
+  }
+  100% {
+    background: url('../../images/loading/12.png') no-repeat;
+  }
+}

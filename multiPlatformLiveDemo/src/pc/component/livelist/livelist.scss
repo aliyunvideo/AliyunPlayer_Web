@@ -1,0 +1,101 @@
+.live-list-area{
+  height:428px;
+  background: #232633;
+  border-radius: 0 0 3px 3px;
+  .history-con{
+    height:398px-6px;
+    padding:6px 0 0 2px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .history_lists{
+      li{
+        float:left;
+        width:130px;
+        padding: 5px;
+        .li_con{
+          cursor: pointer;
+          width:130px;
+          position: relative;
+          img{
+            width:130px;
+            height:73px;
+          }
+          .isPlaying{
+            display: none;
+            position: absolute;
+            left:4px;
+            bottom:4px;
+            i{
+              display: inline-block;
+              width:4px;
+              margin:0 1px;
+              background: #fff;
+              border-radius: 4px;
+            }
+          }
+          .list_time{
+            position:absolute;
+            right: 4px;
+            bottom: 4px;
+            line-height: 12px;
+            padding:2px;
+            background:rgba(0,0,0,.6);
+          }
+          .list_url{
+            display: none;
+          }
+          .isLive{
+            width:38px;
+            height:20px;
+            background: url(../../../images/live@3x.png) no-repeat;
+            background-size: contain;
+            position:absolute;
+            top:4px;
+            left:2px;
+          }
+        }
+        &.curr_li{
+          .isPlaying{
+            display: block;
+          }
+          .li_con{
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+  #load{
+    width:100%;
+    height:30px;
+    line-height: 30px;
+    background: #454C66;
+    text-align: center;
+    border-radius: 0 0 3px 3px;
+    span{
+      cursor: pointer;
+      padding-right:16px;
+      background: url(../../../images/more@2x.png) no-repeat right center;
+      background-size: 12px 12px;
+    }
+  }
+} 
+
+
+//scrollbar
+::-webkit-scrollbar{
+  width:4px;
+}
+::-webkit-scrollbar-button{
+}
+::-webkit-scrollbar-track{//外层轨道
+}
+::-webkit-scrollbar-track-piece{//内层滚动槽
+  //background:rgba(0,0,0,.2);
+}
+::-webkit-scrollbar-thumb{
+  background:#ccc;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-corner{
+}

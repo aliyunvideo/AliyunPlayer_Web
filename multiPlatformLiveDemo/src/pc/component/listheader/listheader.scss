@@ -1,0 +1,21 @@
+.live-list-title{
+  padding-top:10px;
+  background:#2B2F3F;
+  //padding:10px 0 14px 20px;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+  h3{
+    font-size: 12px;
+    line-height: 36px;
+    font-weight: normal;
+    color: #878CA2;
+    width:50%;
+    float:left;
+    text-align: center;
+    cursor: pointer;
+  }
+  h3.active{
+    color:#fff;
+    border-bottom:2px solid #2DB7F5;
+  }
+}

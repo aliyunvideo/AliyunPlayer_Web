@@ -1,0 +1,72 @@
+@import "../common/scss/base.scss";
+*{
+  margin:0;
+  padding:0;
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
+}
+.clearfix{
+  *zoom: 1;
+}
+.clearfix:before,.clearfix:after { 
+  display: table; 
+  line-height: 0; 
+  content: ""; 
+}
+.clearfix:after { 
+  clear: both; 
+}  
+
+body{
+  background: #2B2F3F;
+  font-size: 12px;
+  color:#fff;
+}
+
+.fl{
+  float:left;
+}
+
+.fr{
+  float:right;
+}
+
+//内容区
+.content{
+  //background-image:url(../images/bg.jpg);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  min-width: 1160px; 
+  //position: relative; 
+}
+.mask{
+  width:100%;
+  background:rgba(0,0,0,.4);
+}
+.mask .contain{
+  width:1074px;
+  height:630px-50px;
+  padding-top:50px;
+  margin:0 auto;
+}
+.mask .contain>div{
+  margin: 0 10px;
+  float:left;
+}
+//右侧栏
+.rightbar{
+  width:286px;
+}
+
+//footer
+footer{
+  height:60px;
+  font-size: 14px;
+  color: #878CA2;
+  text-align: center;
+  line-height: 60px;
+}

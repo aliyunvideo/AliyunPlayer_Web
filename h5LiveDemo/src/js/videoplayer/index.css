@@ -1,0 +1,22 @@
+.prism-player .prism-ErrorMessage
+{
+  top:20%;
+}
+
+.prism-player .prism-big-play-btn
+{
+	top:50%!important;
+	left:50%!important;
+	transform:translate(-50%, -50%);
+}
+
+.prism-progress-cursor 
+{
+  margin-left:0px !important;
+}
+
+.prism-player video
+{
+	object-fit: cover;
+	object-position: 0 0;
+}

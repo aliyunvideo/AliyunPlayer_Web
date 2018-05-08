@@ -1,0 +1,18 @@
+<!DOCTYPE HTML><html><head><meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="IE=edge"><meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>H5 Aliplayer Demo</title><link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.5.1/skins/default/aliplayer-min.css"><link rel="stylesheet" href="lib/css/frozen.css"><script type="text/javascript" src="//common.qupai.me/player/lib/flexible.min.js"></script><link href="css/h5demo.css?54ca4bdc2ec82ba55104" rel="stylesheet"></head><body><div class="player-area"><div class="prism-player" id="J_prismPlayer" style="width:100%; height:252px"></div><div class="ui-tab content-container"><ul class="ui-tab-nav ui-border-b"><li class="current">评论</li><li class="">播放列表</li></ul><ul class="ui-tab-content" style="width:200%"><li class="comment-list"><a class="code-view" href="https://github.com/alilmq/h5demo" target="_blank">查看github代码</a><div class="comment-container"></div></li><li class="play-list"><div class="video-list-wrapper"><ul id="videolist" class="video-list"></ul></div></li></ul></div></div><div class="comment-textbox" style="display:none"><div class="send-container"><textarea class="send-txt" placeholder="在这里聊天吧"></textarea><div class="send-btn">发送</div><img class="favoriate-send" src="images/674b04bf.xin.png"></div></div><script type="text/javascript" src="lib/zepto.min.js?54ca4bdc2ec82ba55104"></script><script type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.5.1/aliplayer-min.js?54ca4bdc2ec82ba55104"></script><script type="text/javascript" src="lib/mqttws31.js?54ca4bdc2ec82ba55104"></script><script type="text/javascript" src="lib/frozen.min.js?54ca4bdc2ec82ba55104"></script><script type="text/javascript" src="./js/h5livedemo.common.min.js?54ca4bdc2ec82ba55104"></script><script type="text/javascript" src="./js/h5demo.min.js?54ca4bdc2ec82ba55104"></script></body><script>$(function (){
+            var option = {
+                role: 'tab',
+                autoplay: false
+            };
+            var tab = new fz.Scroll('.ui-tab', option);
+            /* 滑动开始前 */
+            tab.on('beforeScrollStart', function(fromIndex, toIndex) {
+                if(toIndex==1)
+                {
+                    $('.comment-textbox').hide();
+                }
+                else
+                {
+                    $('.comment-textbox').show();
+                }
+            });
+       });</script></html>

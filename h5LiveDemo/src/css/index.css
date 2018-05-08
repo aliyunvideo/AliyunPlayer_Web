@@ -1,0 +1,53 @@
+html,
+body
+{
+  height: 100%;
+	margin:0;
+	padding:0;
+}
+
+body
+{
+  font-size:16px !important;
+}
+
+ul
+{
+	padding:0px;
+	margin:0px;
+}
+
+ul li
+{
+    list-style-type:none;
+}
+
+.player-area
+{
+}
+
+.hide()
+{
+  display:none!important;
+}
+
+.show()
+{
+  display:block!important;
+}
+
+.content-container
+{
+}
+
+.code-view
+{
+	top: 160px;
+    position: absolute;
+    margin-left: 0.266667rem;
+}
+
+.code-view:hover
+{
+	cursor:pointer;
+}

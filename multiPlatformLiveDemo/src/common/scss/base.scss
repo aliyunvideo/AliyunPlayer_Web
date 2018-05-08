@@ -1,0 +1,80 @@
+@import "./mixins";
+
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: "微软雅黑", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif; }
+
+a {
+  text-decoration: none;
+  color: #333; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.display-none
+{
+  display:none;
+}
+
+.v-hide
+{
+  visibility: hidden;
+}
+
+.isPlaying{
+  position: absolute;
+  i {
+    display: inline-block;
+    background: #fff;
+    margin-right:3px;
+    &:nth-child(1){
+      animation: line 1s infinite ease-in-out alternate;
+    }
+    &:nth-child(2){
+      animation: line 1s 0.2s infinite ease-in-out alternate;
+    }
+    &:nth-child(3){
+      animation: line 1s 0.6s infinite ease-in-out alternate;
+    }
+    &:nth-child(4){
+      animation: line 1s 1s infinite ease-in-out alternate;
+    }
+  }
+}
+
+@keyframes line {
+  from {
+      height: 0;
+  }
+  to {
+      height: pxToRem(22px);
+  }
+}
+
+@media all and (min-device-width:1024px)
+{
+  @keyframes line {
+    from {
+        height: 0;
+    }
+    to {
+        height: 16px;
+    }
+  }
+}
+
+.watermark{
+  position:absolute;
+}

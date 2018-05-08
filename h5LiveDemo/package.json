@@ -1,0 +1,50 @@
+{
+  "name": "prismplayerh5demo",
+  "version": "1.0.0",
+  "description": "a h5 demo fro prismplayer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp dev",
+    "dev": "webpack-dev-server --devtool eval --config webpack.config.js --progress --hot --content-base src",
+    "prod": "NODE_ENV=production gulp prod"
+  },
+  "keywords": [
+    "h5",
+    "prismplayer",
+    "demo"
+  ],
+  "dependencies": {
+    "babel-core": "latest",
+    "babel-loader": "latest",
+    "babel-preset-es2015": "^6.18.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.26.1",
+    "file-loader": "^0.9.0",
+    "find-cache-dir": "^0.1.1",
+    "html-withimg-loader": "^0.1.16",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.4",
+    "babel-preset-stage-0": "^6.24.1",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "html-loader": "^0.4.4",
+    "html-webpack-externals-plugin": "^2.2.1",
+    "html-webpack-plugin": "^2.24.1",
+    "node-sass": "^4.0.0",
+    "open-browser-webpack-plugin": "^0.0.3",
+    "path": "^0.12.7",
+    "postcss": "^5.2.6",
+    "postcss-loader": "^1.2.1",
+    "script-loader": "^0.7.0",
+    "webpack": "latest",
+    "webpack-dev-server": "latest",
+    "webpack-merge": "^1.1.2"
+  },
+  "author": "linmuqin",
+  "license": "ISC"
+}
