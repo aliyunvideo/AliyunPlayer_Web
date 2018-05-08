@@ -6,7 +6,7 @@
 
 包含播放、播放列表、评论、点赞、客户端长连接mqtt、支持在android微信全屏H5同层播放，解决android微信弹出全屏播放的问题等功能。
 
-[说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/h5VodDemo)
+[说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/h5VodDemo)
 
 ![移动版](https://player.alicdn.com/aliplayer/img/h5demosmall.png) 
 
@@ -14,7 +14,7 @@
 
 包含全屏播放、评论、点赞、客户端长连接mqtt、支持在android微信全屏同层播放，解决android微信弹出全屏播放的问题等功能。
 
-[说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/h5LiveDemo)
+[说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/h5LiveDemo)
 
 ![移动版](https://player.alicdn.com/aliplayer/img/h5livedemo.png) 
 
@@ -24,6 +24,7 @@
 
 根据设备类型自定选择移动版或桌面版播放。
 
+[说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/multiPlatformLiveDemo)
 
 #### 桌面版
 
@@ -37,7 +38,7 @@
 
 此Demog关于H5播放器的自定义组件，可以作为自定义组件如何实现的参考，在这里也可以找到一些常用的自定义组件。
 
-[说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/customComponents)
+[说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents)
 
 ![移动版](https://player.alicdn.com/aliplayer/img/customcomponents.png) 
 
