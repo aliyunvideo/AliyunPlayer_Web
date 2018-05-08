@@ -4,7 +4,7 @@
 
 ### 点播demo
 
-包含播放、播放列表、评论、点赞、客户端长连接mqtt、支持在android微信全屏H5同层播放，解决android微信弹出全屏播放的问题等功能。
+包含播放、播放列表、评论、点赞、客户端长连接mqtt等功能，支持在android微信全屏H5同层播放，解决android微信弹出全屏播放的问题。
 
 [说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/h5VodDemo)
 
@@ -12,7 +12,7 @@
 
 ### 直播demo
 
-包含全屏播放、评论、点赞、客户端长连接mqtt、支持在android微信全屏同层播放，解决android微信弹出全屏播放的问题等功能。
+包含全屏播放、评论、点赞、客户端长连接mqtt等功能，支持在android微信全屏同层播放，解决android微信弹出全屏播放的问题。
 
 [说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/h5LiveDemo)
 
@@ -20,7 +20,7 @@
 
 ### 多平台点播直播Demo
 
-包含播放、播放列表、评论、客户端长连接mqtt、支持在android微信全屏H5同层播放，解决android微信弹出全屏播放的问题等功能， 
+包含播放、播放列表、评论、客户端长连接mqtt等功能，支持在android微信全屏H5同层播放，解决android微信弹出全屏播放的问题， 
 
 根据设备类型自定选择移动版或桌面版播放。
 
