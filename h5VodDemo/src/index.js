@@ -18,7 +18,7 @@ $(()=>{
 	        source:"//common.qupai.me/player/qupai.mp4",
 	        useH5Prism:true,
 	        useFlashPrism:false,
-          x5_video_position:'top',
+           x5_video_position:'normal',
           //prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
           x5_type:'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
 	        cover: 'http://liveroom-img.oss-cn-qingdao.aliyuncs.com/logo.png'

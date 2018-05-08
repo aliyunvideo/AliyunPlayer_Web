@@ -92,7 +92,7 @@ module.exports = {
     }, {
       name: 'Aliplayer',
       var: 'Aliplayer',
-      url: 'https://g.alicdn.com/de/prismplayer/2.5.1/aliplayer-min.js'
+      url: 'https://g.alicdn.com/de/prismplayer/2.6.0/aliplayer-min.js'
     }], {
       // Resolve local modules relative to this directory
       basedir: __dirname

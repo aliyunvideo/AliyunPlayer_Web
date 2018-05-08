@@ -8,12 +8,12 @@
   margin-left:0px !important;
 }
 
-.enter-x5-player video
+/*.enter-x5-player video
 {
 	object-position: 0px 10px;
 	/*height:auto !important;*/
 
-}
+/*}*/
 
 
 video::-webkit-media-controls {

@@ -51,17 +51,12 @@ export default class VideoPlayer
             });
     
         this.player.on('requestFullScreen', (e)=>{
-            let service = that.player.fullscreenService;
-        	if(that._firstFullscreen)
-        	{
-        		service.cancelFullScreen();
-        		that._firstFullscreen = false;
-        	}
-        	else
-        	{
-        	    let video=$(that.player.el()).find('video');
+        	    let video=$(that.player.tag);
         	    video.addClass('center');
-        	}
+                if((/iPhone|iPad|iPod/i).test(navigator.userAgent))
+                {
+                    $(that.player.el()).removeClass('prism-fullscreen');
+                }
         });
 
         this.player.on('x5cancelFullScreen',(e)=>{
@@ -70,17 +65,32 @@ export default class VideoPlayer
         	{
         		service.cancelFullScreen()
         	}
-             $(that.player.el()).removeClass('enter-x5-player');
+            $(that.player.el()).removeClass('enter-x5-player');
+
+            var layout = that.player.originalLayout;
+            if(layout)
+            {
+                that.player.tag.style.height = layout.video.height;
+            }h
         });
 
         this.player.on('x5requestFullScreen',(e)=>{
             //调整视频的位置
             $(that.player.el()).addClass('enter-x5-player');
+            var screenHeight = document.body.clientHeight*(window.devicePixelRatio||1)+ "px";
+            that.player.tag.style.height = screenHeight;
+            let video=$(that.player.tag);
+            setTimeout(()=>{
+                video.removeClass('x5-top-left');
+            });
         });
-
         this.player.on('cancelFullScreen', (e)=>{
-        	let video=$(that.player.el()).find('video');
-        	video.removeClass('center');
+        	let video=$(that.player.tag);
+            setTimeout(()=>{
+                alert(video.length());
+               video.removeClass('center');
+               video.removeClass('x5-top-left');
+            })
         });
         //微信左上角退出按钮触发是，关闭页面
         this.player.tag.addEventListener("x5videoexitfullscreen", ()=>{
