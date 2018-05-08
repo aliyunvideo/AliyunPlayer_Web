@@ -36,7 +36,7 @@
 
 ### Aliplayer播放器自定义组件demo
 
-此Demog关于H5播放器的自定义组件，可以作为自定义组件如何实现的参考，在这里也可以找到一些常用的自定义组件。
+此Demo关于H5播放器的自定义组件，可以作为自定义组件如何实现的参考，在这里也可以找到一些常用的自定义组件。
 
 [说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents)
 
