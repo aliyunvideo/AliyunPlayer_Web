@@ -160,7 +160,7 @@ $ npm install
 
 ```sh
 
-$ cd aliplayer-components
+$ cd customComponents
 $ npm run build
 
 ```
@@ -169,7 +169,7 @@ $ npm run build
 
 ```sh
 
-$ cd aliplayer-components
+$ cd customComponents
 $ npm run prod
 
 ```
@@ -178,7 +178,7 @@ $ npm run prod
 
 ```sh
 
-$ cd aliplayer-components
+$ cd customComponents
 $ npm run dev
 
 ```
