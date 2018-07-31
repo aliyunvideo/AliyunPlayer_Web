@@ -4,11 +4,11 @@
 
 ### Vue点播demo
 
-包含播放、播放列表、字幕、多语言、自适应码率，皮肤自定义等功能，自适应PC端和移动端。
+包含播放、播放列表、字幕、多语言、自适应码率，皮肤自定义等功能。
 
 [说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/H5VodVueDemo)
 
-![移动版](https://player.alicdn.com/aliplayer/img/h5Vuedemo.png) 
+![移动版](https://player.alicdn.com/aliplayer/img/h5vuedemo.png) 
 
 ### 点播demo
 
