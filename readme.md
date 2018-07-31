@@ -36,11 +36,11 @@
 
 #### 桌面版
 
-![桌面版](https://player.alicdn.com/aliplayer/img/pclive1.png) ![桌面版](https://player.alicdn.com/aliplayer/img/pclive2.png)
+![桌面版](https://player.alicdn.com/aliplayer/img/pclive11.png) ![桌面版](https://player.alicdn.com/aliplayer/img/pclive21.png)
 
 #### 移动版
 
-![移动版](https://player.alicdn.com/aliplayer/img/reacth5live.png) 
+![移动版](https://player.alicdn.com/aliplayer/img/reacth5live1.png) 
 
 ### 自定义组件demo
 
@@ -48,5 +48,5 @@
 
 [说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents)
 
-![移动版](https://player.alicdn.com/aliplayer/img/customcomponents.png) 
+![移动版](https://player.alicdn.com/aliplayer/img/customcomponents1.png) 
 
