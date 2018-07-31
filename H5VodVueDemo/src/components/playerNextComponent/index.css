@@ -1,0 +1,30 @@
+.player-olympic-player-next {
+    width: 32px;
+    height: 32px;
+    background: url(./next.png) center no-repeat;
+    background-size: contain;
+    float: left;
+    margin-left: 15px;
+    margin-top: 12px;
+    cursor: pointer;
+    position: relative;
+}
+.player-olympic-player-next-tip {
+    position: absolute;
+    top: -45px;
+    display: none;
+    font-size:12px;
+    color:#ffffff;
+    line-height: 28px;
+    letter-spacing:0;
+    text-align:center;
+    background:#3c3c3c;
+    box-shadow:0 0 5px 0 rgba(0,0,0,0.10);
+    width:58px;
+    height:28px;
+    left: 50%;
+    margin-left: -29px;
+}
+.player-olympic-player-next:hover .player-olympic-player-next-tip {
+    display: block;
+}

@@ -1,0 +1,16 @@
+.player-olympic-tips {
+    padding: 5px 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 30;
+    line-height: 32px;
+    font-size: 16px;
+    margin-left: -96px;
+    margin-top: -25px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, .8);
+    color: #000;
+    text-align: center;
+    display: none;
+}

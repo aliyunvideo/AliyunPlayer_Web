@@ -2,6 +2,14 @@
 
 每个例子都是独立的，方便单独使用，现在使用webpack配置文件都是基于2.0版本的，如果使用最新的4.0版本，需要自己重写webpack的配置，如果不想手工安装webpack2.0， 可以直接[下载依赖项](https://player.alicdn.com/aliplayer/node_modules.zip)，直接存放于使用例子的文件夹下面。
 
+### Vue点播demo
+
+包含播放、播放列表、字幕、多语言、自适应码率，皮肤自定义等功能，自适应PC端和移动端。
+
+[说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/H5VodVueDemo)
+
+![移动版](https://player.alicdn.com/aliplayer/img/h5Vuedemo.png) 
+
 ### 点播demo
 
 包含播放、播放列表、评论、点赞、客户端长连接mqtt等功能，支持在android微信全屏H5同层播放，解决android微信弹出全屏播放的问题。
