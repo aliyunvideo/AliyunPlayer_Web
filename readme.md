@@ -55,5 +55,5 @@
 
 [说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents)
 
-![移动版](https://player.alicdn.com/aliplayer/img/ad.png) 
+![移动版](https://player.alicdn.com/aliplayer/img/ad1.png) 
 
