@@ -15,7 +15,12 @@
 
 ### 本项目插件
 
-- StaticADComponent
+- [记忆播放](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/MemoryPlayComponent)
+- [开始广告](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/StartADComponent)
+- [暂停广告](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/PauseADComponent)
+- [播放下一个](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/playerNextComponent)
+- [播放列表](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/PlaylistComponent)
+- [旋转和镜像](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/RotateMirrorComponent)
 
 ### 其他
 

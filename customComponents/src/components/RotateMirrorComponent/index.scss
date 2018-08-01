@@ -1,0 +1,67 @@
+.aliplayer-rotate-mirror {
+  float: right;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  i {
+    color: #fff;
+    display: inline-block;
+    font-size: 22px;
+    display: block;
+    margin-top: 7px;
+    cursor: pointer;
+    margin-right: 10px;
+    &.icon-player-switch {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    &:hover + .player-tooltip {
+      display: block;
+    }
+  }
+  .mirror-option {
+    position: absolute;
+    background-color: #3c3c3c;
+    top: -66px;
+    right: -20px;
+    .mirror-item {
+      font-size: 14px;
+      color: #ebecec;
+      line-height: 30px;
+      white-space: nowrap;
+      padding: 0 15px;
+      cursor: pointer;
+      user-select: none;
+      &.active {
+        background-color: rgba(216, 216, 216, 0.1);
+        color: #00c1de;
+      }
+    }
+  }
+  .player-tooltip {
+    position: absolute;
+    display: none;
+    font-size: 12px;
+    color: #fff;
+    line-height: 28px;
+    letter-spacing: 0;
+    text-align: center;
+    background: #3c3c3c;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .1);
+    height: 28px;
+    top: -48px;
+    padding: 0 5px;
+    white-space: nowrap;
+    &.counterclockwise {
+      left: -35px;
+    }
+    &.clockwise {
+      left: -5px;
+    }
+    &.switch {
+      right: 7px;
+    }
+  }
+}

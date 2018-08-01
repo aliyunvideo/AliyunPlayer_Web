@@ -1,0 +1,92 @@
+.playlist-component {
+  color: #fff;
+  float: left;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  i {
+    color: #fff;
+    display: inline-block;
+    font-size: 22px;
+    display: block;
+    margin-top: 7px;
+    cursor: pointer;
+    & + i {
+      margin-left: 3px
+    }
+    &:hover + .player-tooltip {
+      display: block;
+    }
+  }
+}
+
+.playlist-content {
+  position: absolute;  
+  right: 0;
+  width: 0px;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+  height: 100%;
+  transition: all .38s ease-in-out; 
+  overflow: hidden;
+  .list {
+    background-color: #000;
+    background-color: rgba(0, 0, 0, .3);
+    height: 100%;
+    .video-item {
+      color: #fff;
+      padding: 0px 10px;
+      line-height: 35px;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      &:hover, &.active {
+        background-color: #000;
+        color: #00ddff;
+      }
+    }
+  }
+}
+
+.player-tooltip {
+  position: absolute;
+  display: none;
+  font-size: 12px;
+  color: #fff;
+  line-height: 28px;
+  letter-spacing: 0;
+  text-align: center;
+  background: #3c3c3c;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .1);
+  height: 28px;
+  top: -48px;
+  padding: 0 5px;
+  white-space: nowrap;
+  &.prev {
+    left: -10px;
+  }
+  &.list {
+    left: 10px;
+  }
+  &.next {
+    right: -12px;
+  }
+}
+
+.playlist-skip-tip {
+  padding: 5px 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 30;
+  line-height: 30px;
+  font-size: 14px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .8);
+  color: #000;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}

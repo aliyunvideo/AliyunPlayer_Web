@@ -1,0 +1,31 @@
+.memory-play-wrap {
+  position: absolute;
+  right: 10px;
+  bottom: 55px;  
+  .memory-play {
+    padding: 13px 20px;
+    background-color: #191919;
+    background-color: rgba(25, 25, 25, .88);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    user-select: none;
+    .icon-close {
+      transition: color .3s;
+      font-size: 14px;
+      cursor: pointer;
+      &:hover {
+        color: #00c1de;
+      }
+    }
+    .play-jump {
+      color: #00c1de;
+      padding: 5px;
+      border-radius: 3px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(255, 255, 255, .2);
+      }
+    }
+  }
+}
