@@ -17,8 +17,10 @@
       font-size: 24px;
       font-weight: bold;
     }
-    &:hover + .player-tooltip {
-      display: block;
+    @media (min-width: 768px) {
+      &:hover + .player-tooltip {
+        display: block;
+      }      
     }
   }
   .mirror-option {
@@ -41,19 +43,6 @@
     }
   }
   .player-tooltip {
-    position: absolute;
-    display: none;
-    font-size: 12px;
-    color: #fff;
-    line-height: 28px;
-    letter-spacing: 0;
-    text-align: center;
-    background: #3c3c3c;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .1);
-    height: 28px;
-    top: -48px;
-    padding: 0 5px;
-    white-space: nowrap;
     &.counterclockwise {
       left: -35px;
     }

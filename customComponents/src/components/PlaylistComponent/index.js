@@ -9,6 +9,7 @@ export default class PlaylistComponent {
     this.listHtml = parseDom(listContent)
     this.playlist = playlist
     this.playingVideoIndex = 0
+    this.listHideTimeout = null
   }
 
   createEl (el) {
@@ -19,6 +20,8 @@ export default class PlaylistComponent {
     this.listHtml.onmouseleave = () => {
       this.listHtml.style.width = 0
     }
+
+    this.listHtml.onmouseenter = this.clearHideListTimeout.bind(this)
 
     this.controlHtml.querySelector('.icon-list').onclick = this.tooglePlaylist.bind(this)
 
@@ -53,6 +56,14 @@ export default class PlaylistComponent {
     }
   }
 
+  /* clear 自动隐藏右侧播放列表 timeout 的函数 */
+  clearHideListTimeout () {
+    if (this.listHideTimeout !== null) {
+      clearTimeout(this.listHideTimeout)
+      this.listHideTimeout = null
+    }
+  }
+
   /* 播放 playlist 中 index 为 @param videoIndex 的视频 */
   playVideo (player, videoIndex) {
     if (this.playingVideoIndex === videoIndex) {
@@ -64,12 +75,16 @@ export default class PlaylistComponent {
     this.listHtml.querySelector('.list').childNodes[videoIndex].className = 'video-item active'
   }
 
-  /* 点击 controlbar 上的播放列表事件 */
+  /* 点击 controlbar 上的播放列表按钮显示隐藏播放列表 */
   tooglePlaylist () {
+    this.clearHideListTimeout()
     if (this.listHtml.style.width === '30%') {
       this.listHtml.style.width = 0
     } else {
       this.listHtml.style.width = '30%'
+      this.listHideTimeout = setTimeout(() => {
+        this.listHtml.style.width = 0
+      }, 5000)
     }
   }
 

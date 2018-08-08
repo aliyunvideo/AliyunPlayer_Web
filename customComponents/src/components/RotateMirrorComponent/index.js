@@ -31,14 +31,19 @@ export default class RotateMirrorComponent {
     }
     eleMirror.onclick = function (e) {
       let target = e.target
-      let param = null
       if (!target.className.match('active')) {
-        param = target.getAttribute('data-id')
+        let siblingEle = target.previousElementSibling || target.nextElementSibling
+        if (siblingEle.className.match('active')) {
+          siblingEle.className = 'mirror-item'
+          player.cancelImage()
+        }
+        let param = target.getAttribute('data-id')
+        player.setImage(param)
         target.className = 'mirror-item active'
       } else {
+        player.cancelImage()
         target.className = 'mirror-item'
       }
-      player.setImage(param)
     }
   }
 }

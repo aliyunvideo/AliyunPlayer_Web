@@ -14,8 +14,10 @@
       transition: color .3s;
       font-size: 14px;
       cursor: pointer;
-      &:hover {
-        color: #00c1de;
+      @media (min-width: 768px) {
+        &:hover {
+          color: #00c1de;
+        }        
       }
     }
     .play-jump {
@@ -23,8 +25,10 @@
       padding: 5px;
       border-radius: 3px;
       cursor: pointer;
-      &:hover {
-        background-color: rgba(255, 255, 255, .2);
+      @media (min-width: 768px) {
+        &:hover {
+          background-color: rgba(255, 255, 255, .2);
+        }        
       }
     }
   }
