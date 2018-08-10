@@ -52,7 +52,7 @@
 - [播放下一个](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/playerNextComponent)
 - [播放列表](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/PlaylistComponent)
 - [旋转和镜像](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/RotateMirrorComponent)
-- [视频广告](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/VideoADComponent) 移动端可能视频会被浏览器劫持播放
+- [视频广告](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/VideoADComponent) 移动端可能视频会被浏览器劫持播放  
 - [弹幕](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/AliplayerDanmuComponent) 使用了第三方的弹幕库[CommentCoreLibrary](https://github.com/jabbany/CommentCoreLibrary/)
 
 [说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents)
