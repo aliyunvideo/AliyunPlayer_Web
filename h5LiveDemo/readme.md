@@ -12,7 +12,7 @@
 
 ### 安装依赖项
 
-本Demo使用了ES6、webpack、gulp等技术。
+本Demo使用了ES6、webpack、gulp等技术
 
  - [Node.js](https://nodejs.org/en/)
  - [Webpack2.0](http://webpack.github.io) 

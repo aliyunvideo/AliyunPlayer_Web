@@ -25,5 +25,7 @@ $ npm run dev
 通过`$ npm run build`命令, 将各种依赖打包到 disk 目录, jquery 没有单独打包, 所以 index.html 中需要修改 jquery 的引用路径。
 
 ```bash
+
 $ npm run build
+
 ```

@@ -32,9 +32,11 @@
  - [gulp](https://gulpjs.com)
 
 ```bash
+
 $ https://github.com/aliyunvideo/AliyunPlayer_Web.git <foldername>
 $ cd <foldername>
 $ npm install
+
 ```
 
 ### 运行移动端
