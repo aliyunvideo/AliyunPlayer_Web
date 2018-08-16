@@ -28,6 +28,7 @@ export default class StartADComponent {
   }
 
   ready (player, e) {
+    console.log('ready')
     player.pause()
     let duration = this.adDuration
     let durationElement = this.html.querySelector('.tip i')

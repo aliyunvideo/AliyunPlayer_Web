@@ -20,7 +20,12 @@ export default class AliplayerDanmuComponent {
 
   createEl (el) {
     el.querySelector('.prism-controlbar').appendChild(this.danmuControlHtml)
-    el.appendChild(this.html)
+    let videoSiblingElement = el.querySelector('video').nextElementSibling
+    if (videoSiblingElement) {
+      el.insertBefore(this.html, videoSiblingElement)      
+    } else {
+      el.appendChild(this.html)
+    }
     this.CM = new CommentManager(this.html.querySelector('.danmu'))     // 初始化 CommentManager
 
     this.CM.init()
@@ -39,14 +44,14 @@ export default class AliplayerDanmuComponent {
     danmuCloseElement.onclick = () => {
       this.userDanmuOpen = false
       danmuCloseElement.style.display = 'none'
-      danmuOpenElement.style.display = 'block'
+      danmuOpenElement.style.display = 'inline-block'
       this.CM.clear()
       this.CM.stop()
     }
     /* 绑定控制条打开弹幕控制条 */
     danmuOpenElement.onclick = () => {
       danmuOpenElement.style.display = 'none'
-      danmuCloseElement.style.display = 'block'
+      danmuCloseElement.style.display = 'inline-block'
       this.userDanmuOpen = true
       this.CM.start()
     }
@@ -81,7 +86,7 @@ export default class AliplayerDanmuComponent {
       "color": commentColor[this.randomIndex(5)]
     })
     danmuInput.value = ''
-    danmuInput.blur()
+    danmuInput.focus()
   }
 
   randomIndex (max) {

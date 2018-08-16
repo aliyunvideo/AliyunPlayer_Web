@@ -2,7 +2,11 @@ import videoADHtml from './index.html'
 import './index.scss'
 import { parseDom } from 'utils'
 
-export default class VideoAdComponent {
+import mbVideoADHtml from './mbIndex.html'
+import device from 'current-device'
+
+
+class VideoAdComponent {
   /** 
    * @constructor 视频广告的构造函数
    * @param adVideoSource {@String 广告视频的视频地址 必须参数}
@@ -110,3 +114,129 @@ export default class VideoAdComponent {
     }
   }
 }
+
+class MbVideoAdComponent {
+  constructor (adVideoSource, adLink, adCloseFunction, closeText = '关闭广告') {
+    this.adVideoSource = adVideoSource
+    this.adLink = adLink
+    this.html = parseDom(mbVideoADHtml)
+    this.adInterval = null
+    this.adCloseFunction = adCloseFunction
+    this.html.querySelector('.video-ad-close-text').innerText = closeText
+
+    this.adDuration = null    // 视频广告的时长, 用于倒计时, 
+  }
+
+  createEl (el) {
+    console.log('life cycle createEl')
+    el.appendChild(this.html)
+    el.querySelector('video')
+    console.log(el.querySelector('video'))
+    el.querySelector('video').setAttribute('preload', 'load')
+
+    let btnPlay_el = this.html.querySelector('.autoplay-video-ad')
+    btnPlay_el.onclick = () => {
+      el.querySelector('.prism-big-play-btn').click()
+      btnPlay_el.style.display = 'none'
+    }
+
+    // 隐藏 controlbar 
+    let controlBar = el.querySelector('.prism-controlbar')
+    controlBar.className = controlBar.className + ' controlbar-element-hidden'
+    // 隐藏播放暂停按钮
+    let pauseBtn = el.querySelector('.prism-big-play-btn')
+    pauseBtn.className = pauseBtn.className + ' controlbar-element-hidden'
+  }
+
+  created (player) {
+    this.player = player
+
+    console.log('life cycle created')
+    console.log(player)
+    this.vdSource = player.getOptions().source
+  }
+
+  ready (player) {
+    console.log('video ready')
+    if (this.adDuration === null) {
+      player.loadByUrl(this.adVideoSource)
+      this.adDuration = undefined
+
+      let aliplayerWrap_el = this.html.parentNode
+      let aliplayer_el = aliplayerWrap_el.querySelector('video')
+      aliplayer_el.onplaying = () => {
+        if (this.html.querySelector('.autoplay-video-ad').style.display !== 'none') {
+          this.html.querySelector('.autoplay-video-ad').style.display = 'none'
+          player.play()
+        }
+        console.log('dispatch playing events')
+        this.adDuration = Math.ceil(aliplayer_el.duration)
+        this.html.querySelector('#video-ad-duration').innerText = this.adDuration
+        this.setAdInterval()
+      }
+
+      // 关闭广告点击事件
+      this.html.querySelector('.video-ad-close label').onclick = () => {
+        if (typeof this.adCloseFunction === 'function') {
+          this.adCloseFunction(this)
+        } else {
+          this.closeVideoAd()
+        }
+      }
+    }
+  }
+
+  // 视频广告倒计时
+  setAdInterval () {
+    let adDuration_ele = this.html.querySelector('#video-ad-duration')
+    this.adInterval = setInterval(() => {
+      this.adDuration -= 1
+      if (this.adDuration <= 0) {
+        this.closeVideoAd()
+      } else {
+        adDuration_ele.innerText = this.adDuration
+      }
+    }, 1000)
+  }
+
+  // 关闭视频广告
+  closeVideoAd () {
+    this.clearAdInterval()
+    console.log(this.vdSource)
+    this.player.loadByUrl(this.vdSource)
+    let controlBar = this.html.parentNode.querySelector('.prism-controlbar')
+    controlBar.className = controlBar.className.replace(' controlbar-element-hidden', '')
+    let pauseBtn = this.html.parentNode.querySelector('.prism-big-play-btn')
+    pauseBtn.className = pauseBtn.className.replace(' controlbar-element-hidden', '')
+    if (this.player.getOptions().autoplay) {
+      this.player.play()
+    }
+    this.html.parentNode.removeChild(this.html)
+  }
+
+  // 清除视频广告倒计时
+  clearAdInterval () {
+    this.adInterval !== null && clearInterval(this.adInterval);
+    this.adInterval = null
+  }
+
+  // 播放视频广告
+  playVideoAd () {
+    this.setAdInterval()
+    this.player.play()
+  }
+
+  // 暂停视频广告 
+  pauseVideoAd () {
+    this.clearAdInterval()
+    this.player.pause()
+  }
+}
+
+let defaultComponent = VideoAdComponent
+
+if (device.mobile()) {
+  defaultComponent = MbVideoAdComponent
+}
+
+export default defaultComponent

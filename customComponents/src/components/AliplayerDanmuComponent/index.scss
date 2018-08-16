@@ -16,19 +16,20 @@
 
 .ali-danmuku-control {
   float: right;
-  height: 100%;
   color: #fff;
-  line-height: 54px;
   margin-right: 5px;
   position: relative;
   display: table-cell;
   overflow: hidden;
+  margin-top: 8px;
   .iconfont {
     font-size: 35px;
     cursor: pointer;
+    vertical-align: middle;
+    user-select: none;
+    line-height: initial;
     &.icon-danmu-close {
       display: inline-block;
-      vertical-align: middle;
     }
   }
   .player-tooltip {
@@ -40,9 +41,9 @@
     .icon-danmu-close:hover + .player-tooltip {
       display: block;
     }
-    .icon-danmu-open:hover + .player-tooltip{
+    .icon-danmu-open:hover + .player-tooltip {
       display: block;
-    }    
+    }
   }
   .danmu-input {
     position: relative;
@@ -67,7 +68,7 @@
     .danmu-input-enter {
       position: absolute;
       right: 0;
-      top: 13px;
+      top: 0;
       border: 1px solid;
       color: #fff;
       background-color: #0f84fd;
