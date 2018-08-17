@@ -3,10 +3,10 @@ import util from './util';
 
 const mockData= [{
       streamName: 0,
-      name: '马云讲新零售',
+      name: '视频AI',
       coverUrl: 'http://player.alicdn.com/cover/cover3.png',
-      m3u8PlayUrl: 'http://common.qupai.me/video/aliyunmedia.mp4 ',
-      description: '马云讲新零售',
+      m3u8PlayUrl: 'http://common.qupai.me/player/qupai.mp4 ',
+      description: '视频AI',
       OnlineNum: 80,
       liveStatus:1, //1直播 2点播
       createTime: '2019-9-8'
