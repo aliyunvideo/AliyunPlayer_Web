@@ -3,6 +3,8 @@ import './index.scss'
 import { parseDom } from 'utils'
 
 export default class StartADComponent {
+
+  //
   constructor (coverUrl, adUrl, adDuration) {
     this.coverUrl = coverUrl
     this.adUrl = adUrl
