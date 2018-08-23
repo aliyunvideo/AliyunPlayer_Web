@@ -13,6 +13,8 @@
 
 ##  插件列表
 
+[演示地址](https://player.alicdn.com/aliplayer/presentation/index.html)
+
 ### 本项目插件
 
 - [记忆播放](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/MemoryPlayComponent)
