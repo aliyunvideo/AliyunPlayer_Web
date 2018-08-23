@@ -2,9 +2,16 @@ import startADHtml from './index.html'
 import './index.scss'
 import { parseDom } from 'utils'
 
+/**
+ * 开始图片广告组件
+ */
 export default class StartADComponent {
-
-  //
+  /**
+   * @constructor 开始图片广告组件构造函数
+   * @param {String coverUrl 广告图片地址}
+   * @param {String adUrl 广告链接}
+   * @param {Number adDuration 广告时长, 单位为秒}
+   */
   constructor (coverUrl, adUrl, adDuration) {
     this.coverUrl = coverUrl
     this.adUrl = adUrl

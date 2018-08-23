@@ -2,6 +2,9 @@ import bulletHtml from './index.html'
 import './index.scss'
 import { parseDom } from 'utils'
 
+/**
+ * 跑马灯组件
+ */
 export default class BulletScreenComponent {
   /**
    * @constructor 跑马灯构造函数

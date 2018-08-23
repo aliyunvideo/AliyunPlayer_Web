@@ -2,7 +2,15 @@ import previewHtml from './index.html'
 import './index.scss'
 import { parseDom } from 'utils'
 
+/**
+ * 试看组件
+ */
 export default class PreviewComponent {
+  /**
+   * @constructor 试看组件构造函数
+   * @param {Number previewDuration 试看时长单位为分钟}
+   * @param {String customDomString 可选参数, 插入到显示试看时间结束的 dom 字符串, 默认为 null}
+   */
   constructor(previewDuration, customDomString = null) {
     this.previewDuration = previewDuration
     this.html = parseDom(previewHtml)

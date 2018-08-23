@@ -3,7 +3,14 @@ import listContent from './list.html'
 import './index.scss'
 import { parseDom } from 'utils'
 
+/**
+ * 播放列表组件
+ */
 export default class PlaylistComponent {
+  /**
+   * @constructor 播放列表组件构造函数
+   * @param {Array playlist 播放列表数组}
+   */
   constructor (playlist) {
     this.controlHtml = parseDom(playlistControl)
     this.listHtml = parseDom(listContent)

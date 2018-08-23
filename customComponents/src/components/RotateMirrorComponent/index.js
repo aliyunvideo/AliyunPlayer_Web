@@ -2,7 +2,13 @@ import rotateMirror from './index.html'
 import './index.scss'
 import { parseDom } from 'utils'
 
+/**
+ * 旋转镜像组件 
+ */
 export default class RotateMirrorComponent {
+  /**
+   * @constructor 旋转镜像组件构造函数
+   */
   constructor () {
     this.html = parseDom(rotateMirror)
   }

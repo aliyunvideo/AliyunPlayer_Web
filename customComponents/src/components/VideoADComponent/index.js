@@ -5,10 +5,12 @@ import { parseDom } from 'utils'
 import mbVideoADHtml from './mbIndex.html'
 import device from 'current-device'
 
-
+/*
+ * PC 视频广告组件
+ */
 class VideoAdComponent {
   /** 
-   * @constructor 视频广告的构造函数
+   * @constructor PC 视频广告的构造函数
    * @param adVideoSource {@String 广告视频的视频地址 必须参数}
    * @param adLink {@String 广告视频的链接地址 必须参数}
    * @param adCloseFunction {@Function 关闭广告的点击事件处理函数, 可选参数, 不传则默认关闭广告视频}
@@ -115,7 +117,18 @@ class VideoAdComponent {
   }
 }
 
+
+/**
+ * 移动端视频广告组件
+ */
 class MbVideoAdComponent {
+  /**
+   * @constructor 移动端视频广告组件
+   * @param {String adVideoSource 视频广告播放地址}
+   * @param {String adLink 广告链接}
+   * @param {Function adCloseFunction 关闭广告按钮点击出发的函数}
+   * @param {String closeText 可选参数 关闭按钮中的文字, 默认为 '关闭广告'}
+   */
   constructor (adVideoSource, adLink, adCloseFunction, closeText = '关闭广告') {
     this.adVideoSource = adVideoSource
     this.adLink = adLink

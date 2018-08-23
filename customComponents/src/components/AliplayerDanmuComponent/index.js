@@ -5,6 +5,9 @@ import {CommentManager} from 'comment-core-library/build/CommentCoreLibrary'
 import 'comment-core-library/build/style.css'
 import { parseDom } from 'utils'
 
+/**
+ * 弹幕组件
+ */
 export default class AliplayerDanmuComponent {
   /**
    * @constructor 弹幕组件构造函数

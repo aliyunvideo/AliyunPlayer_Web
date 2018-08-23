@@ -2,7 +2,13 @@ import memoryPlayHtml from './index.html'
 import './index.scss'
 import { parseDom } from 'utils'
 
+/**
+ * 记忆播放组件
+ */
 export default class MemoryPlayComponent {
+  /**
+   * @constructor 记忆播放组件构造函数
+   */
   constructor () {
     this.html = parseDom(memoryPlayHtml)
   }
