@@ -136,22 +136,15 @@ class MbVideoAdComponent {
     this.adInterval = null
     this.adCloseFunction = adCloseFunction
     this.html.querySelector('.video-ad-close-text').innerText = closeText
-
+    this.html.querySelector('.video-ad-link').setAttribute('href', this.adLink)
+    this.html.querySelector('.video-ad-detail').setAttribute('href', this.adLink)
     this.adDuration = null    // 视频广告的时长, 用于倒计时, 
   }
 
   createEl (el) {
-    console.log('life cycle createEl')
     el.appendChild(this.html)
     el.querySelector('video')
-    console.log(el.querySelector('video'))
     el.querySelector('video').setAttribute('preload', 'load')
-
-    let btnPlay_el = this.html.querySelector('.autoplay-video-ad')
-    btnPlay_el.onclick = () => {
-      el.querySelector('.prism-big-play-btn').click()
-      btnPlay_el.style.display = 'none'
-    }
 
     // 隐藏 controlbar 
     let controlBar = el.querySelector('.prism-controlbar')
@@ -164,29 +157,43 @@ class MbVideoAdComponent {
   created (player) {
     this.player = player
 
-    console.log('life cycle created')
-    console.log(player)
     this.vdSource = player.getOptions().source
+    player.loadByUrl(this.adVideoSource)
   }
 
   ready (player) {
-    console.log('video ready')
+
+    let btnPlay_el = this.html.querySelector('.autoplay-video-ad')
+    btnPlay_el.onclick = () => {
+      if (this.adDuration === null) {
+        return
+      }
+      this.html.parentNode.querySelector('.prism-big-play-btn').click()
+    }
+
     if (this.adDuration === null) {
       player.loadByUrl(this.adVideoSource)
       this.adDuration = undefined
 
       let aliplayerWrap_el = this.html.parentNode
       let aliplayer_el = aliplayerWrap_el.querySelector('video')
-      aliplayer_el.onplaying = () => {
-        if (this.html.querySelector('.autoplay-video-ad').style.display !== 'none') {
-          this.html.querySelector('.autoplay-video-ad').style.display = 'none'
-          player.play()
+      let self = this
+      function timeupdateHandle () {
+        let duration = aliplayer_el.duration
+        console.log('duration', duration)
+        if (!isNaN(duration) && duration !== 0) {
+          aliplayer_el.removeEventListener('timeupdate', timeupdateHandle)
+          self.adDuration = Math.ceil(aliplayer_el.duration)
+          if (self.html.querySelector('.autoplay-video-ad').style.display !== 'none') {
+            self.html.querySelector('.autoplay-video-ad').style.display = 'none'
+            player.play()
+          }
+          self.html.querySelector('#video-ad-duration').innerText = self.adDuration
+          self.setAdInterval()
         }
-        console.log('dispatch playing events')
-        this.adDuration = Math.ceil(aliplayer_el.duration)
-        this.html.querySelector('#video-ad-duration').innerText = this.adDuration
-        this.setAdInterval()
       }
+
+      aliplayer_el.addEventListener('timeupdate', timeupdateHandle)
 
       // 关闭广告点击事件
       this.html.querySelector('.video-ad-close label').onclick = () => {
@@ -215,7 +222,6 @@ class MbVideoAdComponent {
   // 关闭视频广告
   closeVideoAd () {
     this.clearAdInterval()
-    console.log(this.vdSource)
     this.player.loadByUrl(this.vdSource)
     let controlBar = this.html.parentNode.querySelector('.prism-controlbar')
     controlBar.className = controlBar.className.replace(' controlbar-element-hidden', '')

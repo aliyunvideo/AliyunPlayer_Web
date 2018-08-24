@@ -1,4 +1,6 @@
 import staticadcomponent from './index';
 
-
-window.StaticAdComponent = staticadcomponent;
+if (!window.AliPlayerComponent) {
+  window.AliPlayerComponent = {}
+}
+window.AliPlayerComponent.StaticAdComponent = staticadcomponent;
