@@ -3,7 +3,7 @@
 本项目包含Aliplayer H5播放器的自定义组件，可以作为自定义组件如何实现的参考，在这里也可以找到一些常用的自定义组件，包含第三方实现的。
 
 
-## [介绍文章](https://player.alicdn.com/aliplayer/docs/blogs/how-to-implementment-custom-component.html)
+## [介绍文章](https://yq.aliyun.com/articles/626454)
 
 ## 例子
 

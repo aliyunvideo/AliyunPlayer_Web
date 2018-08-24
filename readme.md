@@ -6,6 +6,8 @@
 
 [演示地址](https://player.alicdn.com/aliplayer/presentation/index.html)
 
+[介绍文章](https://yq.aliyun.com/articles/626454)
+
 此Demo关于H5播放器的自定义组件，可以作为自定义组件如何实现的参考，在这里也可以找到一些常用的自定义组件:
 
 - [记忆播放](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/MemoryPlayComponent)
