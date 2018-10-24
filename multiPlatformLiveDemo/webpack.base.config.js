@@ -88,7 +88,7 @@ module.exports = {
     new HtmlWebpackExternalsPlugin([{
       name: 'zepto',
       var: 'Zepto',
-      url: 'https://common.qupai.me/player/lib/zepto.min.js'
+      url: 'https://player.alicdn.com/resource/player/lib/zepto.min.js'
     }, {
       name: 'Aliplayer',
       var: 'Aliplayer',
