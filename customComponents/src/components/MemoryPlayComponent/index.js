@@ -19,7 +19,7 @@ export default class MemoryPlayComponent {
 
   ready (player, e) {
     let playerOptions = player.getOptions()
-    let memoryVideo = playerOptions.source || playerOptions.vid     // 根据视频 source 或者 vid 去存储 localeStorage
+    let memoryVideo = playerOptions.source.replace(/\?.*$/, '') || playerOptions.vid     // 根据视频 source 或者 vid 去存储 localeStorage
     let memoryTime = localStorage.getItem(memoryVideo)
     memoryTime = memoryTime && parseInt(memoryTime)
     if (memoryTime !== null && memoryTime !== 0) {
