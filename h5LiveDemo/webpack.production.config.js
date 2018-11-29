@@ -91,7 +91,7 @@ module.exports = {
     },{
       name: 'prismplayer',
       var: 'prismplayer',
-      url: 'https://g.alicdn.com/de/prismplayer/2.7.2/aliplayer-min.js'
+      url: 'https://g.alicdn.com/de/prismplayer/2.7.4/aliplayer-min.js'
     },{
       name: 'mqttws31',
       var: 'mqttws31',
