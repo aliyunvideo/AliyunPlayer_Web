@@ -15,7 +15,7 @@ $(()=>{
 
 	        playsinline:true,
 	        controlBarVisibility:'hover',
-	        source:"//common.qupai.me/player/qupai.mp4",
+	        source:"//player.alicdn.com/resource/player/qupai.mp4",
 	        useH5Prism:true,
 	        useFlashPrism:false,
           x5_video_position:'normal',
@@ -24,7 +24,7 @@ $(()=>{
 	        cover: 'http://liveroom-img.oss-cn-qingdao.aliyuncs.com/logo.png'
         });
     var dataList = [{
-    	url:'https://common.qupai.me/player/qupai.mp4',
+    	url:'https://player.alicdn.com/resource/player/qupai.mp4',
     	cover:'images/cover1.png',
     	title:"分享精彩生活"
         },

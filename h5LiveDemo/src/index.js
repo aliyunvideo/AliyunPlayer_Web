@@ -16,7 +16,7 @@ $(()=>{
           height:"100%",
           width:"100%",
 	        playsinline:true,
-	        source:"https://common.qupai.me/player/big_buck_bunny.mp4",
+	        source:"https://player.alicdn.com/resource/player/big_buck_bunny.mp4",
 	        useH5Prism:true,
 	        useFlashPrism:false,
 	        cover: 'http://cdnoss.youkouyang.com/cover.png',
