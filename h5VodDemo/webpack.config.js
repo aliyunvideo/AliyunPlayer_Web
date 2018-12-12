@@ -1,16 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
-const uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
     "h5demo": [path.resolve(__dirname, 'src/index.js')]
   },
+  mode: "development",
   output: {
     path: path.resolve(__dirname + '/disk'),
     publicPath: '',
@@ -20,18 +20,34 @@ module.exports = {
     rules: [{
       test: /\.css$/,
       include: path.resolve(__dirname, 'src'),
-      use: ['style-loader','css-loader','postcss-loader']
+      use: ['style-loader','css-loader', {
+        loader: 'postcss-loader',
+        options: {
+          plugins: () => autoprefixer({
+            browsers: ['last 5 versions', '> 1%']
+          })
+        }
+      }]
     }, {
       test: /\.scss$/,
       include: path.resolve(__dirname, 'src'),
-      use: ['style-loader','css-loader','postcss-loader']
+      use: ['style-loader','css-loader', {
+        loader: 'postcss-loader',
+        options: {
+          plugins: () => autoprefixer({
+            browsers: ['last 5 versions', '> 1%']
+          })
+        }
+      }]
     }, {
       test: /\.js[x]?$/,
       include: path.resolve(__dirname, 'src'),
       exclude: /node_modules/,
       use: [{
         loader:'babel-loader', 
-        options: { presets: ["es2015","stage-0"] }
+        options: {
+          presets: ['@babel/preset-env']
+        }
       }]
     }, {
       test: /\.html$/,
@@ -54,6 +70,17 @@ module.exports = {
       }]
     }]
   },
+  devServer: {
+    open: true,
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true,
+    contentBase: './src',
+    port: 8081,
+    index: __dirname + '/disk',
+    host: '0.0.0.0'
+  },
   plugins: [
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -62,55 +89,15 @@ module.exports = {
             browsers: ['last 5 versions']
           })];
         }
-      },
-      devServer: {
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        progress: true,
-        contentBase: './src',
-        port: 8081,
-        index: __dirname + '/disk',
-        host: '0.0.0.0'
       }
-    }),
-    new OpenBrowserPlugin({
-      url: 'http://localhost:8081'
     }),
     new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: './src/index.html',
+        template: './src/index.ejs',
         inject: 'body',
-        hash: true
+        hash: true,
+        title: "H5 Aliplayer Demo"
     }),
-    new HtmlWebpackExternalsPlugin([{
-      name: 'zepto',
-      var: 'zepto',
-      url: 'lib/zepto.min.js'
-    },{
-      name: 'prismplayer',
-      var: 'prismplayer',
-      url: 'https://g.alicdn.com/de/prismplayer/2.7.2/aliplayer-min.js'
-    },{
-      name: 'mqttws31',
-      var: 'mqttws31',
-      url: 'lib/mqttws31.js'
-    },{
-      name: 'jweixin',
-      var: 'jweixin',
-      url: 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'
-    },{
-      name: 'frozen',
-      var: 'frozen',
-      url: 'lib/frozen.min.js'
-    }], {
-      // Resolve local modules relative to this directory
-      basedir: __dirname
-    }),
-    new CopyWebpackPlugin([{
-      from: __dirname + '/src/index.html',
-      to: __dirname + '/disk/'
-    }]),
     new CopyWebpackPlugin([{
       from: __dirname + '/src/lib',
       to: __dirname + '/disk/lib'
