@@ -1,9 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -54,6 +53,18 @@ module.exports = {
       }]
     }]
   },
+  devServer: {
+    open: true,
+    useLocalIp: true,
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true,
+    contentBase: './src',
+    port: 8081,
+    index: __dirname + '/disk',
+    host: '0.0.0.0'
+  },
   resolve: {
     extensions: ['.js', '.jsx', 'scss'],
   },
@@ -61,41 +72,12 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: function () {
-          return [Autoprefixer({
+          return [autoprefixer({
             browsers: ['last 5 versions']
           })];
-        },
-        devServer: {
-          historyApiFallback: true,
-          hot: true,
-          inline: true,
-          progress: true,
-          contentBase: './src',
-          port: 8081,
-          index: __dirname + '/disk',
-          host: '0.0.0.0'
         }
       }
     }),
-    new OpenBrowserPlugin({
-      url: 'http://localhost:8081?env=dev'
-    }),
-    new webpack.ProvidePlugin({
-      "$": "zepto",
-      "Aliplayer": "Aliplayer"
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackExternalsPlugin([{
-      name: 'zepto',
-      var: 'Zepto',
-      url: 'https://player.alicdn.com/resource/player/lib/zepto.min.js'
-    }, {
-      name: 'Aliplayer',
-      var: 'Aliplayer',
-      url: 'https://g.alicdn.com/de/prismplayer/2.7.4/aliplayer-min.js'
-    }], {
-      // Resolve local modules relative to this directory
-      basedir: __dirname
-    })
+    new webpack.HotModuleReplacementPlugin()
   ]
 };

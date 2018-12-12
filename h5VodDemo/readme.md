@@ -41,7 +41,7 @@ this.player.tag.addEventListener("x5videoexitfullscreen", ()=>{
 本Demo使用了ES6、webpack、gulp等技术。
 
  - [Node.js](https://nodejs.org/en/)
- - [Webpack2.0](http://webpack.github.io) 
+ - [Webpack4.0](https://webpack.js.org/) 
  - [gulp](https://gulpjs.com)
 
 ```sh

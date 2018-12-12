@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -19,17 +18,6 @@ module.exports = {
   module: {
     rules: [{
       test: /\.css$/,
-      include: path.resolve(__dirname, 'src'),
-      use: ['style-loader','css-loader', {
-        loader: 'postcss-loader',
-        options: {
-          plugins: () => autoprefixer({
-            browsers: ['last 5 versions', '> 1%']
-          })
-        }
-      }]
-    }, {
-      test: /\.scss$/,
       include: path.resolve(__dirname, 'src'),
       use: ['style-loader','css-loader', {
         loader: 'postcss-loader',
@@ -72,6 +60,7 @@ module.exports = {
   },
   devServer: {
     open: true,
+    useLocalIp: true,
     historyApiFallback: true,
     hot: true,
     inline: true,

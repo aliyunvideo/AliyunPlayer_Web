@@ -57,6 +57,7 @@
     "url-loader": "^0.5.9",
     "validate-commit-msg": "2.x",
     "webpack": "latest",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "latest",
     "webpack-merge": "^1.0.2"
   },

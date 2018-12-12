@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -23,23 +23,29 @@ let config = Merge.smart(baseWebpackConfig, {
       include: path.resolve(__dirname, 'src'),
       loader: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: [{loader: 'css-loader',
-                options: {
-                  minimize: true
-                }},"postcss-loader","sass-loader"]
+          use: [{
+            loader: 'css-loader',
+            options: {
+              minimize: true
+            }
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => autoprefixer({
+                browsers: ['last 5 versions', '> 1%']
+              })
+            }
+          }, "sass-loader"]
         })
     }]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env':{
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new uglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        sourceMap: true,
+        compress: {
+          warnings: false
+        }        
       }
     }),
     new ExtractTextPlugin("css/[name].main.css"),

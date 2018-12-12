@@ -5,6 +5,7 @@ const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -20,25 +21,22 @@ module.exports = {
     rules: [{
       test: /\.css$/,
       include: path.resolve(__dirname, 'src'),
-      use: ['style-loader','css-loader', {
-        loader: 'postcss-loader',
-        options: {
-          plugins: () => autoprefixer({
-            browsers: ['last 5 versions', '> 1%']
-          })
-        }
-      }]
-    }, {
-      test: /\.scss$/,
-      include: path.resolve(__dirname, 'src'),
-      use: ['style-loader','css-loader', {
-        loader: 'postcss-loader',
-        options: {
-          plugins: () => autoprefixer({
-            browsers: ['last 5 versions', '> 1%']
-          })
-        }
-      }]
+      use: ExtractTextPlugin.extract({
+        use: [{
+          loader: 'css-loader',
+          options: {
+            minimize: true            
+          }
+        }, {
+          loader: 'postcss-loader',
+          options: {
+            plugins: () => autoprefixer({
+              browsers: ['last 5 versions', '> 1%']
+            })
+          }
+        }],
+        fallback: 'style-loader'
+      })
     }, {
       test: /\.js[x]?$/,
       include: path.resolve(__dirname, 'src'),
@@ -70,15 +68,29 @@ module.exports = {
       }]
     }]
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          name: `h5livedemo.common`,
+          priority: -10,
+          chunks: 'all'
+        }
+      }
+    }
+  },
   plugins: [
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: function () {
-          return [Autoprefixer({
+          return [autoprefixer({
             browsers: ['last 5 versions']
           })];
         }
       }
+    }),
+    new ExtractTextPlugin({
+      filename: 'css/[name].css'   // 将 css 提取出来
     }),
     new UglifyJSPlugin({
       uglifyOptions: {
