@@ -18,7 +18,7 @@ module.exports = Merge.smart(baseWebpackConfig, {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/pc/index.html',
+      template: './src/pc/index.ejs',
       inject: 'body',
       hash: true,
       excludeChunks: ["mobile", "index"]

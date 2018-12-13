@@ -1,17 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const Merge = require('webpack-merge');
-
+const autoprefixer = require('autoprefixer');
 const baseWebpackConfig = require('./webpack.base.config.js');
 
 
 let config = Merge.smart(baseWebpackConfig, {
   devtool: 'cheap-source-map',
+  mode: 'production',
   output: {
     path: __dirname + '/disk',
     publicPath: '',
@@ -40,7 +40,7 @@ let config = Merge.smart(baseWebpackConfig, {
     }]
   },
   plugins: [
-    new UglifyJsPlugin({
+    new UglifyJSPlugin({
       uglifyOptions: {
         sourceMap: true,
         compress: {
@@ -51,7 +51,7 @@ let config = Merge.smart(baseWebpackConfig, {
     new ExtractTextPlugin("css/[name].main.css"),
     new HtmlWebpackPlugin({
       filename: 'pc.html',
-      template: './src/pc/index.html',
+      template: './src/pc/index.ejs',
       inject: 'body',
       hash: true,
       minify: { //压缩HTML文件

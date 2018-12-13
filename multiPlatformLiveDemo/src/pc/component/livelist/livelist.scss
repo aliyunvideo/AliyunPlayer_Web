@@ -86,16 +86,7 @@
 ::-webkit-scrollbar{
   width:4px;
 }
-::-webkit-scrollbar-button{
-}
-::-webkit-scrollbar-track{//外层轨道
-}
-::-webkit-scrollbar-track-piece{//内层滚动槽
-  //background:rgba(0,0,0,.2);
-}
 ::-webkit-scrollbar-thumb{
   background:#ccc;
   border-radius: 5px;
-}
-::-webkit-scrollbar-corner{
 }
