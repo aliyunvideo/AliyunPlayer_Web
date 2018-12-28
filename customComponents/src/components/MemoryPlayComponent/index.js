@@ -47,10 +47,19 @@ export default class MemoryPlayComponent {
         clearTimeout(timeoutMemory)
       }
     }
-    window.onbeforeunload = function () {
-      if (player.getCurrentTime() !== 0) {
-        localStorage.setItem(memoryVideo, player.getCurrentTime())      
+    
+    if (document.onvisibilitychange !== undefined) {
+      document.onvisibilitychange = function () {
+        if (document.visibilityState === 'hidden' && player.getCurrentTime() !== 0) {
+          localStorage.setItem(memoryVideo, player.getCurrentTime())
+        }
       }
+    } else {
+      window.onbeforeunload = function () {
+        if (player.getCurrentTime() !== 0) {
+          localStorage.setItem(memoryVideo, player.getCurrentTime())      
+        }
+      }      
     }
   }
 
