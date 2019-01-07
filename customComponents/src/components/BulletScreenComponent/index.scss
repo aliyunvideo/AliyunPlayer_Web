@@ -1,7 +1,7 @@
 .bullet-screen {
   position: absolute;
   white-space: nowrap;
-  animation: bullet 10s linear infinite ;
+  animation: bullet 10s linear infinite paused;
 }
 @keyframes bullet {
   from {

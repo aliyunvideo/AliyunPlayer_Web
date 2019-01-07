@@ -38,7 +38,7 @@ export default class BulletScreenComponent {
     }
   }
 
-  play (player, e) {
+  playing (player, e) {
     this.html.style.animationPlayState = 'running'
   }
 
