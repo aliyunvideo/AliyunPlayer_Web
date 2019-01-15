@@ -73,7 +73,7 @@ export default class MemoryPlayComponent {
 
   setMemory (player) {
     let playerOptions = player.getOptions()
-    let memoryVideo = playerOptions.source.replace(/\?.*$/, '') || playerOptions.vid
+    let memoryVideo = playerOptions.vid || playerOptions.source.replace(/\?.*$/, '')
     if (player.getCurrentTime() !== 0) {
       localStorage.setItem(memoryVideo, player.getCurrentTime())      
     }
