@@ -38,7 +38,7 @@
 ```
 
 #### Android全屏tab事件失效问题
-Android里全屏播放，tab事件会失效，引起自定义控制栏不能显示、倍速选择和清晰度选择不能隐藏，Demo里在全屏时会一直有自定义控制栏，如果用户需要隐藏，则可以自己失效一个点击提示按钮，允许用户点击隐藏和显示，倍速选择和清晰度选择Demo已经添加了关闭按钮，可以点击关闭， 效果如下： <br />![image.png](https://player.alicdn.com/resource/mini/mini41.png)
+Android里全屏播放，tab事件会失效，引起自定义控制栏不能显示、倍速选择和清晰度选择不能隐藏，Demo里在全屏时会一直有自定义控制栏，如果用户需要隐藏，则可以自己实现一个点击提示按钮，允许用户点击隐藏和显示，倍速选择和清晰度选择Demo已经添加了关闭按钮，可以点击关闭， 效果如下： <br />![image.png](https://player.alicdn.com/resource/mini/mini41.png)
 
 
 
