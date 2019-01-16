@@ -1,0 +1,72 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="video-wrap">
+
+    <video
+      id="videoPlayer"
+      autoplay
+      bindplay="videoPlayHandle"
+      class="vod-video"
+      bindtap="tapVideo"
+      bindpause="playPaused"
+      bindended="playPaused"
+      bindtimeupdate="timeUpdate"
+      bindfullscreenchange="fullScreen"
+      poster="{{currentPoster}}"
+      src="{{currentResource}}"
+      bindwaiting="videoWaiting">
+        <cover-view class="video-control" hidden="{{controlHidden}}" >
+          <cover-view class="video-title">{{currentVideoTitle}}</cover-view>
+          <cover-view class="multi" capture-catch:tap="switchResource">{{currentDefinition}}</cover-view>
+          <cover-view class="multi rate" capture-catch:tap="showSwitchRate">x {{currentRate}}</cover-view>
+        </cover-view>
+        <cover-view class="multi-list{{multiListShow ? ' active': ''}}{{fullScreenData}}">
+          <cover-view
+            class="multi-item{{ item.definitionFormat === currentDefinition ? ' active ' : ' ' }}"
+            wx:for="{{currentVideoResource}}"
+            bindtap="switchDefinition"
+            data-url="{{item.playURL}}"
+            data-def="{{item.definitionFormat}}"
+            wx:key="Definition">{{item.definitionFormat}}</cover-view>
+            <cover-view class="close-btn-wrap" hidden="{{fullScreenData === ''}}">
+              <cover-view class="close-btn" bindtap="closeControl">x</cover-view>              
+            </cover-view>
+        </cover-view>
+        <cover-view class="multi-list rate{{rateShow ? ' active': ''}}{{fullScreenData}}">
+          <cover-view
+            wx:for="{{['0.5', '0.8', '1.0', '1.25', '1.5']}}"
+            wx:key="{{item}}"
+            class="multi-item rate{{ item === currentRate ? ' active' : '' }}"
+            data-rate="{{item}}"
+            bindtap="switchRate"
+            >{{item}}</cover-view>
+            <cover-view class="close-btn-wrap" hidden="{{fullScreenData === ''}}">
+              <cover-view class="close-btn" bindtap="closeControl">x</cover-view>              
+            </cover-view>
+        </cover-view>
+
+      </video>
+  </view>
+
+  <scroll-view class="video-list" scroll-y bindscrolltolower="loadData">
+    <view
+      class="video-item{{currentVideoId === item.videoId ? ' active' : ''}}"
+      bindtap="tapPlay"
+      wx:for="{{videoList}}"
+      wx:key="id"
+      data-vid="{{item.videoId}}">
+      <view class="cover">
+        <image mode="aspectFit" src="{{item.coverUrl}}"></image>
+        <view class="duration">{{item.duration}}</view>
+      </view>
+      <view class="name">
+        <view class="video-title-name">{{item.title}}</view>
+        <view class="video-title-name description">{{item.description}}</view>
+      </view>
+    </view>
+
+    <view class="tips" hidden="{{!loadAll}}">没有更多了</view>
+    <view class="tips" hidden="{{!loading}}">加载中...</view>
+  </scroll-view>
+
+</view>

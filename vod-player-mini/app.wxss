@@ -1,0 +1,5 @@
+/**app.wxss**/
+.container {
+  font-size: 14px;
+  color: #333;
+} 
