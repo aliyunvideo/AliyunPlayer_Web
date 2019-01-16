@@ -47,7 +47,7 @@
 
 [说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/vod-mini-program)
 
-![image.png](https://player.alicdn.com/resource/mini/mini1.png)
+![image.png](https://player.alicdn.com/resource/mini/mini11.png)
 
 ### 直播demo
 
