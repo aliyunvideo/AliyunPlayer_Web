@@ -6,7 +6,7 @@
 
 ## 实现介绍
 ### 获取视频信息流程
-首先用户的Appserver需要提供两个接口服务，获取视频列表和获取视频信息接口，如果用户的小程序没有视频列表，那么只需要获取视频信息接口服务。<br />基本流程是客户端调用客户自己的App Server调用点播服务获取视频的列表，App Server调用点播[获取视频信息列表](https://help.aliyun.com/document_detail/52838.html)或者[批量获取视频信息](https://help.aliyun.com/document_detail/86042.html)，在用户选中列表记录时， 根据videoId的值通过客户自己的App Server调用点播的[获取视频信息接口](https://help.aliyun.com/document_detail/56124.html)获取播放视频信息，此接口包含播放地址等信息，代码逻辑在service/service.js文件里。<br />![image.png](https://player.alicdn.com/resource/mini/mini31.png)
+首先用户的Appserver需要提供两个接口服务，获取视频列表和获取视频信息接口，如果用户的小程序没有视频列表，那么只需要获取视频信息接口服务。<br />基本流程是客户端调用客户自己的App Server获取视频的列表，然后App Server调用点播[获取视频信息列表](https://help.aliyun.com/document_detail/52838.html)或者[批量获取视频信息](https://help.aliyun.com/document_detail/86042.html)Open API，在用户选中列表记录时， 根据videoId的值通过客户自己的App Server调用点播的[获取视频信息接口](https://help.aliyun.com/document_detail/56124.html)获取播放视频信息，此接口包含播放地址等信息，代码逻辑在service/service.js文件里。<br />![image.png](https://player.alicdn.com/resource/mini/mini31.png)
 
 ### 登记服务域名
 微信小程序控制台注册AppServer的访问域名，登记以后就可以小程序就可以访问App Server的服务，比如：<br />    ![image.png](https://player.alicdn.com/resource/mini/mini21.png)
