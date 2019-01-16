@@ -13,7 +13,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.3",
-	"appid": "",
+	"appid": "wx64e60749d956d9b8",
 	"projectname": "vod-player-mini",
 	"debugOptions": {
 		"hidedInDevtools": []

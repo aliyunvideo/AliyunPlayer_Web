@@ -1,4 +1,4 @@
-import { getToken, getVideoList, getVideoById } from '../../utils/service.js'
+import { getToken, getVideoList, getVideoById } from '../../service/index.js'
 
 const serviceError = function(msg) {
   wx.showToast({
