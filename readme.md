@@ -41,6 +41,14 @@
 
 ![移动版](https://player.alicdn.com/aliplayer/img/h5demosmall.png) 
 
+### 点播微信小程序Demo
+
+本Demo包含了播放列表、多分辨率、倍速播放，全屏播放等功能：
+
+[说明文档和代码](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/vod-mini-program)
+
+![image.png](https://player.alicdn.com/resource/mini/mini1.png)
+
 ### 直播demo
 
 包含全屏播放、评论、点赞、客户端长连接mqtt等功能，支持在android微信全屏同层播放，解决android微信弹出全屏播放的问题。
