@@ -2,11 +2,11 @@
 
 每个例子都是独立的，方便单独使用，现在使用webpack配置文件都是基于4.0版本的，babel 基于7.0版本的。
 
-### [自定义组件demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents)
-### [Vue点播demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/H5VodVueDemo)
-### [Juqery点播demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/h5VodDemo)
-### [React点播demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/multiPlatformLiveDemo/src/mobile)
-### [点播微信小程序Demo]((https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/vod-mini-program)
+#### [自定义组件demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents)
+#### [Vue点播demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/H5VodVueDemo)
+#### [Juqery点播demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/h5VodDemo)
+#### [React点播demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/multiPlatformLiveDemo/src/mobile)
+#### [点播微信小程序Demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/vod-mini-program)
 
 ### 自定义组件demo
 
