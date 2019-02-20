@@ -4,7 +4,7 @@
 
 #### [自定义组件](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents)
 #### [Vue demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/H5VodVueDemo)
-#### [Juqery demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/h5VodDemo)
+#### [JQuery demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/h5VodDemo)
 #### [React demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/multiPlatformLiveDemo/src/mobile)
 #### [微信小程序Demo](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/vod-mini-program)
 #### [Aliplayer高级功能介绍](https://yq.aliyun.com/album/240)
