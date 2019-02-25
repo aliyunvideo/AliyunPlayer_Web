@@ -1,5 +1,5 @@
 //获取应用实例
-const HOST = 'https://alivc-demo.aliyuncs.com'
+const HOST = '' // 设置成你的后端地址
 const request = function(options) {
   return new Promise((resolve, reject) => {
     options.url = HOST + options.url
