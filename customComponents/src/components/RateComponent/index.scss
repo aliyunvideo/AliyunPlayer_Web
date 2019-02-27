@@ -1,0 +1,42 @@
+.rate-components {
+  float: right;
+  color: #fff;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 4px;
+}
+
+.current-rate {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  cursor: pointer;
+}
+
+.rate-list {
+  position: absolute;
+  bottom: 46px;
+  display: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  li {
+    text-align: center;
+    width: 70px;
+    line-height: 30px;
+    background-color: rgba(0, 0, 0, .6);
+    cursor: pointer;
+    &.current {
+      color: #00c1de;
+    }
+    & + li {
+      border-top: 1px solid rgba(78, 78, 78, 0.3);
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, .5);
+    };
+  }
+}
