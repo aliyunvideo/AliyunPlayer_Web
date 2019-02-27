@@ -27,7 +27,9 @@ export default class VideoPlayer
 
     _setup()
 	{
-		this.player = new Aliplayer(this.props);
+		this.player = new Aliplayer(this.props,function(player){
+			 player._switchLevel = 0;
+		});
 	}
 
 	_bindEvent()
