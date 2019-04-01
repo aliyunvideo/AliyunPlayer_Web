@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --host 0.0.0.0",
-    "build": "NODE_ENV=production webpack --progress"
+    "dev_win": "set NODE_ENV=development&&webpack-dev-server --inline --hot --host 0.0.0.0",
+    "build": "NODE_ENV=production webpack --progress",
+    "build_win": "set NODE_ENV=production&&webpack --progress"
   },
   "author": "",
   "license": "ISC",

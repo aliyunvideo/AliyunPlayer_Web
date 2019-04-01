@@ -34,10 +34,19 @@ $ cd h5livedemo
 $ npm run dev
 ```
 
-#### 产品环境
+#### 生产环境
+
+macOS, Linux 系统:
 
 ```sh
 $ cd h5livedemo
 $ npm run prod
+```
+
+Windows 系统: 
+
+```sh
+$ cd h5livedemo
+$ npm run prod_win
 ```
 

@@ -53,8 +53,16 @@ $ npm run pc
 
 ### 编译产品
 
+macOS, Linux系统下:
+
 ```bash
 $ npm run prod
+```
+
+Windows系统下:
+
+```bash
+$ npm run prod-windows
 ```
 
 ## License

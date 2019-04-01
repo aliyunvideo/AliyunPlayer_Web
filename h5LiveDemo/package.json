@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp dev",
     "dev": "webpack-dev-server --devtool eval --config webpack.config.js --progress --hot --content-base src",
-    "prod": "NODE_ENV=production gulp prod"
+    "prod": "NODE_ENV=production gulp prod",
+    "prod_win": "set NODE_ENV=production&&gulp prod"
   },
   "keywords": [
     "h5",
