@@ -1,0 +1,86 @@
+@font-face {font-family: "iconfont";
+  src: url('./fonts/iconfont.eot?t=1556531522545'); /* IE9 */
+  src: url('./fonts/iconfont.eot?t=1556531522545#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAALoAAsAAAAABswAAAKZAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqBLIEoATYCJAMMCwgABCAFhG0HPxv3BciemjwJBBawWJiKrz0ASDwe/hv7dt/MfNW2KmnPdtG6CbVE49AhkkRLp5FIhAwheQn/z+kv/1pWQYEwj7X+Uuyl/nTcdSTtTi8NcwkH30gwCtRYSyHREE3ufj9P1OLQShNpd5+4d/rneReO/SzLZW3rorEmfwww7rwLcKxFEQ2RQLxh7AKXcJhA07wmodOhiRQqVFijAvHU1GVUmAsrCsvVhWrNwiLeqKinV+kQr8Pvx397KSSpZNbEyyeDGur5VflDWJ2tols+IUKAyyvI2IUU4k5t+hpBML6gaRfbS6uKkOaK/T+hXndWd/rHS0SVVd0Gm9CWbsrgqgh+00EB8vtVFGxALmYoJOTctiY+K0kvXH6mrr7SNz/Z6+9Zx5qJtFlNxSWTO6vj1HYuhJefJ9ftXh9abHpfLGqU77bG13rmtKH98PROBBAh724RzHCxLE2XTr/nplZqkQ6eox7Wz9KPuBAIal+/fLw7HX+FxQX8PFYXDpmtiii/QP1UnuDXdSohKNxkuXJR7VqrA9nqbYxMaGpihrB/6Hm8c9K7mlA3SZHUzCGrWyULu4uKln1U1R2gacfw8pYRRhClgW1bAKFvD0nXN2R9R2Rhn1Ax9YuqfgQ0XYmyDVvWY0r9DMsca6DMgalSjzhuLkW1CaxPOTLLmkJpBrPAjEEsHC3mhrGH2RxTgmk9zjkBwqgLQ+A47DgUfEYtrPKwwbnfFomQuheFVeoiyQkGk3GYBijmAJOK8hC/NSeVPp+A6aY4ZKyFU1PPwJiA2T2ICYv2IIftXi/OvTwTmKaL4zgCEAzlAkOgH+ZwUMCv72fBVFyYMSLpaxOxm5G+9vD6Tvf7tkGTNSlHihxF9z5jdEZzenvNKvXnRN+R5xACAAAA') format('woff2'),
+  url('./fonts/iconfont.woff?t=1556531522545') format('woff'),
+  url('./fonts/iconfont.ttf?t=1556531522545') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('./fonts/iconfont.svg?t=1556531522545#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-play:before {
+  content: "\e726";
+}
+
+.icon-arrowdown:before {
+  content: "\e623";
+}
+
+.clearfix:before, .clearfix:after{content:"";display:table;line-height:0;}
+.clearfix:after{clear:both;} 
+.clearfix{*zoom:1;}
+
+.progress-component {
+  padding: 8px;
+  background-color: rgba(0, 0, 0, .35);
+  position: absolute;
+  display: none;
+  box-sizing: border-box;
+  bottom: 55px;
+  font-size: 12px;
+  color: #fff;
+  height: 74px;
+  .progress-content {
+    height: 100%;
+    position: relative;
+    padding-right: 45px;
+  }
+  .img-wrap {
+    float: left;
+    width: 100px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, .6);
+    height: 100%;
+    img {
+      vertical-align: top;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+  .info {
+    float: left;
+    padding-left: 10px;
+    width: 150px;
+    .describe {
+      line-height: 18px;
+      margin-top: 8px;
+      height: 36px;
+      overflow: hidden;
+    }
+  }
+  .pregress-play-btn {
+    display: inline-block;
+    position: absolute;
+    right: 6px;
+    bottom: 0px;
+    font-size: 28px;
+    color: #ca7838;
+    cursor: pointer;
+  }
+  .icon-arrowdown {
+    left: -2px;
+    position: absolute;
+    font-size: 31px;
+    color: rgba(0, 0, 0, .35);
+    line-height: 6px;
+    top: 100%;
+  }
+}

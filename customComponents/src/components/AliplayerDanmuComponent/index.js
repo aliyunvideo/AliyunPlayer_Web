@@ -1,7 +1,7 @@
 import danmuHtml from './index.html'
 import danmuControl from './danmu-control.html'
 import './index.scss'
-import {CommentManager} from 'comment-core-library/build/CommentCoreLibrary'
+import { CommentManager } from 'comment-core-library/build/CommentCoreLibrary'
 import 'comment-core-library/build/style.css'
 import { parseDom } from 'utils'
 

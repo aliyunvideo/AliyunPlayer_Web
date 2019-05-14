@@ -22,6 +22,10 @@ export default class RateComponent {
     let currentRateEle = this.html.querySelector('.current-rate')
     let rateListEle = this.html.querySelector('.rate-list')
     let timeId = null
+
+    // 隐藏设置里面的倍速播放
+    document.querySelector('.prism-setting-item.prism-setting-speed').classList.add('player-hidden')
+
     currentRateEle.onclick = () => {
       rateListEle.style.display = 'block'
     }

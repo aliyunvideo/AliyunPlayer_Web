@@ -23,7 +23,7 @@ export default class PreviewComponent {
   createEl (el) {
     let videoSiblingElement = el.querySelector('video').nextElementSibling
     if (videoSiblingElement) {
-      el.insertBefore(this.html, videoSiblingElement)      
+      el.insertBefore(this.html, videoSiblingElement)
     } else {
       el.appendChild(this.html)
     }
@@ -41,8 +41,6 @@ export default class PreviewComponent {
     if (Math.floor(currentTime) >= this.previewDuration * 60) {
       player.pause()
       this.html.querySelector('.preview-component-layer').style.display = 'block'
-      let controlbarElement = this.html.parentNode.querySelector('.prism-controlbar')
-      controlbarElement.className = controlbarElement.className + ' controlbar-element-hidden'
     }
   }
 }

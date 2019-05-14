@@ -1,0 +1,75 @@
+.preview-hide {
+  display: none !important;
+}
+.preview-vod-component {
+  display: none;
+  .preview-component-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 2147483647;
+    box-sizing: border-box;
+    padding: 20px 20px 70px;
+    display: none;
+    .preview-close {
+      position: absolute;
+      right: 18px;
+      top: 15px;
+      border-radius: 50%;
+      color: #000;
+      background: rgba(255, 255, 255, 1);
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 18px;
+      vertical-align: top;
+      color: #333;
+      box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+      cursor: pointer;
+      z-index: 9999999;
+    }
+    .preview-custom {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      .preview-default {
+        font-size: 14px;
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+    }
+  }
+  .preview-custom {
+    color: #fff;
+    font-size: 14px;
+  }
+  .preview-component-tip {
+    position: absolute;
+    bottom: 50px;
+    left: 25px;
+    border-radius: 15px;
+    background-color: #333;
+    color: #fff;
+    line-height: 26px;
+    font-size: 14px;
+    padding: 0 12px;
+    z-index: 2147483647;
+  }
+  .preview-vod-close {
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 5px;
+    font-family: PingFangSC-Regular, sans-serif;
+    font-weight: 200;
+    &:hover {
+      color: #00c1de;
+    }
+  }
+}

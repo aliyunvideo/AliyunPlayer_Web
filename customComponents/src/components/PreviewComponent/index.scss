@@ -15,30 +15,30 @@
       padding: 0 3px;
     }
   }
-}
-.preview-component-layer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, .8);
-  z-index: 2147483647;
-  box-sizing: border-box;
-  padding: 20px 20px 70px;
-  display: none;
-  .preview-custom {
+  .preview-component-layer {
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: relative;
-    .preview-default {
-      font-size: 14px;
-      color: #fff;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 2147483647;
+    box-sizing: border-box;
+    padding: 20px 20px 70px;
+    display: none;
+    .preview-custom {
       width: 100%;
+      height: 100%;
+      position: relative;
+      .preview-default {
+        font-size: 14px;
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+      }
     }
   }
 }

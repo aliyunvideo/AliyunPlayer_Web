@@ -16,6 +16,7 @@ export default class BulletScreenComponent {
     this.text = text
     this.style = style || { fontSize: '14px', color: '#fff' }
     this.html = parseDom(bulletHtml)
+    // this.html.style.animationPlayState = 'paused'
     this.bulletPosition = bulletPosition
   }
 
@@ -25,11 +26,10 @@ export default class BulletScreenComponent {
   }
 
   ready (player, e) {
-    // 如果是自动播放在跑马灯元素上动画设置为 paused, 防止 Safari 初始值设置为 paused 的时候不会滚动
+    console.log(player.getOptions())
     if (player.getOptions().autoplay === false) {
       this.html.style.animationPlayState = 'paused'
     }
-
     Object.keys((this.style)).forEach(key => this.html.style[key] = this.style[key])
     let bulletHeight = this.html.offsetHeight
     let playerHeight = parseInt(player.getOptions().height.replace('px', ''))
@@ -43,7 +43,11 @@ export default class BulletScreenComponent {
     }
   }
 
-  // 阻止跑马灯组件被删除隐藏, 加上各种类名
+  playing (player, e) {
+    console.log('playering')
+    this.html.style.animationPlayState = 'running'
+  }
+
   timeupdate (player, timeStamp) {
     let el = player.el()
     let componentEl = el.querySelector('.bullet-screen')
@@ -69,11 +73,8 @@ export default class BulletScreenComponent {
     }
   }
 
-  playing (player, e) {
-    this.html.style.animationPlayState = 'running'
-  }
-
   pause (player, e) {
+    console.log('pause')
     this.html.style.animationPlayState = 'paused'
   }
 

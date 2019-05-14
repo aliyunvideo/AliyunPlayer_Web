@@ -7,6 +7,9 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV,
+  optimization: {
+    minimize: false
+  },
   output: {
     path: path.resolve(__dirname, './disk/aliplayer-components'),
     publicPath: '',
@@ -64,13 +67,13 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new UglifyJSPlugin({
-      uglifyOptions: {
-        compress: {
-          drop_console: true
-        }
-      }
-    }),
+    // new UglifyJSPlugin({
+    //   uglifyOptions: {
+    //     compress: {
+    //       drop_console: true
+    //     }
+    //   }
+    // }),
     new BundleAnalyzerPlugin()
   ]
 }

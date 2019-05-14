@@ -2,7 +2,7 @@
   display: none !important;
 }
 
-.rate-components {
+.quality-components {
   float: right;
   color: #fff;
   height: 100%;
@@ -11,7 +11,7 @@
   padding-top: 4px;
 }
 
-.current-rate {
+.current-quality {
   display: flex;
   height: 100%;
   align-items: center;
@@ -20,7 +20,7 @@
   cursor: pointer;
 }
 
-.rate-list {
+.quality-list {
   position: absolute;
   bottom: 46px;
   display: none;
@@ -42,5 +42,20 @@
     &:hover {
       background-color: rgba(0, 0, 0, .5);
     };
+  }
+}
+
+.quality-modal {
+  position: absolute;
+  bottom: 20%;
+  left:  5%;
+  background-color: rgba(0, 0, 0, .6);
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 14px;
+  display: none;
+  span {
+    color: #00c1de;
   }
 }
