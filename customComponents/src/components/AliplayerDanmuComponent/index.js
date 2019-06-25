@@ -21,7 +21,16 @@ export default class AliplayerDanmuComponent {
     this.userDanmuOpen = true     // 用户打开关闭弹幕的状态, 默认为 true 打开
   }
 
-  createEl (el) {
+  createEl (el, player) {
+    console.log(player)
+
+    const lang = player._options && player._options.language
+    this.isEn = lang && lang === 'en-us'
+    this.danmuControlHtml.querySelector('.danmu-input-enter').innerText = this.isEn ? 'Enter' : '发送'
+    this.danmuControlHtml.querySelector('.player-tooltip.close').innerText = this.isEn ? 'Close Bullect' : '关闭弹幕'
+    this.danmuControlHtml.querySelector('.player-tooltip.open').innerText = this.isEn ? 'Open Bullect' : '打开弹幕'
+
+
     el.querySelector('.prism-controlbar').appendChild(this.danmuControlHtml)
     let videoSiblingElement = el.querySelector('video').nextElementSibling
     if (videoSiblingElement) {

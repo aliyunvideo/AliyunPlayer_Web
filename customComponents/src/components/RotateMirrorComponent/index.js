@@ -13,7 +13,15 @@ export default class RotateMirrorComponent {
     this.html = parseDom(rotateMirror)
   }
 
-  createEl (el) {
+  createEl (el, player) {
+    const lang = player._options && player._options.language
+    this.isEn = lang && lang === 'en-us'
+    this.html.querySelector('.player-tooltip.counterclockwise').innerText = this.isEn ? 'Rotate 45 degrees counterclockwise' : '逆时针旋转45度'
+    this.html.querySelector('.player-tooltip.clockwise').innerText = this.isEn ? 'Rotate 45 degrees clockwise' : '顺时针旋转45度'
+    this.html.querySelector('.player-tooltip.switch').innerText = this.isEn ? 'Mirror' : '镜像'
+    this.html.querySelector('.mirror-item[data-id=vertical]').innerText = this.isEn ? 'Vertical mirroring' : '垂直镜像'
+    this.html.querySelector('.mirror-item[data-id=horizon]').innerText = this.isEn ? 'Horizontal mirroring' : '水平镜像'
+
     let eleControlbar = el.querySelector('.prism-controlbar')
     eleControlbar.appendChild(this.html)
   }

@@ -17,9 +17,6 @@ export default class PreviewVodComponent {
     this.html = parseDom(previewHtml)
 
     // 在试看结束之后, 如果用户自定义
-    if (previewDuration === 0) {
-      this.html.style.display = 'none'
-    }
     if (previewEndHtml !== null) {
       this.insertHTtml(previewEndHtml, 'previewEndHtml')
     }
@@ -27,21 +24,6 @@ export default class PreviewVodComponent {
       this.insertHTtml(previewBarHtml, 'previewBarHtml')
     }
 
-
-    // 
-    let previewDuration_text = previewDuration / 60
-    let decimal = previewDuration_text.toString().split('.')[1]
-    if (decimal && decimal.length > 1) {
-      previewDuration_text = ' ' + previewDuration + ' 秒'
-    } else {
-      previewDuration_text = ' ' + previewDuration_text + ' 分钟'
-    }
-    if (previewDuration < 60) {
-      previewDuration_text = ' ' + previewDuration + ' 秒'
-    }
-
-    // 考虑到可能不是整分钟数, 整分钟数去掉小数点后面的 0
-    this.html.querySelector('.preview-time').innerText = previewDuration_text
   }
 
   play(player) {
@@ -84,6 +66,34 @@ export default class PreviewVodComponent {
   }
 
   createEl(el, player) {
+    const lang = player._options && player._options.language
+    this.isEn = lang && lang === 'en-us'
+    console.log(this.html.querySelector('.preview-default'))
+    let previewDefaultEle = this.html.querySelector('.preview-default')
+    if (previewDefaultEle) {
+      previewDefaultEle.innerText = this.isEn ? 'Preview is over' : '试看已结束'
+    }
+    this.html.querySelector('.can-preview').innerText = this.isEn ? 'Try' : '可试看'
+
+    let previewDuration = this.previewDuration
+    if (previewDuration === 0) {
+      this.html.style.display = 'none'
+    }
+
+    let previewDuration_text = previewDuration / 60
+    let decimal = previewDuration_text.toString().split('.')[1]
+    if (decimal && decimal.length > 1) {
+      previewDuration_text = ' ' + previewDuration + (this.isEn ? ' senconds' : ' 秒')
+    } else {
+      previewDuration_text = ' ' + previewDuration_text + (this.isEn ? ' minutes' : ' 分钟')
+    }
+    if (previewDuration < 60) {
+      previewDuration_text = ' ' + previewDuration + (this.isEn ? ' senconds' : ' 秒')
+    }
+
+    // 考虑到可能不是整分钟数, 整分钟数去掉小数点后面的 0
+    this.html.querySelector('.preview-time').innerText = previewDuration_text
+
     let videoSiblingElement = el.querySelector('video').nextElementSibling
     if (videoSiblingElement) {
       el.insertBefore(this.html, videoSiblingElement)

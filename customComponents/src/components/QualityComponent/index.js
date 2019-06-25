@@ -15,6 +15,11 @@ export default class QualityComponent {
   }
 
   createEl (el, player) {
+    const lang = player._options && player._options.language
+    this.isEn = lang && lang === 'en-us'
+    this.html.querySelector('.current-quality').innerText = this.isEn ? 'Resolution' : '清晰度'
+    this.modalHtml.querySelector('.switchimg').innerText = this.isEn ? 'Switching to you for' : '正在为您切换到'
+    this.modalHtml.querySelector('.wait').innerText = this.isEn ? 'Please wait...' : '请稍后...'
     let eleControlbar = el.querySelector('.prism-controlbar')
     eleControlbar.appendChild(this.html)
     el.appendChild(this.modalHtml)
@@ -82,7 +87,7 @@ export default class QualityComponent {
           this.setCurrentQuality(url.desc, url.definition)
 
           this.modalHtml.style.display = 'block'
-          this.modalHtml.querySelector('span').innerText = url.desc
+          this.modalHtml.querySelector('span.current-quality-tag').innerText = url.desc
         } 
       }
     }
@@ -90,6 +95,10 @@ export default class QualityComponent {
 
   ready(player) {
     this.modalHtml.style.display = 'none'
-    document.querySelector('.prism-setting-item.prism-setting-quality').classList.add('player-hidden')
+    // 隐藏设置里面的倍速播放
+    let settingEle = document.querySelector('.prism-setting-item.prism-setting-quality')
+    if (settingEle) {
+     settingEle.classList.add('player-hidden')
+    }
   }
 }

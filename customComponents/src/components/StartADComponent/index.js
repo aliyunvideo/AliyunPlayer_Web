@@ -19,7 +19,12 @@ export default class StartADComponent {
     this.html = parseDom(startADHtml)
   }
 
-  createEl (el) {
+  createEl (el, player) {
+    const lang = player._options && player._options.language
+    this.isEn = lang && lang === 'en-us'
+    this.html.querySelector('.ad-name').innerText = this.isEn ? 'Ad' : '广告'
+    this.html.querySelector('.second').innerText = this.isEn ? 's' : '秒'
+
     let adUrlElement = this.html.querySelector('.ad-content')
     adUrlElement.setAttribute('href', this.adUrl)
 

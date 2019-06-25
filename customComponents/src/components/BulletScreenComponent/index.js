@@ -20,7 +20,7 @@ export default class BulletScreenComponent {
     this.bulletPosition = bulletPosition
   }
 
-  createEl (el) {
+  createEl (el, player) {
     this.html.innerText = this.text
     el.appendChild(this.html)
   }

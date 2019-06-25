@@ -20,7 +20,6 @@
   margin-right: 5px;
   position: relative;
   display: table-cell;
-  overflow: hidden;
   margin-top: 8px;
   .iconfont {
     font-size: 35px;
@@ -34,7 +33,7 @@
   }
   .player-tooltip {
     &.close, &.open {
-      left: -13px;
+      right: -12px;
     }
   }
   @media (min-width: 768px) {

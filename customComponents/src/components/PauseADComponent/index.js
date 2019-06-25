@@ -2,6 +2,7 @@ import pauseADHtml from './index.html'
 import './index.scss'
 import { parseDom } from 'utils'
 
+
 /**
  * 暂停图片广告组件
  */
@@ -17,7 +18,11 @@ export default class PauseADComponent {
     this.html = parseDom(pauseADHtml)
   }
 
-  createEl (el) {
+  createEl (el, player) {
+    const lang = player._options && player._options.language
+    this.isEn = lang && lang === 'en-us'
+    this.html.querySelector('.ad-text').innerText = this.isEn ? 'Ad' : '广告'
+
     let adContent = this.html.querySelector('.ad-content')
     let adImg = adContent.querySelector('img')
     adContent.setAttribute('href', this.adUrl)

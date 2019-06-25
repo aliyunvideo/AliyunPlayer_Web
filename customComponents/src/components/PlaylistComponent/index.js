@@ -19,7 +19,13 @@ export default class PlaylistComponent {
     this.listHideTimeout = null
   }
 
-  createEl (el) {
+  createEl (el, player) {
+    const lang = player._options && player._options.language
+    this.isEn = lang && lang === 'en-us'
+    this.controlHtml.querySelector('.player-tooltip.prev').innerText = this.isEn ? 'Previous' : '上一个'
+    this.controlHtml.querySelector('.player-tooltip.list').innerText = this.isEn ? 'Playlist' : '播放列表'
+    this.controlHtml.querySelector('.player-tooltip.next').innerText = this.isEn ? 'Next' : '下一个'
+
     let controlbarElement = el.querySelector('.prism-controlbar')
     let siblingElement = controlbarElement.querySelector('.prism-time-display')
     controlbarElement.insertBefore(this.controlHtml, siblingElement)
@@ -40,7 +46,7 @@ export default class PlaylistComponent {
   ready (player, e) {
     this.controlHtml.querySelector('.icon-skip-previous').onclick = () => {
       if (this.playingVideoIndex === 0) {
-        this.playlistTip('已经是第一个了~', player._el)
+        this.playlistTip(this.isEn ? 'Already the first one~' : '已经是第一个了~', player._el)
         return
       }
       this.playVideo(player, this.playingVideoIndex - 1)
@@ -48,7 +54,7 @@ export default class PlaylistComponent {
 
     this.controlHtml.querySelector('.icon-skipnext').onclick = () => {
       if (this.playingVideoIndex === this.playlist.length - 1) {
-        this.playlistTip('已经是最后一个了~', player._el)
+        this.playlistTip(this.isEn ? 'Already the last one~' : '已经是最后一个了~', player._el)
         return
       }
       this.playVideo(player, this.playingVideoIndex + 1)

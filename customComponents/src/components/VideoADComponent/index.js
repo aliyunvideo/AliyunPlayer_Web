@@ -28,7 +28,12 @@ class VideoAdComponent {
     this.player = null
   }
 
-  createEl (el) {
+  createEl (el, player) {
+    const lang = player._options && player._options.language
+    this.isEn = lang && lang === 'en-us'
+    this.html.querySelector('.video-ad-detail').innerText = this.isEn ? 'For more information' : '查看广告详情'
+    this.html.querySelector('.limit').innerText = this.isEn ? 'Your browser limits autoplay' : '您的浏览器限制'
+    this.html.querySelector('.manual').innerText = this.isEn ? 'Please Click' : '自动播放请点击'
     // 给广告视频添加 source
     let videoAd_ele = this.html.querySelector('#video-ad-content')
     videoAd_ele.setAttribute('src', this.adVideoSource)
@@ -139,9 +144,15 @@ class MbVideoAdComponent {
     this.html.querySelector('.video-ad-link').setAttribute('href', this.adLink)
     this.html.querySelector('.video-ad-detail').setAttribute('href', this.adLink)
     this.adDuration = null    // 视频广告的时长, 用于倒计时, 
+
   }
 
-  createEl (el) {
+  createEl (el, player) {
+    const lang = player._options && player._options.language
+    this.isEn = lang && lang === 'en-us'
+    this.html.querySelector('.video-ad-detail').innerText = this.isEn ? 'For more information' : '查看广告详情'
+    this.html.querySelector('.limit').innerText = this.isEn ? 'Your browser limits autoplay' : '您的浏览器限制'
+    this.html.querySelector('.manual').innerText = this.isEn ? 'Please Click' : '自动播放请点击'
     el.appendChild(this.html)
     el.querySelector('video')
     el.querySelector('video').setAttribute('preload', 'load')
