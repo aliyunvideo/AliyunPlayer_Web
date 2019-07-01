@@ -1,5 +1,4 @@
 import staticadcomponent from './staticadcomponent';
-//import livebroadcastComponent from './livebroadcastcomponent';
 
 import AliplayerDanmuComponent from './AliplayerDanmuComponent'
 
@@ -13,7 +12,13 @@ import PlayerNextComponent from './playerNextComponent'
 
 import PlaylistComponent from './PlaylistComponent'
 
-import PreviewComponent from './PreviewComponent'
+import PreviewVodComponent from './PreviewVodComponent'
+
+import ProgressComponent from './ProgressComponent'
+
+import QualityComponent from './QualityComponent'
+
+import RateComponent from './RateComponent'
 
 import RotateMirrorComponent from './RotateMirrorComponent'
 
@@ -30,8 +35,11 @@ window.AliPlayerComponent = {
   PauseADComponent: PauseADComponent,
   PlayerNextComponent: PlayerNextComponent,
   PlaylistComponent: PlaylistComponent,
-  PreviewComponent: PreviewComponent,
+  PreviewVodComponent: PreviewVodComponent,
   RotateMirrorComponent: RotateMirrorComponent,
   StartADComponent: StartADComponent,
-  VideoADComponent: VideoADComponent
+  VideoADComponent: VideoADComponent,
+  RateComponent: RateComponent,
+  QualityComponent: QualityComponent,
+  ProgressComponent: ProgressComponent,
 };

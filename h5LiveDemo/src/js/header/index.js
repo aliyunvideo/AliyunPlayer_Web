@@ -34,7 +34,7 @@ export default class Header {
 		if (number != null) {
 			let ele = $('.video-header span.audience-count');
 			let count = parseInt(ele.text());
-			ele.text(`${count+number}人`);
+			ele.text(`${count+number} people`);
 		}
 		let wrapper = $('.audience-detail');
 		Header.computeLeft($('.video-header .author'), wrapper);

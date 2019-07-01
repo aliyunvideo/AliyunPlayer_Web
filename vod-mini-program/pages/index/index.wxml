@@ -65,8 +65,8 @@
       </view>
     </view>
 
-    <view class="tips" hidden="{{!loadAll}}">没有更多了</view>
-    <view class="tips" hidden="{{!loading}}">加载中...</view>
+    <view class="tips" hidden="{{!loadAll}}">No more</view>
+    <view class="tips" hidden="{{!loading}}">loading...</view>
   </scroll-view>
 
 </view>

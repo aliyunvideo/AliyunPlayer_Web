@@ -5,7 +5,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "阿里云点播demo",
+    "navigationBarTitleText": "Aliplayer Vod demo",
     "navigationBarTextStyle":"black"
   }
 }

@@ -34,8 +34,8 @@ progressMarkers:[{
   describe: 'test string',
 }],
 components: [{
-  name: 'ProgressMarker',
-  type: AliPlayerComponent.ProgressMarker
+  name: 'ProgressComponent',
+  type: AliPlayerComponent.ProgressComponent
 }]
 ```
 
