@@ -1,10 +1,12 @@
-## 暂停播放广告组件
+## Pause ad component
 
-在播放暂停时, 显示在播放器中间的图片广告。
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/PauseADComponent/README.md)
 
-### 使用说明
+This component is used to display an image ad in the middle of the player when a video is paused.
 
-引入当前组件, 播放器配置中添加如下代码:
+### Usage
+
+Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{
@@ -14,10 +16,10 @@ components: [{
 }]
 ```
 
-该组件接收两个参数: 
+This component contains the following parameters:
 
-> coverUrl, adUrl
+> coverUrl and adUrl
 
-- `coverUrl`, `String` 类型, 图片广告组件的图片地址
-- `adUrl`, `String` 类型, 图片点击跳转的链接
+- `coverUrl`: the URL of the image ad. The type is `String`.
+- `adUrl`: the URL of the ad page. The type is `String`.
 

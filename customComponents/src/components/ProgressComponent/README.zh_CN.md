@@ -1,15 +1,15 @@
-## Progress marker component
+## 视频打点组件 
 
-Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/ProgressComponent/README.zh_CN.md)
+其他语言: [Language](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/ProgressComponent/README.md)
 
-This component is used to mark the key points of a video. When a user moves the cursor over a marked key point, the specified image is displayed.
+该组件是对视频的关键点进行打点, 鼠标移动到关键点时能够查看当前用户设置的图片
 
-### Usage
+### 使用说明
 
-Reference this component and add the following code to the player configuration:
+引用当前组件, 播放器配置中添加如下代码:
 
 ```js
-// progressMarkers indicates the key points marked in the video.
+// progressMarkers 即播放器打点设置
 progressMarkers:[{
   offset: 30,
   isCustomized:true,
@@ -36,10 +36,9 @@ progressMarkers:[{
   describe: 'test string',
 }],
 components: [{
-  name: 'ProgressMarker',
-  type: AliPlayerComponent.ProgressMarker
+  name: 'ProgressComponent',
+  type: AliPlayerComponent.ProgressComponent
 }]
 ```
 
-`progressMarkers` has the following properties: `title` indicating the title of the key point, `coverUrl` indicating the URL of the image, and `describe` indicating the description of the image.
-
+`progressMarkers` 中数据项的属性 `title`: 打点组件的标题, `coverUrl`: 打点组件图片地址, `describe`: 打点组件描述

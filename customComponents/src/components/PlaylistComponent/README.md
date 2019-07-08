@@ -1,10 +1,12 @@
-## 视频列表组件
+## Playlist component
 
-在播放器控制条上增加视频列表, 视频切换的按钮, 并在播放器上显示视频列表。
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/PlaylistComponent/README.zh_CN.md)
 
-### 使用说明
+This component adds the button for displaying the playlist and buttons for switching among videos to the control bar of the player and can display a playlist in the player.
 
-引入当前组件, 播放器配置中添加如下代码:
+### Usage
+
+Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{
@@ -26,8 +28,9 @@ components: [{
 }]
 ```
 
-该组件接收一个参数:
+This component contains the following parameter:
 
 > playlist
 
-- `playlist`, `Array` 类型, 播放列表数组, 数组元素拥有两个属性: `name`(视频名称), `source`(视频地址)
+- `playlist`: The video list. The type is `Array`. It has two properties: `name` (video name) and `source` (video URL).
+

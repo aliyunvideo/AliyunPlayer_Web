@@ -1,114 +1,110 @@
-## Aliplayer H5播放器的自定义组件
+## Custom-component demo of HTML5-based ApsaraVideo Player
 
-本项目包含Aliplayer H5播放器的自定义组件，可以作为自定义组件如何实现的参考，在这里也可以找到一些常用的自定义组件，包含第三方实现的。
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/README.zh_CN.md)
 
+This demo illustrates the custom components of HTML5-based ApsaraVideo Player and can be used as a reference to implement custom components. In this demo, you can find some common custom components, including third-party components.
 
-## [介绍文章](https://yq.aliyun.com/articles/626454)
+## [Introduction](https://yq.aliyun.com/articles/626454)
 
-## 例子
+## Examples
 
-- ES6例子
+- ES6 example
 
-- Aliplayer.Component的例子
+- ApsaraVideo Player component example
 
-##  插件列表
+## Component list
 
-[演示地址](https://player.alicdn.com/aliplayer/presentation/index.html)
+[Demo](https://player.alicdn.com/aliplayer/presentation/index.html)
 
-### 本项目插件
+### Components of this demo
 
-- [记忆播放](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/MemoryPlayComponent)
-- [跑马灯](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/BulletScreenComponent)
-- [开始广告](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/StartADComponent)
-- [暂停广告](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/PauseADComponent)
-- [播放下一个](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/playerNextComponent)
-- [播放列表](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/PlaylistComponent)
-- [旋转和镜像](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/RotateMirrorComponent)
-- [视频广告](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/VideoADComponent) 移动端可能视频会被浏览器劫持播放
-- [弹幕](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/AliplayerDanmuComponent) 使用了第三方的弹幕库[CommentCoreLibrary](https://github.com/jabbany/CommentCoreLibrary/)
-- [试看](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/PreviewVodComponent)
-- [倍速播放](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/RateComponent)
-- [清晰度](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/QualityComponent)
-- [进度打点](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/ProgressComponent)
+- [Last position](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/MemoryPlayComponent)
+- [Scrolling text](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/BulletScreenComponent)
+- [Start ad](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/StartADComponent)
+- [Pause ad](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/PauseADComponent)
+- [Play next](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/playerNextComponent)
+- [Playlist](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/PlaylistComponent)
+- [Rotation and mirroring](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/RotateMirrorComponent)
+- [Video ad](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/VideoADComponent): On a mobile device, the browser may hijack the playback of the video ad.
+- [Danmu](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/AliplayerDanmuComponent): uses the third-party danmu library [CommentCoreLibrary.](https://github.com/jabbany/CommentCoreLibrary/)
+- [Preview](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/PreviewVodComponent)
+- [Playback speed](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/RateComponent)
+- [Definition](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/QualityComponent)
+- [Progress marker](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/ProgressComponent)
 
+### Others
 
+## Usage
 
-### 其他
+If you need to use only a single component, reference the JS file of the component. To use a component in the ApsaraVideo Player component library, you can reference the AliPlayerComponent.XXX.js file.
 
-## 如何使用
+### Package components
 
-当只需要单独的某个组件时，只需要引用对应组件的JS文件，如果引用的是Aliplayer组件库文件，则通过AliPlayerComponent.XXX引用具体的组件。
-
-### 如何打包
-
-**如果是Windows环境, `NODE_ENV` 环境变量的设置和在 `macOS` 和 `Linux` 下的设置不同, 要将 `package.json` 下的, `build_customize` 命令更改为:** 
+**In Windows, set the environment variable `NODE_ENV` to a value different from that in `macOS` and `Linux`. Modify the `build_customize` command in `package.json` as follows:**
 
 ```
 "build_customize": set NODE_ENV=production&&webpack --config webpack.config.customize.js --progress
 ```
 
-#### 打包全部组件
+#### Package all components
 
-下面的两个指令中的任意一个都可以打包全部播放器组件, 打包之后的文件是 `/disk/aliplayer-components/aliplayercomponents.min.js` 
+You can run either of the following commands to package all components. The packaged file is `/disk/aliplayer-components/aliplayercomponents.min.js.`
 
 ```sh
 $ npm run build 
-# 或者
+# Or
 $ npm run build all
 ```
 
-#### 自定义打包组件
+#### Package components as required
 
-为了减少体积, 用户可以自己选择需要打包的组件, 只要执行一下命令
+To reduce the size of the packaged file, you can package only required components. To do so, run the following command:
 
 ```sh
-$ npm run build componentsName # componentsName 是组件名称
+$ npm run build componentsName # componentsName indicates the component name.
 ```
 
-componentsName 是组件的名称, 多个组件名称以空格隔开, 例如
+componentsName indicates the component name. Separate multiple component names with spaces. Example:
 
 ```sh
-$ npm run build AliplayerDanmu BulletScreen # 打包弹幕插件和跑马灯插件
+$ npm run build AliplayerDanmu BulletScreen # Package the danmu and scrolling text components only.
 ```
 
-componentsName 可选的值有:
+You can set componentsName to any of the following values:
 
-- AliplayerDanmu 弹幕组件
-- BulletScreen 跑马灯组件  
-- MemoryPlay 记忆播放组件
-- PauseAD 暂停广告组件 
-- PlayerNext 播放下一个视频组件
-- Playlist 播放列表组件 
-- Preview 试看组件
-- RotateMirror 旋转镜像组件
-- StartAD 开始广告组件
-- Staticad 静态广告组件
-- VideoAD 视频广告组件
+- AliplayerDanmu: the damu component.
+- BulletScreen: the scrolling text component.
+- MemoryPlay: the last position component.
+- PauseAD: the pause ad component.
+- PlayerNext: the play next component.
+- Playlist: the playlist component.
+- Preview: the preview component.
+- RotateMirror: the rotation and mirroring component.
+- StartAD: the start ad component.
+- Staticad: the static ad component:
+- VideoAD: the video ad component.
 
-打包之后的文件在是 `/disk/aliplayer-components/aliplayercomponents.min.js` , 引用到用户的页面中即可
+The packaged file is `/disk/aliplayer-components/aliplayercomponents.min.js` file, which can be referenced in your page.
 
-### 引用具体的组件
+### Reference a specific component
 
-- 在html文件中引用具体的JS文件
+- Reference the specific JS file in your HTML file.
 
 ```sh
-
 <script type="text/javascript" src="js/staticAdComponent.min.js"></script>
-
 ```
 
-- 给播放器注入组件
+- Inject a component to the player
 
 ```sh
-
- var option = {
+var option = {
      id: "J_prismPlayer",
      autoplay: true,
      isLive:false,
      playsinline:true,
      width:"100%",
      height:"100%",
-     useH5Prism:true, //启用H5播放器
+     useH5Prism:true, // Enable the HTML5 player.
      useFlashPrism:false,
      source:source,
      vid:vid,
@@ -119,39 +115,35 @@ componentsName 可选的值有:
 };
 
 var player = new Aliplayer(option);
-
 ```
 
-### 引用Aliplayer组件库
+### Reference the ApsaraVideo Player component library
 
-- 在html文件中引用具体的JS文件
+- Reference the specific JS file in your HTML file.
 
 ```sh
-
 <script type="text/javascript" src="js/aliplayerComponents.min.js"></script>
-
 ```
 
-- 给播放器注入组件
+- Inject a component to the player
 
-提供了3个参数：
+The following table lists the parameters for injecting a component.
 
-|名称|说明
+|Parameter|Description
 |-|-
-|name|组件名称，可用通过名称得到组件
-|type| 组件类型
-|args| 组件的参数
+|name|The component name. You can obtain a component by its name.
+|type|The component type.
+|args|The component parameters.
 
 ```sh
-
- var option = {
+var option = {
      id: "J_prismPlayer",
      autoplay: true,
      isLive:false,
      playsinline:true,
      width:"100%",
      height:"100%",
-     useH5Prism:true, //启用H5播放器
+     useH5Prism:true, // Enable the HTML5 player.
      useFlashPrism:false,
      source:source,
      vid:vid,
@@ -165,18 +157,16 @@ var player = new Aliplayer(option);
 };
 
 var player = new Aliplayer(option);
-
 ```
 
-|名称|说明
+|Parameter|Description
 |-|-
-|name|组件名称，可用通过名称得到组件
-|type| 组件类型
-|args| 组件的参数
+|name|The component name. You can obtain a component by its name.
+|type|The component type.
+|args|The component parameters.
 
 ```sh
-
- var player = new Aliplayer({
+var player = new Aliplayer({
     id: "J_prismPlayer",
      autoplay: true,
      isLive:false,
@@ -189,51 +179,42 @@ var player = new Aliplayer(option);
      {name:'adComponent1',type:notParameComponent}
      ]                 
     });
-
 ```
 
-#### 获取组件
+#### Obtain a component
 
-提供getComponent方法获取实例组件，参数为组件的名字
+You can use the getComponent method to obtain the instance of a component. The parameter is the component name.
 
 ```sh
-
 var component = player.getComponent('adComponent');
-
 ```
 
-### 安装依赖项
+### Install dependencies
 
-本Demo使用了ES6、webpack、gulp等技术。
+This demo uses technologies such as ES6, webpack, and gulp.
 
- - [Node.js](https://nodejs.org/en/)
- - [Webpack4.0](http://webpack.github.io) 
- - [gulp](https://gulpjs.com)
+- [Node.js](https://nodejs.org/en/)
+- [webpack 4.0](http://webpack.github.io)
+- [gulp](https://gulpjs.com)
 
 ```sh
-
 $ cd customComponents
 $ npm install
-
 ```
 
-### 编译
+### Compile the code
 
-#### 编译压缩版
+#### Compile compressed components
 
 ```sh
-
 $ cd customComponents
 $ npm run prod
-
 ```
 
-#### 编译非压缩版
+#### Compile uncompressed components
 
 ```sh
-
 $ cd customComponents
 $ npm run dev
-
 ```
 

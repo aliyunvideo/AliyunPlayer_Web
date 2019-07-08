@@ -1,10 +1,12 @@
-## 倍速播放组件
+## Playback speed component
 
-倍速播放组件是用来快速调整视频速度的组件度
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/RateComponent/README.zh_CN.md)
 
-### 使用方法
+This component is used to adjust the playback speed of a video.
 
-引用当前组件, 播放器配置中添加如下代码:
+### Usage
+
+Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{
@@ -13,4 +15,5 @@ components: [{
 }]
 ```
 
-**添加倍速播放组件之后, 播放器的设置里面的倍速选项会被隐藏**
+**After the playback speed component is added, the playback speed setting in the player is hidden.**
+

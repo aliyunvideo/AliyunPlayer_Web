@@ -1,117 +1,114 @@
-## Aliplayer播放器H5点播demo
+## Demo of HTML5-based ApsaraVideo Player for VOD
 
-包含播放、播放列表、评论、点赞、客户端长连接mqtt、支持在android微信全屏H5同层播放，解决android微信弹出全屏播放的问题等功能。
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/h5VodDemo/README.zh_CN.md)
 
-### 问题说明
+This demo provides features such as playback, playlist, comment, like, and MQTT persistent session. This demo supports HTML5-based full-screen same-layer playback in WeChat for Android to resolve the full-screen playback issue.
 
-#### 同层播放
+### Issue description
 
-在Android手机上浏览器(比如：微信)播放视频时，浏览器会劫持视频的播放，使用的是浏览器自带的播放器弹出全屏播放视频，而且会覆盖Dom元素，对于这部分案例没有有效的办法解决，但是由于X5内核的浏览器（微信、QQ浏览器）提供了一些属性可以解决不劫持视频的播放和覆盖Dom元素，腾讯命名为同层播放，只针对Android的X5内核浏览器。但是由于播放器时X5浏览器还是还弹出一层覆盖播放， 上部还是会保留退出和分享按钮，下部会有黑边，布局可能会和原来的界面有点不一样，这就需要用户通过订阅x5requestFullScreen和x5cancelFullScreen事件微调布局
+#### Same-layer playback
 
-#### 直接退出程序
+When a video is played on a webpage, for example, in WeChat, on an Android device, the browser hijacks the playback of the video. That is, the browser uses its default player to play the video in full screen and overwrites the DOM element. Browsers (such as WeChat and QQ Browser) with the X5 kernel provide some properties to resolve this issue. The solution is called same-layer playback by Tencent. This solution applies only to X5-kernel browsers on Android devices. X5-kernel browsers resolve this issue by displaying a pop-up player above the webpage, with the exit and share buttons at the top and a black edge at the bottom. In this case, the layout may be slightly different from that of the original player. You need to subscribe to the x5requestFullScreen and x5cancelFullScreen events to tune the layout.
 
-现在当弹出全屏同层播放时， 左上角有返回按钮，当点击此按钮时，会退出后直接关闭页面，代码在videoplayer/index.js：
+#### Player exiting
 
+When a video is played in full-screen same-layer mode, the Exit button appears in the upper-left corner of the player. You can tap this button to exit the player and close the webpage. The code is in the videoplayer/index.js file.
 
 ```sh
-
-//微信左上角退出按钮触发时关闭页面
+// Close the webpage when the Exit button in the upper-left corner of the player is tapped in WeChat.
 this.player.tag.addEventListener("x5videoexitfullscreen", ()=>{
     if(WeixinJSBridge)
         WeixinJSBridge.call('closeWindow');
 });
-
-
 ```
 
-如果不希望退出后直接关闭页面，可以在代码中对上面的代码添加注释。
+If you do not want to close the webpage when exiting the player, you can comment out the preceding code.
 
-#### [Aliplayer官方文档](https://help.aliyun.com/document_detail/51991.html?spm=5176.doc62941.6.704.Lcuzlc)
+#### [ApsaraVideo Player documentation](https://help.aliyun.com/document_detail/51991.html?spm=5176.doc62941.6.704.Lcuzlc)
 
-#### [体验demo](https://player.alicdn.com/aliplayer/)
+#### [Demo](https://player.alicdn.com/aliplayer/)
 
-#### [参考文章](https://help.aliyun.com/document_detail/62953.html?spm=5176.doc51991.2.21.c1yAdY)
+#### [Reference](https://help.aliyun.com/document_detail/62953.html?spm=5176.doc51991.2.21.c1yAdY)
 
-#### [实现介绍文章](http://www.jianshu.com/p/4ac1aa9fd087)
+#### [Implementation reference](http://www.jianshu.com/p/4ac1aa9fd087)
 
-![移动版](https://player.alicdn.com/aliplayer/img/h5demosmall.png)  
+![Mobile edition](https://player.alicdn.com/aliplayer/img/h5demosmall.png)
 
-### 安装依赖项
+### Install dependencies
 
-本Demo使用了ES6、webpack、gulp等技术。
+This demo uses technologies such as ES6, webpack, and gulp.
 
- - [Node.js](https://nodejs.org/en/)
- - [Webpack4.0](https://webpack.js.org/) 
- - [gulp](https://gulpjs.com)
+- [Node.js](https://nodejs.org/en/)
+- [webpack 4.0](https://webpack.js.org/)
+- [gulp](https://gulpjs.com)
 
 ```sh
 $ cd h5VodDemo
 $ npm install
-
 ```
 
-### 编译
+### Compile the code
 
-#### 开发环境
+#### Development environment
 
-启动webpack dev server微服务，支持监听文件变化，实现时时打包，支持热模块替换。
+Start the webpack-dev-server microservice, which can monitor file changes and package files in real time. This microservice also supports hot module replacement (HMR).
 
 ```sh
 $ cd h5demo
 $ npm run dev
 ```
 
-#### 生产环境
+#### Production environment
 
-macOS, Linux系统下: 
+For macOS and Linux:
 
 ```sh
 $ cd h5demo
 $ npm run prod
 ```
 
-Windows系统:
+For Windows:
 
 ```sh
 $ cd h5demo
 $ npm run prod_win
 ```
 
-#### Q&A 
+#### FAQ
 
-[X5浏览器同层播放介绍](https://x5.tencent.com/tbs/guide/video.html)
+[Introduction to same-layer playback in X5-kernel browsers](https://x5.tencent.com/tbs/guide/video.html)
 
-Q：如何测试效果，确定进入了同层播放器？
+Q: How do I ensure that I am using the same-layer player?
 
-A：安装新的tbs版本后，如果要测试效果，请杀掉微信进程，把系统时间往后调一天以上，再进入网页进行视频播放，如果微信的顶bar消失，进入了一个沉浸式的播放器，则是进了同层播放器。
+A: After installing Tencent Browsing Service (TBS) of the latest version, you can test the playback effect. To do so, terminate the WeChat process, set the system time to at least one day later than the current date, and play a video on a webpage. If the top bar of WeChat disappears and an immersive player appears, the video is played in the same-layer player.
 
-Q：如何查看当前的的tbs版本？
+Q: How do I check the TBS version?
 
-A：在微信聊天窗口输入//gettbs 并发送，查看弹出的Toast上显示的tbsCoreVersion 是否等于36849 ，若是则tbs版本正确。注：这是之后进行测试的基础，这个版本一定要正确
+A: Enter //gettbs in a WeChat chat window and send it. Check whether the value of tbsCoreVersion in the toast that appears is 36849. If yes, the TBS version is correct. Note: As the basis for subsequent tests, the TBS version must be correct.
 
-Q：接入了同层播放器，在老版本的tbs是否会出问题？
+Q: Is there any problem with TBS of an earlier version when I use the same-layer player?
 
-A：对老版本不会产生影响。
+A: TBS of an earlier version is not affected.
 
-Q：同层播放器在iOS上会生效吗？
+Q: Can I use the same-layer player on an iOS device?
 
-A：目前的同层播放器只在Android（包括微信）上生效，暂时不支持iOS
+A: Currently, you can use the same-layer player only in browsers (including WeChat) on Android devices. You cannot use the same-layer player on iOS devices.
 
-Q：同层播放器顶部”<”和“…”按钮可以去掉吗？
+Q: Can I hide the "<" (exit) and "..." (share) buttons on the top of the same-layer player?
 
-A：不能
+A: No. You cannot hide the "<" and "..." buttons.
 
-Q: 在微信TBS里如何区是否支持同层播放器
+Q: How do I check whether TBS in Wechat supports the same-layer player?
 
-A: a)在微信等TBS里通过UA判断X5内核版本来区分,当版版本号>036849表示支持
+A: a) For TBS in WeChat or other products, check the X5 kernel version in the user agent (UA). If the version number is greater than 036849, the same-layer player is supported.
 
-UA示例:
+UA example:
 
 Mozilla/5.0 (Linux; Android 4.4.4; OPPO R7 Build/KTU84P) AppleWebKit/537.36(KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.8 TBS/036849 Safari/537.36 MicroMessenger/6.3.27.861 NetType/WIFI Language/zh_CN
 
-b)在QQ浏览器Android版本中,当浏览器版本>=7.1时开始支持
+b) Check the version of QQ Browser for Android. QQ Browser 7.1 and later versions support the same-layer player.
 
-UA示例：
+UA example:
 
 UserAgent: Mozilla/5.0 (Linux. U. Android 4.4.4. zhcn. OPPO R7 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko)Version/4.0 Chrome/37.0.0.0 MQQBrowser/7.1 Mobile Safari/537.36
 

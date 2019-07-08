@@ -1,10 +1,12 @@
-## 旋转镜像组件
+## Rotation and mirroring component
 
-在播放器控制条上添加旋转和镜像按钮, 用于视频旋转和镜像变换
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/RotateMirrorComponent/README.zh_CN.md)
 
-### 使用方法
+This component adds the rotation and mirroring buttons to the control bar of the player for rotating and mirroring a video.
 
-引用当前组件, 播放器配置中添加如下代码:
+### Usage
+
+Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{

@@ -1,10 +1,12 @@
-## 播放下一个视频组件
+## Play next component
 
-在播放器的控制条上添加 `播放下一个` 视频按钮, 按钮的点击事件用户可以自定义并作为组件参数传入
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/playerNextComponent/README.zh_CN.md)
 
-### 使用说明
+This component adds the `Play Next` button to the control bar of the player. You can customize the click event handler for the button and pass the event handler as the component parameter.
 
-引入当前组件, 播放器配置中添加如下代码:
+### Usage
+
+Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{
@@ -14,8 +16,9 @@ components: [{
 }]
 ```
 
-该组件接收一个参数:
+This component contains the following parameter:
 
 > clickHandle
 
-- `clickHandle`, 函数, `播放下一个 ` 按钮的点击事件
+- `clickHandle`: the click event handler for the `Play Next` button.
+

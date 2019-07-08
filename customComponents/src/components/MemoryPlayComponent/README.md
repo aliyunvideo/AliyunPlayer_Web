@@ -1,24 +1,27 @@
-## 记忆播放组件
+## Last position component
 
-自动记忆用户上一次播放的视频位置, 记忆播放组件分两种, 一种点击播放(会提示用户上次播放的位置, 用户可以点击 `seek`), 另一种是自动播放(自动seek到上次播放位置)
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/MemoryPlayComponent/README.zh_CN.md)
 
-### 使用说明
+This component remembers the last playback position of a video. It can notify you of the last playback position so that you can `seek` to this position. Alternatively, this component can automatically seek to the last playback position and start the playback from that position.
 
-引入当前组件, 播放器配置中添加如下代码:
+### Usage
+
+Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{
   name: 'MemoryPlayComponent',
   type: AliPlayerComponent.MemoryPlayComponent,
-  /* Set the first parameter to true to enable auto play. The default is false. */
+  /* Set the first parameter to true to enable auto play. The default value is false. */
   args: [true]
 }]
 ```
 
-该组件接收一个参数:
+This component contains the following parameter:
 
 > autoPlay
 
-- `autoPlay`: `Boolean`, 可选参数, 默认为 `false`。是否启用自动播放。
+- `autoPlay`: Optional. Indicates whether to automatically seek to the last playback position and start the playback. The type is `Boolean`.The default value is `false`. You can use this parameter to enable or disable automatic playback.
 
-**注意: 记忆播放组件使用 `localStorage` 记录播放位置, 不支持 `localStorage` 的浏览器, 记忆播放组件将不生效**
+**Note: The last position component uses `localStorage` to record the playback position. This component does not take effect in browsers that do not support `localStorage`.**
+

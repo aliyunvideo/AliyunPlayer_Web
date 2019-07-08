@@ -1,19 +1,28 @@
-# 微信小程序集成阿里云点播服务
+# Demo of WeChat applet that integrates ApsaraVideo for VOD
 
-小程序的逻辑层和渲染层是分开的，逻辑层运行在 JSCore 中，并没有一个完整浏览器对象，因而缺少相关的DOM API和BOM API。这一区别导致了前端开发非常熟悉的一些库，例如 jQuery、 Zepto 等，在小程序中是无法运行的，同理Web Aliplayer也是基于浏览器环境的，在微信小程序里不能运行，因此，需要使用小程序自带的Video组件去播放视频，下面就介绍如何在小程序里播放阿里云点播服务的视频。<br /><br />
-## 基本功能
-本Demo包含了播放列表、多分辨率、倍速播放，全屏播放等功能：<br />![image.png](https://player.alicdn.com/resource/mini/mini11.png)
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/vod-mini-program/README.zh_CN.md)
 
-## 实现介绍
-### 获取视频信息流程
-首先用户的Appserver需要提供两个接口服务，获取视频列表和获取视频信息接口，如果用户的小程序没有视频列表，那么只需要获取视频信息接口服务。<br />基本流程是客户端调用客户自己的App Server获取视频的列表，然后App Server调用点播[获取视频信息列表](https://help.aliyun.com/document_detail/52838.html)或者[批量获取视频信息](https://help.aliyun.com/document_detail/86042.html)Open API，在用户选中列表记录时， 根据videoId的值通过客户自己的App Server调用点播的[获取视频信息接口](https://help.aliyun.com/document_detail/56124.html)获取播放视频信息，此接口包含播放地址等信息，代码逻辑在service/service.js文件里。<br />![image.png](https://player.alicdn.com/resource/mini/mini31.png)
+In a WeChat applet, the logic layer and rendering layer are separated. The logic layer runs in JSCore without a complete browser object. Therefore, no DOM API or BOM API is available. In this case, libraries that are commonly used in frontend development, such as jQuery and Zepto, cannot run in the WeChat applet. Similarly, the browser-based ApsaraVideo Player for web cannot run in the WeChat applet either. Therefore, you need to use the default video component provided by the WeChat applet to play videos. This demo illustrates how to play videos of ApsaraVideo for VOD in a WeChat applet.<br /><br />
 
-### 登记服务域名
-微信小程序控制台注册AppServer的访问域名，登记以后就小程序就可以访问客户自己的App Server的服务，比如：<br />    ![image.png](https://player.alicdn.com/resource/mini/mini21.png)
+## Basic features
 
-### 注意点
-#### 解决video的高层级问题
-元素需要放到cover-view里面， 并且把cover-view作为Video的子元素，比如：
+This demo provides features such as playlist, multi-definition, playback speed adjustment, and full-screen playback.<br />![image.png](https://player.alicdn.com/resource/mini/mini11.png)
+
+## Implementation
+
+### Obtain video information
+
+Your AppServer must provide the methods for obtaining the video list and video information. If your applet does not need to display the video list, the AppServer only needs to provide the method for obtaining video information. <br />The basic process is as follows: The applet calls the method provided by the AppServer to obtain the video list, and the AppServer calls the [GetVideoList](https://help.aliyun.com/document_detail/52838.html) or [GetVideoInfos](https://help.aliyun.com/document_detail/86042.html) operations to obtain the video list from ApsaraVideo for VOD. When a user selects a video in the video list, the AppServer calls the [GetVideoInfo](https://help.aliyun.com/document_detail/56124.html) operation of ApsaraVideo for VOD to obtain the video information based on the video ID. The GetVideoInfo operation returns information such as the playback URL. The code is in the service/service.js file. <br />![image.png](https://player.alicdn.com/resource/mini/mini31.png)
+
+### Register a service domain name
+
+You need to register the domain name of the AppServer in the WeChat applet console, as shown in the following figure. After the registration, the applet can access your AppServer.<br />![image.png](https://player.alicdn.com/resource/mini/mini21.png)
+
+### Precautions
+
+#### Resolve the high-layer issue of video
+
+Put elements in cover-view and set cover-view as a sub-element of video. Example:
 
 ```html
 <video
@@ -37,9 +46,7 @@
   </video>
 ```
 
-#### Android全屏tab事件失效问题
-Android里全屏播放，tab事件会失效，引起自定义控制栏不能显示、倍速选择和清晰度选择不能隐藏，Demo里在全屏时会一直有自定义控制栏，如果用户需要隐藏，则可以自己实现一个点击提示按钮，允许用户点击隐藏和显示，倍速选择和清晰度选择Demo已经添加了关闭按钮，可以点击关闭， 效果如下： <br />![image.png](https://player.alicdn.com/resource/mini/mini41.png)
+#### Resolve the issue of tab event failure when a video is played in full screen on an Android device
 
-
-
+When a video is played in full screen on an Android device, the tab event is invalid. As a result, the custom control bar cannot be displayed, and the speed and definition settings cannot be hidden. In this demo, the custom control bar is always displayed in full-screen mode. You can implement a button for displaying or hiding the control bar. This demo also provides the close button for the speed and definition settings, so that users can tap the button to hide the settings. The following figure shows the full-screen playback effect. <br />![image.png](https://player.alicdn.com/resource/mini/mini41.png)
 

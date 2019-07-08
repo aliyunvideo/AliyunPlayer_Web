@@ -1,12 +1,14 @@
-## 弹幕组件
+## Danmu component
 
-集成了 `CommentCoreLibrary` 弹幕库, 更多文档请查看 [CommentCoreLibrary文档](https://github.com/jabbany/CommentCoreLibrary/)
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/AliplayerDanmuComponent/README.zh_CN.md)
 
-在控制条上增加了弹幕关闭和开启按钮, 以及发送弹幕的输入框, 和发送弹幕的按钮
+Danmu, also known as bullet comment, is a feature that enables comments of viewers to fly across a video when the video is being played. This component integrates `CommentCoreLibrary` to provide the danmu feature. For more information, see the [CommentCoreLibrary documentation.](https://github.com/jabbany/CommentCoreLibrary/)
 
-### 使用说明
+This component adds a button for enabling or disabling the damu feature, a text box for entering comments, and a button for sending comments to the control bar of the player.
 
-引入当前组件, 播放器配置中添加如下代码:
+### Usage
+
+Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{
@@ -16,30 +18,31 @@ components: [{
 }]
 ```
 
-该组件接收一个参数 `danmukuList` 数组形式的弹幕列表, 每一个数组元素即一个弹幕对象, 弹幕对象属性参考[CommentObject 弹幕对象](https://github.com/jabbany/CommentCoreLibrary/blob/master/docs/CommentObject.md), 可根据文档添加任意属性来满足自己的需求, 示例如下:
+This component contains the `danmukuList` parameter, which specifies an array of comment objects. For more information about properties of the comment object, see [CommentObject](https://github.com/jabbany/CommentCoreLibrary/blob/master/docs/CommentObject.md). You can add any properties as required by referring to the description about CommentObject. The following is an example:
 
 ```js
-// 弹幕对象的属性均来自, CommentCoreLibrary 的 CommentObject 对象可查看文档
+// All properties of the comment object are from the CommentObject object in CommentCoreLibrary. For more information, see the CommentObject document.
 [{
-  "mode": 1,            // mode 表示弹幕的类型，参考 弹幕类型 https://github.com/jabbany/CommentCoreLibrary/blob/master/docs/CommentTypes.md
-  "text": "test",       // text 表示弹幕的文字内容。注意：在创造弹幕对象后，对 text 的更改将无意义。
-  "stime": 1000,        // stime 表示弹幕相对于视频位置的开始时间（ms），0即在视频开始立即出现
-  "size": 25,           // 弹幕的文字大小
-  "color": 0xffffff     // 文字颜色
+  "mode": 1,            // The type of the comment. For more information, visit https://github.com/jabbany/CommentCoreLibrary/blob/master/docs/CommentTypes.md.
+  "text": "test",       // The text of the comment. Note: After a comment object is created, any modification to its text does not take effect.
+  "stime": 1000,        // The time when the comment is displayed in the video. Unit: milliseconds. A value of 0 indicates that the comment immediately appears when the playback starts.
+  "size": 25,           // The font size of the comment.
+  "color": 0xffffff     // The color of the text.
 }]
 ```
 
-### 接口属性说明
+### Component properties and methods
 
-> 调用 `player.getComponent(componentName)` 之后会获取到组件对象, 就可以使用组件的方法
+> After calling `player.getComponent(componentName)`, you can obtain the component object and use the properties and methods of the component.
 
-#### 属性
+#### Properties
 
-弹幕组件拥有 `CM` 属性, 该属性即弹幕管理器 `CommentManager` 实例, CommentManager 属性方法请参考[CommentManager 弹幕管理器](https://github.com/jabbany/CommentCoreLibrary/blob/master/docs/CommentManager.md)
+The danmu component has the `CM` property, which is a `CommentManager` instance. For more information about the properties and methods of CommentManager, see [CommentManager.](https://github.com/jabbany/CommentCoreLibrary/blob/master/docs/CommentManager.md)
 
-#### 方法
+#### Methods
 
-弹幕组件有如下方法:
+The danmu component provides the following methods:
 
-- `send(data:ICommentData)` 直接发送一条实时弹幕, 实质上调用了 `CM` 的 `send` 方法, 参考[文档](https://github.com/jabbany/CommentCoreLibrary/blob/master/docs/CommentManager.md#senddataicommentdata)
-- `insert(data:ICommentData)`  把弹幕插入弹幕列表（时间轴）。插入会动态调整目前的位置。实质上调用了 `CM` 的 `insert` 方法, 参考[文档](https://github.com/jabbany/CommentCoreLibrary/blob/master/docs/CommentManager.md#insertdataicommentdata)
+- `send(data:ICommentData)`: sends a comment in real time. By calling this method, you essentially call the `send` method of `CM`. For more information, see [this document.](https://github.com/jabbany/CommentCoreLibrary/blob/master/docs/CommentManager.md#senddataicommentdata)
+- `insert(data:ICommentData)`: inserts a comment into the comment list (timeline). When a comment is inserted, the system automatically sets the time when the comment is displayed. By calling this method, you essentially call the `insert` method of `CM`. For more information, see [this document.](https://github.com/jabbany/CommentCoreLibrary/blob/master/docs/CommentManager.md#insertdataicommentdata)
+

@@ -1,49 +1,51 @@
-## Aliplayer播放器H5 live demo
+## Demo of HTML5-based ApsaraVideo Player for live streaming
 
-包含全屏播放、评论、点赞、客户端长连接mqtt、支持在android微信全屏同层播放，解决android微信弹出全屏播放的问题等功能。
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/h5LiveDemo/README.zh_CN.md)
 
-## [体验demo](https://player.alicdn.com/aliplayer/)
+This demo provides features such as full-screen playback, comment, like, and MQTT persistent session. This demo supports HTML5-based full-screen same-layer playback in WeChat for Android to resolve the full-screen playback issue.
 
-## [参考文章](https://player.alicdn.com/aliplayer/docs/blogs/how-to-handle-h5-same-layer.html)
+## [Demo](https://player.alicdn.com/aliplayer/)
 
-## [实现介绍文章](http://www.jianshu.com/p/4ac1aa9fd087)
+## [Reference](https://player.alicdn.com/aliplayer/docs/blogs/how-to-handle-h5-same-layer.html)
 
-![移动版](https://player.alicdn.com/aliplayer/img/h5livedemo.png)  
+## [Implementation reference](http://www.jianshu.com/p/4ac1aa9fd087)
 
-### 安装依赖项
+![Mobile edition](https://player.alicdn.com/aliplayer/img/h5livedemo.png)
 
-本Demo使用了ES6、webpack、gulp等技术
+### Install dependencies
 
- - [Node.js](https://nodejs.org/en/)
- - [Webpack2.0](http://webpack.github.io) 
- - [gulp](https://gulpjs.com)
+This demo uses technologies such as ES6, webpack, and gulp.
+
+- [Node.js](https://nodejs.org/en/)
+- [webpack 2.0](http://webpack.github.io)
+- [gulp](https://gulpjs.com)
 
 ```sh
 $ cd h5LiveDemo
 $ npm install
 ```
 
-### 编译
+### Compile the code
 
-#### 开发环境
+#### Development environment
 
-启动webpack dev server微服务，支持监听文件变化，实现时时打包，支持热模块替换。
+Start the webpack-dev-server microservice, which can monitor file changes and package files in real time. This microservice also supports hot module replacement (HMR).
 
 ```sh
 $ cd h5livedemo
 $ npm run dev
 ```
 
-#### 生产环境
+#### Production environment
 
-macOS, Linux 系统:
+For macOS and Linux:
 
 ```sh
 $ cd h5livedemo
 $ npm run prod
 ```
 
-Windows 系统: 
+For Windows:
 
 ```sh
 $ cd h5livedemo

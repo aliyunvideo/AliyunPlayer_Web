@@ -1,10 +1,12 @@
-## 静态广告组件
+## Static ad component
 
-图片广告组件, 代码使用 `es5` 编写
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/staticadcomponent/README.zh_CN.md)
 
-### 使用说明
+This component is used to display an image ad. The code is written in `ES5`.
 
-引用当前组件, 播放器配置中添加如下代码:
+### Usage
+
+Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{
@@ -14,9 +16,10 @@ components: [{
 }]
 ```
 
-该组件接收两个参数: 
+This component contains the following parameters:
 
-> adAddress, toAddress
+> adAddress and toAddress
 
-- `adAddress`, `String` 类型, 广告视频地址
-- `toAddress`, `String` 类型, 广告链接地址
+- `adAddress`: the URL of the image ad. The type is `String`.
+- `toAddress`: the URL of the ad page. The type is `String`.
+

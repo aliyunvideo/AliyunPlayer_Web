@@ -1,65 +1,65 @@
-## 阿里云Aliplayer播放器直播点播在PC端和移动端的综合例子
+## Demo of integrated ApsaraVideo Player that supports live streaming and VOD on both PCs and mobile devices
 
-包含播放、播放列表、评论、客户端长连接mqtt、支持在android微信全屏H5同层播放，解决android微信弹出全屏播放的问题等功能， 
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/multiPlatformLiveDemo/README.zh_CN.md)
 
-根据设备类型自定选择移动版或桌面版播放。
+This demo provides features such as playback, playlist, comment, and MQTT persistent session. This demo supports HTML5-based full-screen same-layer playback in WeChat for Android to resolve the full-screen playback issue.
 
-[体验demo](https://player.alicdn.com)
+The desktop edition or mobile edition of the player is selected automatically based on the device type.
 
-## 桌面版
+[Demo](https://player.alicdn.com)
 
-![桌面版](https://player.alicdn.com/aliplayer/img/pclive11.png) ![桌面版](https://player.alicdn.com/aliplayer/img/pclive21.png)
+## Desktop edition
 
-## 移动版
+![Desktop edition](https://player.alicdn.com/aliplayer/img/pclive11.png) ![Desktop edition](https://player.alicdn.com/aliplayer/img/pclive21.png)
 
-![移动版](https://player.alicdn.com/aliplayer/img/reacth5live1.png)  
+## Mobile edition
 
-## 特性
+![Mobile edition](https://player.alicdn.com/aliplayer/img/reacth5live1.png)
 
-- 使用Prismplayer播放器
-- 动态跳转到PC端或移动端页面
-- 使用 React, ES6 & Babel 6
-- 使用Webpack编译
-- 支持 [hot module replacement](https://webpack.github.io/docs/hot-module-replacement.html)
-- Auto Open a new browser tab when Webpack loads, and reload the page when you modified the code
+## Features
 
-## 如何使用
+- Uses Prismplayer.
+- Dynamically redirects to the webpage for PCs or webpage for mobile devices.
+- Uses React, ES6, and Babel 6.
+- Uses webpack for compilation.
+- Supports [hot module replacement (HMR).](https://webpack.github.io/docs/hot-module-replacement.html)
+- Automatically opens a new browser tab when webpack is loaded, and reloads the webpage when you modify the code.
 
-### 安装依赖项
+## Usage
 
- - [Node.js](https://nodejs.org/en/)
- - [Webpack2.0](http://webpack.github.io) 
- - [gulp](https://gulpjs.com)
+### Install dependencies
+
+- [Node.js](https://nodejs.org/en/)
+- [webpack 2.0](http://webpack.github.io)
+- [gulp](https://gulpjs.com)
 
 ```bash
-
 $ https://github.com/aliyunvideo/AliyunPlayer_Web.git <foldername>
 $ cd <foldername>
 $ npm install
-
 ```
 
-### 运行移动端
+### Run the mobile edition of the player
 
 ```bash
 $ npm run mobile
 ```
 
-### 运行PC端
+### Run the desktop edition of the player
 
 ```bash
 $ npm run pc
 ```
 
-### 编译产品
+### Compile the code
 
-macOS, Linux系统下:
+For macOS and Linux:
 
 ```bash
 $ npm run prod
 ```
 
-Windows系统下:
+For Windows:
 
 ```bash
 $ npm run prod-windows
@@ -68,3 +68,4 @@ $ npm run prod-windows
 ## License
 
 MIT
+

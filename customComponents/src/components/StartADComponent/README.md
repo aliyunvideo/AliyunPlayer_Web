@@ -1,10 +1,12 @@
-## 开始广告组件
+## Start ad component
 
-视频即将开始播放时显示的图片广告组件
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/StartADComponent/README.zh_CN.md)
 
-### 使用方法
+This component is used to display an image ad when a video is about to be played.
 
-引用当前组件, 播放器配置中添加如下代码:
+### Usage
+
+Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{
@@ -14,10 +16,11 @@ components: [{
 }]
 ```
 
-该组件接收三个参数:
+This component contains the following parameters:
 
-> coverUrl, adUrl, adDuration
+> coverUrl, adUrl, and adDuration
 
-- `coverUrl`, `String` 类型, 广告图片URL
-- `adUrl`, `String` 类型, 广告链接
-- `adDuration`, `Number` 类型, 广告时长, 单位为秒
+- `coverUrl`: the URL of the image ad. The type is `String`.
+- `adUrl`: the URL of the ad page. The type is `String`.
+- `adDuration`: the display duration of the ad. Unit: seconds. The type is `Number`.
+

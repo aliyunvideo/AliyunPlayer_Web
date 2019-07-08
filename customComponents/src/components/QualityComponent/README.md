@@ -1,30 +1,32 @@
-## 清晰度组件 
+## Definition component
 
-清晰度组件是用来快速切换视频清晰度的组件
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/QualityComponent/README.zh_CN.md)
 
-### 使用方法
+This component is used to switch to another definition of a video.
 
-引用当前组件, 播放器配置中添加如下代码:
+### Usage
+
+Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{
   name: 'QualityComponent',
   type: AliPlayerComponent.QualityComponent
 }]
-
 ```
 
-> 为了能够获取当前视频的可选清晰度, 需要在播放器创建完成的回调函数中添加获取清晰度的代码:
+> You need to add the code for obtaining the current definition to the callback function that is called when the player is created. 
 
 ```js
-// 注册播放器的 sourceloaded, 获取当前播放视频的清晰度, 获取清晰度组件, 并调用组件的setCurrentQuality方法设置播放器清晰度
+// Register the sourceloaded event of the player to obtain the definition of the current video, obtain the definition component, and call the setCurrentQuality method of the component to set the definition to be used by the player.
 player.on('sourceloaded', function(params) {
   var paramData = params.paramData
   var desc = paramData.desc
   var definition = paramData.definition
-  // 获取清晰度组件并调用清晰度组件的 setCurrentQuality 设置清晰度 
+  // Obtain the definition component and call the setCurrentQuality() method of the component to set the definition to be used by the player. 
   player.getComponent('QualityComponent').setCurrentQuality(desc, definition)
 })
 ```
 
-**添加清晰度组件之后, 播放器的设置里面的清晰度选项会被隐藏**
+**After the definition component is added, the definition setting in the player is hidden.**
+
