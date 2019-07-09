@@ -1,6 +1,6 @@
 ## Custom-component demo of HTML5-based ApsaraVideo Player
 
-Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/README.zh_CN.md)
+Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/README.zh_CN.md)
 
 This demo illustrates the custom components of HTML5-based ApsaraVideo Player and can be used as a reference to implement custom components. In this demo, you can find some common custom components, including third-party components.
 
