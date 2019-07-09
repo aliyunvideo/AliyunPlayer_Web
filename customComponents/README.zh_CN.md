@@ -1,6 +1,6 @@
 ## Aliplayer H5播放器的自定义组件
 
-其他语言: [English](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/README.md)
+其他语言: [English](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/README.md)
 
 本项目包含Aliplayer H5播放器的自定义组件，可以作为自定义组件如何实现的参考，在这里也可以找到一些常用的自定义组件，包含第三方实现的。
 
