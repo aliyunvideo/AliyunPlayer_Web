@@ -10,9 +10,9 @@ module.exports = {
     aliplayercomponents: [path.resolve(__dirname, './src/components/index.js'), path.resolve(__dirname, './src/assets/scss/index.scss')]
   },
   output: {
-    path: path.resolve(__dirname, './disk/aliplayer-components'),
+    path: path.resolve(__dirname, './dist/aliplayer-components'),
     publicPath: '',
-    filename: './[name].min.js'
+    filename: './[name]-1.0.1.min.js'
   },
   resolve: {
     extensions: ['.js', '.json'],

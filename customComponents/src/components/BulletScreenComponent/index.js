@@ -31,11 +31,20 @@ export default class BulletScreenComponent {
       this.html.style.animationPlayState = 'paused'
     }
     Object.keys((this.style)).forEach(key => this.html.style[key] = this.style[key])
-    let bulletHeight = this.html.offsetHeight
-    let playerHeight = parseInt(player.getOptions().height.replace('px', ''))
-    let maxHeight = playerHeight - bulletHeight
-    let top = this.bulletPosition === 'top' ? 0 : this.bulletPosition === 'bottom' ? (maxHeight + 'px') : this.randomTop(maxHeight)
-    this.html.style.top = top
+    //字体高度
+    var bulletHeight = this.html.offsetHeight
+    //播放器高度
+    var playerHeight = parseInt(player.getOptions().height.replace('px', ''))
+    //字体距离播放器底部最大高度
+    var maxHeight = playerHeight - bulletHeight
+
+    if (this.bulletPosition === 'bottom'){
+      this.html.style.bottom = 0 
+    } else {
+      let top = this.bulletPosition === 'top' ? 0 : this.randomTop(maxHeight)
+      this.html.style.top = top
+    }
+    
     if (this.bulletPosition === 'random') {
       this.html.addEventListener('animationiteration', () => {
         this.html.style.top = this.randomTop(maxHeight)

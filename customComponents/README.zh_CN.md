@@ -218,23 +218,3 @@ $ npm install
 
 ```
 
-### 编译
-
-#### 编译压缩版
-
-```sh
-
-$ cd customComponents
-$ npm run prod
-
-```
-
-#### 编译非压缩版
-
-```sh
-
-$ cd customComponents
-$ npm run dev
-
-```
-

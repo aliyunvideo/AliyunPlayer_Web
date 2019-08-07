@@ -1,33 +1,30 @@
-## Scrolling text component
+## 跑马灯组件
 
-Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/BulletScreenComponent/README.zh_CN.md)
+主要用于一些滚动文字, 可以自定义出现的位置, 文字颜色和字体大小。
 
-This component is used to display scrolling text. You to set the text position, color, and font size.
+### 使用说明
 
-### Usage
-
-Reference this component and add the following code to the player configuration:
+引入当前组件, 播放器配置中添加如下代码:
 
 ```js
 components: [{
   name: 'BulletScreenComponent',
   type: AliPlayerComponent.BulletScreenComponent,
-  /** The scrolling text component contains three parameters: text, style, and bulletPosition. 
-   * text: the scrolling text.
-   * style: the style of the scrolling text.
-   * bulletPosition: the position of the scrolling text. Valid values: 'top', 'bottom', and 'random'. The default value is 'random'.
+  /** Descriptions of the scrolling text component parameters: text, style, bulletPosition 
+   * text: The scrolling text
+   * style: The style of the scrolling text
+   * bulletPosition: The position of the scrolling text. Valid values: 'top', 'bottom', and 'random'. The default is 'random'.
    */
   args: ['Welcome to use Aliplayer', {fontSize: '16px', color: '#00c1de'}, 'random']
 }]
 ```
 
-This component contains the following parameters:
+该组件接收三个参数:
 
-> text, style, and bulletPosition
+> text, style, bulletPosition
 
-- `text`: the scrolling text. The type is `String`.
-- `style`: the style of the scrolling text, which is similar to `CSS`. The type is `Object`. The properties of `CSS` are named in the camel-case style. Write these properties correctly.
-- `bulletPosition`: Optional. The text position. The default value is 'random', which indicates a random position (that is, the position of the scrolling text is random every time it is displayed.) Other valid values include 'top' and 'bottom'.
+- `text`, `String` 类型, 需要显示的文字
+- `style`, `Object` 类型, 类似 `CSS` 的写法, `CSS` 属性名用驼峰式的写法
+- `bulletPosition`, 可选参数, 默认为 'random': 随机位置(位置滚动一次后会随机改变); 另外可以设置成 'top'(顶部) 或 'bottom'(底部)
 
-**Note: To prevent the scrolling text component from being hidden or deleted, the `CSS` properties `display`, `visibility`, and `opacity` of the component are fixed to `block`, `visible`, and `1`, respectively. To change the transparency of the scrolling text component, set `opacity` in the `style` parameter.**
-
+**注意: 为了防止跑马灯组件被隐藏或者删除, 跑马灯的 `CSS` 属性 `display, visibility, opacity` 分别被固定设置成 `block, visible, 1`。如果想设置跑马灯的透明度, 请设置组件参数 `style` 中的 `opacity`**

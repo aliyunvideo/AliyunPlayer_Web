@@ -50,6 +50,7 @@
     "html-webpack-externals-plugin": "^2.1.0",
     "html-webpack-plugin": "^4.0.0-beta.4",
     "node-sass": "^4.11.0",
+    "open-browser-webpack-plugin": "0.0.5",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "script-loader": "^0.7.0",
@@ -59,7 +60,7 @@
     "validate-commit-msg": "2.x",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "latest",
+    "webpack-dev-server": "3.1.4",
     "webpack-merge": "^1.0.2"
   },
   "keywords": [

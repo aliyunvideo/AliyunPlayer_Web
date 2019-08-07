@@ -201,20 +201,3 @@ This demo uses technologies such as ES6, webpack, and gulp.
 $ cd customComponents
 $ npm install
 ```
-
-### Compile the code
-
-#### Compile compressed components
-
-```sh
-$ cd customComponents
-$ npm run prod
-```
-
-#### Compile uncompressed components
-
-```sh
-$ cd customComponents
-$ npm run dev
-```
-

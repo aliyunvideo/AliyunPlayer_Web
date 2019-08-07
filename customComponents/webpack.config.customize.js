@@ -11,9 +11,9 @@ module.exports = {
     minimize: false
   },
   output: {
-    path: path.resolve(__dirname, './disk/aliplayer-components'),
+    path: path.resolve(__dirname, './dist/aliplayer-components'),
     publicPath: '',
-    filename: './aliplayercomponents.min.js'
+    filename: './aliplayercomponents-1.0.1.min.js'
   },
   resolve: {
     extensions: ['.js', '.json'],

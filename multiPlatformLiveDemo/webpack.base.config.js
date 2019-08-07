@@ -1,9 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: [
