@@ -70,13 +70,15 @@ class VideoAdComponent {
   }
 
   ready (player, e) {
-    player.pause()
-    this.player = player
-    this.html.querySelector('.video-ad-close label').onclick = () => {
-      if (typeof this.adCloseFunction === 'function') {
-        this.adCloseFunction(this)
-      } else {
-        this.closeVideoAd()
+    if (this.html !== null) {
+      player.pause()
+      this.player = player
+      this.html.querySelector('.video-ad-close label').onclick = () => {
+        if (typeof this.adCloseFunction === 'function') {
+          this.adCloseFunction(this)
+        } else {
+          this.closeVideoAd()
+        }
       }
     }
   }
@@ -116,6 +118,7 @@ class VideoAdComponent {
   closeVideoAd () {
     this.clearAdInterval()
     this.html.parentNode.removeChild(this.html)
+    this.html = null
     if (this.player.getOptions().autoplay) {
       this.player.play()
     }
@@ -170,12 +173,10 @@ class MbVideoAdComponent {
 
     this.vdSource = player.getOptions().source
     player.loadByUrl(this.adVideoSource)
-  }
-
-  ready (player) {
 
     let btnPlay_el = this.html.querySelector('.autoplay-video-ad')
     btnPlay_el.onclick = () => {
+      //alert('created')
       if (this.adDuration === null) {
         return
       }
@@ -205,6 +206,44 @@ class MbVideoAdComponent {
       }
 
       aliplayer_el.addEventListener('timeupdate', timeupdateHandle)
+      这行字不要删不要注释
+    }
+  }
+
+  ready (player) {
+    //alert("2222222")
+    // let btnPlay_el = this.html.querySelector('.autoplay-video-ad')
+    // btnPlay_el.onclick = () => {
+    //   alert('ready')
+    //   if (this.adDuration === null) {
+    //     return
+    //   }
+    //   this.html.parentNode.querySelector('.prism-big-play-btn').click()
+    // }
+
+    // if (this.adDuration === null) {
+    //   player.loadByUrl(this.adVideoSource)
+    //   this.adDuration = undefined
+
+    //   let aliplayerWrap_el = this.html.parentNode
+    //   let aliplayer_el = aliplayerWrap_el.querySelector('video')
+    //   let self = this
+    //   function timeupdateHandle () {
+    //     let duration = aliplayer_el.duration
+    //     console.log('duration', duration)
+    //     if (!isNaN(duration) && duration !== 0) {
+    //       aliplayer_el.removeEventListener('timeupdate', timeupdateHandle)
+    //       self.adDuration = Math.ceil(aliplayer_el.duration)
+    //       if (self.html.querySelector('.autoplay-video-ad').style.display !== 'none') {
+    //         self.html.querySelector('.autoplay-video-ad').style.display = 'none'
+    //         player.play()
+    //       }
+    //       self.html.querySelector('#video-ad-duration').innerText = self.adDuration
+    //       self.setAdInterval()
+    //     }
+    //   }
+
+    //   aliplayer_el.addEventListener('timeupdate', timeupdateHandle)
 
       // 关闭广告点击事件
       this.html.querySelector('.video-ad-close label').onclick = () => {
@@ -214,7 +253,7 @@ class MbVideoAdComponent {
           this.closeVideoAd()
         }
       }
-    }
+    // }
   }
 
   // 视频广告倒计时
