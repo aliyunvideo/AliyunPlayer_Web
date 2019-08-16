@@ -180,11 +180,12 @@ class MbVideoAdComponent {
       if (this.adDuration === null) {
         return
       }
+      player.loadByUrl(this.adVideoSource)
       this.html.parentNode.querySelector('.prism-big-play-btn').click()
     }
 
     if (this.adDuration === null) {
-      player.loadByUrl(this.adVideoSource)
+      //player.loadByUrl(this.adVideoSource)
       this.adDuration = undefined
 
       let aliplayerWrap_el = this.html.parentNode
@@ -206,7 +207,6 @@ class MbVideoAdComponent {
       }
 
       aliplayer_el.addEventListener('timeupdate', timeupdateHandle)
-      这行字不要删不要注释
     }
   }
 

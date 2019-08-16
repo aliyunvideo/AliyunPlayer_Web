@@ -1,37 +1,35 @@
-## Video ad component
+## 视频广告组件
 
-Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/VideoADComponent/README.zh_CN.md)
+在视频即将播放时, 现实的视频广告
 
-This component is used to display a video ad when a video is about to be played.
+### 使用方法
 
-### Usage
-
-Reference this component and add the following code to the player configuration:
+引用当前组件, 播放器配置中添加如下代码:
 
 ```js
 components: [{
   name: 'VideoADComponent',
   type: AliPlayerComponent.VideoADComponent,
-  /* The video ad component contains the following parameters: adVideoSource, adLink, adCloseFunction, and closeText.
+  /* The video ad component has these parameters: adVideoSource, adLink, adCloseFunction, and closeText
    * adVideoSource {@String Required. The URL of the video ad. }
-   * adLink {@String Required. The URL of the ad page.}
-   * adCloseFunction {@Function Optional. The click event handler for the skip ad button. The default action is to skip the ad.}
-   * closeText {@String Optional. The text of the skip ad button. The default value is "Skip Ad".}
+   * adLink {@String Required. The link of the ad page.}
+   * adCloseFunction {@Function Optional. The click event handler for skipping the ad. The default action is skip ad.}
+   * closeText {@String Optional. The text of the skip ad button. The default is 'Skip Ad'.}
    */
   args: ['https://player.alicdn.com/ad/citybrain.mp4', 'https://et.aliyun.com/brain/city', videoAdClose, 'Skip Ad']
 }]
 ```
 
-This component contains the following parameters:
+该组件接收四个参数: 
 
-> adVideoSource, adLink, adCloseFunction, and closeText
+> adVideoSource, adLink, adCloseFunction, closeText
 
-- `adVideoSource`: the URL of the video ad. The type is `String`.
-- `adLink`: the URL of the ad page. The type is `String`. 
-- `adCloseFunction`: Optional. The click event handler for the skip ad button. If you do not pass this parameter, the video ad is closed by default.
-- `closeText`: Optional. The text of the skip ad button. The type is `String`. If you do not pass this parameter, the text is "Skip Ad" by default.
+- `adVideoSource`, `String`类型, 广告视频的视频地址
+- `adLink`, `String` 类型, 广告视频的链接地址
+- `adCloseFunction`, 函数, 关闭广告的点击事件处理函数, 可选参数, 不传则默认关闭广告视频
+- `closeText`, `String` 类型, 关闭广告的文字内容, 可选参数, 不传则默认为 '关闭广告'
 
-> `adCloseFunction` takes the video ad as the parameter. You can call the methods provided by the video ad. In the following example, a confirmation dialog box is displayed when the skip ad button is clicked.
+> `adCloseFunction` 的参数就是视频广告本身, 可以调用视频广告暴露的接口, 一下实例是点击关闭广告之后弹出 confirm 的相关操作
 
 ```js
 var adCloseFunction = function (videoAd) {
@@ -48,9 +46,8 @@ var adCloseFunction = function (videoAd) {
 }
 ```
 
-### Component properties and methods
+### 接口属性说明
 
-- `pauseVideoAd`: pauses the video ad.
-- `closeVideoAd`: closes the video ad.
-- `playVideoAd`: plays the video ad.
-
+- `pauseVideoAd` 暂停视频广告
+- `closeVideoAd` 关闭视频广告
+- `playVideoAd` 播放视频广告
