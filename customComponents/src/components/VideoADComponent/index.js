@@ -42,6 +42,8 @@ class VideoAdComponent {
     let self = this
     function getVideoAdTime () {
       videoAd_ele.removeEventListener('canplay', getVideoAdTime)
+      //广告起播loading 
+      document.getElementById('loadflag').style.display = 'none'
       self.adDuration = Math.ceil(videoAd_ele.duration)
       let adDuration_ele = self.html.querySelector('#video-ad-duration')
       adDuration_ele.innerText = self.adDuration
@@ -53,11 +55,11 @@ class VideoAdComponent {
       })
     }
 
-    this.html.querySelector('.icon-player-play').onclick = () => {
+    this.html.querySelector('.icon-player-play').onclick = () => {     
       this.playVideoAd()
       this.html.querySelector('.autoplay-video-ad').style.display = 'none'
     }
-
+    
     videoAd_ele.addEventListener('canplay', getVideoAdTime)
 
     // 查看详情 整个广告链接添加 href
@@ -66,7 +68,7 @@ class VideoAdComponent {
     videoLink.setAttribute('href', this.adLink)
     videoDetail.setAttribute('href', this.adLink)
 
-    el.appendChild(this.html)
+    el.appendChild(this.html) 
   }
 
   ready (player, e) {
@@ -79,6 +81,8 @@ class VideoAdComponent {
         } else {
           this.closeVideoAd()
         }
+        //广告播放完了之后自动播放视频
+        document.getElementById('player-con').getElementsByTagName('video')[0].play()
       }
     }
   }
@@ -108,6 +112,8 @@ class VideoAdComponent {
       this.adDuration -= 1
       if (this.adDuration <= 0) {
         this.closeVideoAd()
+        //广告播放完了之后自动播放视频
+        document.getElementById('player-con').getElementsByTagName('video')[0].play()
       } else {
         adDuration_ele.innerText = this.adDuration
       }
@@ -165,7 +171,7 @@ class MbVideoAdComponent {
     controlBar.className = controlBar.className + ' controlbar-element-hidden'
     // 隐藏播放暂停按钮
     let pauseBtn = el.querySelector('.prism-big-play-btn')
-    pauseBtn.className = pauseBtn.className + ' controlbar-element-hidden'
+    pauseBtn.className = pauseBtn.className + ' controlbar-element-hidden'  
   }
 
   created (player) {
@@ -192,7 +198,7 @@ class MbVideoAdComponent {
       let aliplayer_el = aliplayerWrap_el.querySelector('video')
       let self = this
       function timeupdateHandle () {
-        let duration = aliplayer_el.duration
+        let duration = aliplayer_el.duration       
         console.log('duration', duration)
         if (!isNaN(duration) && duration !== 0) {
           aliplayer_el.removeEventListener('timeupdate', timeupdateHandle)
@@ -203,6 +209,7 @@ class MbVideoAdComponent {
           }
           self.html.querySelector('#video-ad-duration').innerText = self.adDuration
           self.setAdInterval()
+          // document.getElementById('loadflag').style.display = 'none'
         }
       }
 
@@ -252,6 +259,8 @@ class MbVideoAdComponent {
         } else {
           this.closeVideoAd()
         }
+        //广告播放完了之后自动播放视频
+        document.getElementById('player-con').getElementsByTagName('video')[0].play()
       }
     // }
   }
@@ -263,6 +272,8 @@ class MbVideoAdComponent {
       this.adDuration -= 1
       if (this.adDuration <= 0) {
         this.closeVideoAd()
+        //广告播放完了之后自动播放视频
+        document.getElementById('player-con').getElementsByTagName('video')[0].play()
       } else {
         adDuration_ele.innerText = this.adDuration
       }
