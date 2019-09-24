@@ -1,5 +1,3 @@
-import staticadcomponent from './staticadcomponent';
-
 import AliplayerDanmuComponent from './AliplayerDanmuComponent'
 
 import BulletScreenComponent from './BulletScreenComponent'
@@ -7,8 +5,6 @@ import BulletScreenComponent from './BulletScreenComponent'
 import MemoryPlayComponent from './MemoryPlayComponent'
 
 import PauseADComponent from './PauseADComponent'
-
-import PlayerNextComponent from './playerNextComponent'
 
 import PlaylistComponent from './PlaylistComponent'
 
@@ -26,20 +22,26 @@ import StartADComponent from './StartADComponent'
 
 import VideoADComponent from './VideoADComponent'
 
+import CaptionComponent from './CaptionComponent'
+
+import TrackComponent from './TrackComponent'
+
+import ManyVideoADComponent from './ManyVideoADComponent'
 
 window.AliPlayerComponent = {
-	StaticAdComponent:staticadcomponent,
-  AliplayerDanmuComponent: AliplayerDanmuComponent,
-  BulletScreenComponent: BulletScreenComponent,
-  MemoryPlayComponent: MemoryPlayComponent,
-  PauseADComponent: PauseADComponent,
-  PlayerNextComponent: PlayerNextComponent,
-  PlaylistComponent: PlaylistComponent,
-  PreviewVodComponent: PreviewVodComponent,
-  RotateMirrorComponent: RotateMirrorComponent,
-  StartADComponent: StartADComponent,
-  VideoADComponent: VideoADComponent,
-  RateComponent: RateComponent,
-  QualityComponent: QualityComponent,
-  ProgressComponent: ProgressComponent,
+  AliplayerDanmuComponent,
+  BulletScreenComponent,
+  MemoryPlayComponent,
+  PauseADComponent,
+  PlaylistComponent,
+  PreviewVodComponent,
+  RotateMirrorComponent,
+  StartADComponent,
+  VideoADComponent,
+  RateComponent,
+  QualityComponent,
+  ProgressComponent,
+  CaptionComponent,
+  TrackComponent,
+  ManyVideoADComponent,
 };

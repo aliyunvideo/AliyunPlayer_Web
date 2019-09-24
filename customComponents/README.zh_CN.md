@@ -31,6 +31,10 @@
 - [倍速播放](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/RateComponent)
 - [清晰度](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/QualityComponent)
 - [进度打点](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/ProgressComponent)
+- [字幕组件](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/CaptionComponent)
+- [音轨](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/TrackComponent)
+- [多视频广告](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/ManyVideoADComponent)
+
 
 
 
@@ -85,6 +89,9 @@ componentsName 可选的值有:
 - StartAD 开始广告组件
 - Staticad 静态广告组件
 - VideoAD 视频广告组件
+- Caption字幕组件
+- Track音轨组件
+- ManyVideoAD多视频广告组件
 
 打包之后的文件在是 `/disk/aliplayer-components/aliplayercomponents.min.js` , 引用到用户的页面中即可
 

@@ -1,0 +1,61 @@
+.player-hidden {
+  display: none !important;
+}
+
+.caption-components {
+  float: right;
+  color: #fff;
+  height: 35px;
+  position: relative;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+.current-caption {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  cursor: pointer;
+}
+
+.caption-list {
+  position: absolute;
+  bottom: 46px;
+  display: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 150px;
+  width: 100px;
+  overflow-y: scroll;
+  li {
+    text-align: center;
+    width: 100px;
+    line-height: 30px;
+    background-color: rgba(0, 0, 0, .6);
+    cursor: pointer;
+    &.current {
+      color: #00c1de;
+    }
+    & + li {
+      border-top: 1px solid rgba(78, 78, 78, 0.3);
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, .5);
+    };
+  }
+}
+@media(max-width: 768px) {
+  .current-caption {
+    width: 40px;
+  }
+  .caption-list li {
+    width: 43px;
+  }
+}
+
+.prism-player .prism-info-display .switchimg {
+  color:#fff
+}

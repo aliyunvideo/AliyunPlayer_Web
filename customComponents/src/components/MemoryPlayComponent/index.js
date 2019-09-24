@@ -9,9 +9,12 @@ export default class MemoryPlayComponent {
   /**
    * @constructor 记忆播放组件构造函数
    */
-  constructor (autoPlay = false) {
+  constructor (autoPlay = false,getTime,saveTimeFunction) {
     this.html = parseDom(memoryPlayHtml)
     this.autoPlay = autoPlay
+    this.getTime = getTime || this._getTime;
+    this.saveTimeFunction = saveTimeFunction || this._saveTime;
+    this.hasMemoryDisplay = false
   }
 
   createEl (el) {
@@ -21,9 +24,11 @@ export default class MemoryPlayComponent {
   ready (player, e) {
     let playerOptions = player.getOptions()
     let memoryVideo = playerOptions.vid || playerOptions.source.replace(/\?.*$/, '')     // 根据视频 vid 或者 source 去存储 localeStorage
-    let memoryTime = localStorage.getItem(memoryVideo)
-    memoryTime = memoryTime && parseInt(memoryTime)
-    if (memoryTime !== null && memoryTime !== 0) {
+    let memoryTime = this.getTime(memoryVideo);
+    memoryTime = memoryTime ? parseInt(memoryTime) : 0;
+    if (memoryTime !== null && memoryTime !== 0 && !this.hasMemoryDisplay) {
+      // 标识记忆播放是否有触发, 解决清晰度切换也会触发记忆播放的问题
+      this.hasMemoryDisplay = true
       if (this.autoPlay) {
         player.seek(memoryTime)
         if (player.getStatus() !== 'playing') {
@@ -31,44 +36,45 @@ export default class MemoryPlayComponent {
         }
       } else {
         let memoryVideoTime = this.getVideoTime(memoryTime)
-        let memoryDomString = `<div class="memory-play">
+        //判断是否是视频播放完了，如果没到，就有拼接的跳转播放
+        if(memoryTime !== parseInt(player._duration)){
+          let memoryDomString = `<div class="memory-play">
           <i class="iconfont icon-close"></i>
           <span>上次看到</span>
           <span>${memoryVideoTime}</span>
           <span class="play-jump">跳转播放</span>
-        </div>`
-        this.html.innerHTML = memoryDomString
-        let timeoutMemory = setTimeout(() => {
-          this.html.innerHTML = ''
-        }, 15000)
-        this.html.querySelector('.icon-close').onclick = () => {
-          this.html.innerHTML = ''
-          clearTimeout(timeoutMemory)
-        }
-        this.html.querySelector('.play-jump').onclick = () => {
-          player.seek(memoryTime)
-          if (player.getStatus() !== 'playing') {
-            player.play()
-          } 
-          this.html.innerHTML = ''
-          clearTimeout(timeoutMemory)
+          </div>`
+          this.html.innerHTML = memoryDomString
+          let timeoutMemory = setTimeout(() => {
+            this.html.innerHTML = ''
+          }, 15000)
+          this.html.querySelector('.icon-close').onclick = () => {
+            this.html.innerHTML = ''
+            clearTimeout(timeoutMemory)
+          }
+          this.html.querySelector('.play-jump').onclick = () => {
+            player.seek(memoryTime)
+            if (player.getStatus() !== 'playing') {
+              player.play()
+            } 
+            this.html.innerHTML = ''
+            clearTimeout(timeoutMemory)
+          }
         }
       }
     }
     
-    // if (document.onvisibilitychange !== undefined) {
     document.onvisibilitychange = function () {
       if (document.visibilityState === 'hidden' && player.getCurrentTime() !== 0) {
-        localStorage.setItem(memoryVideo, player.getCurrentTime())
+        this.saveTimeFunction(memoryVideo, player.getCurrentTime());
+        console.log(play)
       }
     }
-    // } else {
     window.onbeforeunload = function () {
       if (player.getCurrentTime() !== 0) {
-        localStorage.setItem(memoryVideo, player.getCurrentTime())      
+        this.saveTimeFunction(memoryVideo, player.getCurrentTime());     
       }
     }      
-    // }
   }
 
   error (player, e) {
@@ -80,11 +86,9 @@ export default class MemoryPlayComponent {
   }
 
   setMemory (player) {
-    let playerOptions = player.getOptions()
-    let memoryVideo = playerOptions.source.replace(/\?.*$/, '') || playerOptions.vid
-    if (player.getCurrentTime() !== 0) {
-      localStorage.setItem(memoryVideo, player.getCurrentTime())      
-    }
+    let playerOptions = player.getOptions();
+    let memoryVideo = playerOptions.vid || playerOptions.source.replace(/\?.*$/, '');
+    this.saveTimeFunction(memoryVideo, player.getCurrentTime());
   }
 
   getVideoTime(duration) {
@@ -102,5 +106,13 @@ export default class MemoryPlayComponent {
         second = '0' + second;
     }
     return hour === 0 ? minute + ':' + second : hour + ':' + minute + ':' + second;
+  }
+
+  _getTime(memoryVideo){
+    return localStorage.getItem(memoryVideo);
+  }
+
+  _saveTime(memoryVideo,currentTime){
+    localStorage.setItem(memoryVideo, currentTime);
   }
 }
