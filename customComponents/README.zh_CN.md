@@ -32,7 +32,7 @@
 - [清晰度](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/QualityComponent)
 - [进度打点](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/ProgressComponent)
 - [字幕组件](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/CaptionComponent)
-- [音轨](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/TrackComponent)
+- [音轨组件](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/TrackComponent)
 - [多视频广告](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/ManyVideoADComponent)
 
 
