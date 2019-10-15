@@ -39,7 +39,7 @@
     import playerNextComponent from './components/playerNextComponent';
     import playerFullScreenTitle from './components/playerFullScreenTitle';
     import playerTipComponent from './components/playerTipComponent';
-    import {videoList} from './js/testVideoList'
+    import {videoList} from './js/testVideoList';
 
     export default {
         name: 'app',
