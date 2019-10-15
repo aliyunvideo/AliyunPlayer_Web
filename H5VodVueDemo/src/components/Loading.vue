@@ -12,6 +12,7 @@
         }
     }
 </script>
+
 <style lang="scss">
     .az-loading {
         text-align: center;

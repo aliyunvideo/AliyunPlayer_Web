@@ -10,6 +10,7 @@ export default class playerTipComponent {
         $(el).append(this.$html);
     }
 
+
     fadeOutTip() {
         this.$html.show();
         this.$html.fadeOut(1500);

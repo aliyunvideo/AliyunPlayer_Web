@@ -11,7 +11,6 @@ export default class playerFullScreenTitle {
     }
 
 
-
     fullScreenHandle(title) {
         this.$html.text(title);
         this.$html.show();
