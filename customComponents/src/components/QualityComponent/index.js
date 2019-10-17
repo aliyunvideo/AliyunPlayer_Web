@@ -7,11 +7,12 @@ import { parseDom } from 'utils'
  * 切换清晰度组件
  */
 export default class QualityComponent {
-  constructor() {
+  constructor(getQuality) {
     this.html = parseDom(qualityHtml)
     this.modalHtml = parseDom(qualityModal)
     this.hasCreated = false
     this.definition = ''
+    this.getQuality = getQuality 
   }
 
   createEl (el, player) {
@@ -36,7 +37,7 @@ export default class QualityComponent {
     if (currentEle) {
       currentEle.className = ''
     }
-    let li_target = qualityListEle.querySelector(`li[data-def=${def}]`)
+    let li_target = qualityListEle.querySelector(`li[data-def="${def}"]`)
     if (li_target) {
       li_target.className = 'current'
     }
@@ -55,7 +56,7 @@ export default class QualityComponent {
 
     console.log(this.definition)
     if (this.hasCreated == false && this.definition) {
-      let li_target = qualityListEle.querySelector(`li[data-def=${this.definition}]`)
+      let li_target = qualityListEle.querySelector(`li[data-def="${this.definition}"]`)
       li_target.className = 'current'
     }
     this.hasCreated = true
@@ -79,6 +80,7 @@ export default class QualityComponent {
 
     qualityListEle.onclick = ({target}) => {
       let definition = target.dataset.def
+      let desc = target.innerText
       if (definition) {
         if (target.className !== 'current') {
           let url = this._urls.find(url => url.definition === definition)
@@ -90,6 +92,8 @@ export default class QualityComponent {
           this.modalHtml.querySelector('span.current-quality-tag').innerText = url.desc
         } 
       }
+      //点击切换清晰度时，调用这个方法
+      this.getQuality(definition,desc)
     }
   }
 

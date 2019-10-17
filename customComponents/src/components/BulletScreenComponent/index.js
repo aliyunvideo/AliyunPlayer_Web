@@ -70,6 +70,8 @@ export default class BulletScreenComponent {
       let display = cssStyles.getPropertyValue('display')
       let opacity = cssStyles.getPropertyValue('opacity')
       let visibility = cssStyles.getPropertyValue('visibility')
+      let currentwords = this.text;
+      let modifywords = componentEl.innerText
       if (display === 'none') {
         componentEl.style.setProperty('display', 'block')
       }
@@ -78,6 +80,9 @@ export default class BulletScreenComponent {
       }
       if (visibility === 'hidden') {
         componentEl.style.setProperty('visibility', 'visible')
+      }
+      if (currentwords != modifywords) {
+        componentEl.innerText = currentwords
       }
     }
   }

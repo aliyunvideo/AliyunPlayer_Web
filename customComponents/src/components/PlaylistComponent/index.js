@@ -39,6 +39,15 @@ export default class PlaylistComponent {
     this.controlHtml.querySelector('.icon-list').onclick = this.tooglePlaylist.bind(this)
 
     this.listHtml.querySelector('.list').innerHTML = this.computedListDom(this.playlist)
+
+    let source = player.getOptions() && player.getOptions().source
+    let defaultPlayIndex = 0
+    if (source) {
+      defaultPlayIndex = this.playlist.findIndex(item => item.source === source)
+      defaultPlayIndex = defaultPlayIndex > -1 ? defaultPlayIndex : 0
+      this.playingVideoIndex = defaultPlayIndex > -1 ? defaultPlayIndex : 0
+    }
+
     this.listHtml.querySelector('.list').childNodes[0].className = 'video-item active'
     el.appendChild(this.listHtml)
   }

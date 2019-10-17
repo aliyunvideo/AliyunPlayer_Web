@@ -5,10 +5,10 @@
 .rate-components {
   float: right;
   color: #fff;
-  height: 100%;
+  height: 35px;
   position: relative;
   box-sizing: border-box;
-  padding-top: 4px;
+  margin-top: 5px;
 }
 
 .current-rate {
@@ -42,5 +42,13 @@
     &:hover {
       background-color: rgba(0, 0, 0, .5);
     };
+  }
+}
+@media(max-width: 768px) {
+  .current-rate {
+    width: 40px;
+  }
+  .rate-list li {
+    width: 43px;
   }
 }

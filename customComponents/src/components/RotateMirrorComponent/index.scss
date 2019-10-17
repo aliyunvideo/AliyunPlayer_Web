@@ -3,8 +3,9 @@
   color: #fff;
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 35px;
   position: relative;
+  margin-top: 5px;
   i {
     color: #fff;
     display: inline-block;
@@ -26,7 +27,8 @@
   .mirror-option {
     position: absolute;
     background-color: #3c3c3c;
-    top: -66px;
+    top: 0;
+    transform: translateY(-103%);
     right: -20px;
     .mirror-item {
       font-size: 14px;
@@ -36,6 +38,12 @@
       padding: 0 15px;
       cursor: pointer;
       user-select: none;
+      &[data-id="counterclockwise"] {
+        display: none;
+      }
+      &[data-id="clockwise"] {
+        display: none;
+      }
       &.active {
         background-color: rgba(216, 216, 216, 0.1);
         color: #00c1de;
@@ -51,6 +59,16 @@
     }
     &.switch {
       right: 7px;
+    }
+  }
+  @media(max-width: 768px) {
+    .mirror-option {
+      .mirror-item[data-id="counterclockwise"] {
+        display: block;
+      }
+      .mirror-item[data-id="clockwise"] {
+        display: block;
+      }
     }
   }
 }

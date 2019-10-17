@@ -10,7 +10,7 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, .8);
-    z-index: 2147483647;
+    z-index: 9998;
     box-sizing: border-box;
     padding: 20px 20px 70px;
     display: none;
@@ -29,7 +29,7 @@
       color: #333;
       box-shadow: 0 0 5px rgba(0, 0, 0, .3);
       cursor: pointer;
-      z-index: 9999999;
+      z-index: 9998;
     }
     .preview-custom {
       width: 100%;
@@ -60,7 +60,7 @@
     line-height: 26px;
     font-size: 14px;
     padding: 0 12px;
-    z-index: 2147483647;
+    z-index: 9998;
   }
   .preview-vod-close {
     font-size: 18px;

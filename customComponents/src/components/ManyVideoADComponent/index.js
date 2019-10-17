@@ -250,6 +250,8 @@ class MbManyVideoAdComponent {
       let flag = self.playNext(self)
       if(flag == '-1'){
         player.play()
+        let controlBar = document.querySelector('.prism-controlbar')
+        controlBar.className = controlBar.className.replace(' controlbar-element-hidden', '')
       }
       
     })

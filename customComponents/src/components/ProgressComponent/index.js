@@ -30,14 +30,15 @@ export default class ProgressMarker {
     this.html.onmouseleave = () => {
       this.html.style.display = 'none'
     }
+    this.html.onclick = () => {
+      this.html.style.display = 'none'      
+    }
     this.html.querySelector('.pregress-play-btn').addEventListener('click', () => {
       player.seek(this.currentOffset)
     })
   }
 
   markerDotOver(player, data) {
-    // 323px
-    console.log(player._el.clientWidth)
     let maxWidth = player._el.clientWidth
     let componentLeft = `calc(${data.left * 100}% - 10px)`
     if (maxWidth * data.left + 323 > maxWidth) {
@@ -48,10 +49,7 @@ export default class ProgressMarker {
     }
     let { coverUrl, title, describe, offset} = data.progressMarker
     this.currentOffset = offset
-    console.log('offset ', offset)
     this.html.style.left = componentLeft
-    console.log(this.html.style.left)
-
     this.imgEle.src = coverUrl
     this.timeEle.innerText = title
     this.describeEle.innerText = describe
@@ -59,7 +57,6 @@ export default class ProgressMarker {
   }
   
   markerDotOut(player, data) {
-    console.log(data)
     this.timer = setTimeout(() => {
       this.html.style.display = 'none'
     }, 100)

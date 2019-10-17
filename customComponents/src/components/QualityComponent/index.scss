@@ -5,10 +5,10 @@
 .quality-components {
   float: right;
   color: #fff;
-  height: 100%;
+  height: 35px;
   position: relative;
   box-sizing: border-box;
-  padding-top: 4px;
+  margin-top: 4px;
 }
 
 .current-quality {
@@ -57,5 +57,13 @@
   display: none;
   span.current-quality-tag {
     color: #00c1de;
+  }
+}
+@media(max-width: 768px) {
+  .current-quality {
+    width: 40px;
+  }
+  .quality-list li {
+    width: 45px;
   }
 }

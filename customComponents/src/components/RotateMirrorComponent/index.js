@@ -17,7 +17,9 @@ export default class RotateMirrorComponent {
     const lang = player._options && player._options.language
     this.isEn = lang && lang === 'en-us'
     this.html.querySelector('.player-tooltip.counterclockwise').innerText = this.isEn ? 'Rotate 45 degrees counterclockwise' : '逆时针旋转45度'
+    this.html.querySelector('.mirror-item[data-id="counterclockwise"]').innerText = this.isEn ? 'Rotate left 45 ̊' : '左旋转45˚'
     this.html.querySelector('.player-tooltip.clockwise').innerText = this.isEn ? 'Rotate 45 degrees clockwise' : '顺时针旋转45度'
+    this.html.querySelector('.mirror-item[data-id="clockwise"]').innerText = this.isEn ? 'Rotate right 45 ̊' : '右旋转45˚'    
     this.html.querySelector('.player-tooltip.switch').innerText = this.isEn ? 'Mirror' : '镜像'
     this.html.querySelector('.mirror-item[data-id=vertical]').innerText = this.isEn ? 'Vertical mirroring' : '垂直镜像'
     this.html.querySelector('.mirror-item[data-id=horizon]').innerText = this.isEn ? 'Horizontal mirroring' : '水平镜像'
@@ -45,8 +47,18 @@ export default class RotateMirrorComponent {
     }
     eleMirror.onclick = function (e) {
       let target = e.target
+      if (target.dataset.id === 'counterclockwise') {
+        let rotate = player.getRotate()
+        player.setRotate(rotate - 45)
+        return
+      }
+      if (target.dataset.id === 'clockwise') {
+        let rotate = player.getRotate()
+        player.setRotate(rotate + 45)
+        return
+      }
       if (!target.className.match('active')) {
-        let siblingEle = target.previousElementSibling || target.nextElementSibling
+        let siblingEle = target.dataset.id === 'horizon' ? target.previousElementSibling : target.nextElementSibling
         if (siblingEle.className.match('active')) {
           siblingEle.className = 'mirror-item'
           player.cancelImage()
