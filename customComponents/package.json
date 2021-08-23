@@ -1,12 +1,13 @@
 {
   "name": "custom-components",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "aliplayer's components",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./build_customize.sh",
-    "build_customize": "NODE_ENV=production webpack --config webpack.config.customize.js --progress"
+    "build_customize": "NODE_ENV=production webpack --config webpack.config.customize.js --progress",
+    "build_components": "NODE_ENV=production webpack --config webpack.config.components.js --progress"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
     "Component"
   ],
   "dependencies": {
+    "babel-plugin-transform-array-prototype-find": "^1.0.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.18.0",
     "comment-core-library": "^0.9.3",
     "copy-webpack-plugin": "^4.0.1",
@@ -25,6 +28,7 @@
     "html-withimg-loader": "^0.1.16"
   },
   "devDependencies": {
+    "core-js": "^3.0.0",
     "autoprefixer": "^6.5.4",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",

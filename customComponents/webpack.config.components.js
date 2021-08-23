@@ -1,5 +1,6 @@
-const webpack = require('webpack')
-const path = require('path')
+const pkgJson = require('./package.json');
+const webpack = require('webpack');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -12,7 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist/aliplayer-components'),
     publicPath: '',
-    filename: './[name]-1.0.1.min.js'
+    filename: `./[name]-${pkgJson.version}.min.js`
   },
   resolve: {
     extensions: ['.js', '.json'],
