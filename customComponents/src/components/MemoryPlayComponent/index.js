@@ -64,13 +64,14 @@ export default class MemoryPlayComponent {
       }
     }
     
-    document.onvisibilitychange = function () {
+    document.onvisibilitychange = () => {
       if (document.visibilityState === 'hidden' && player.getCurrentTime() !== 0) {
         this.saveTimeFunction(memoryVideo, player.getCurrentTime());
         console.log(play)
       }
     }
-    window.onbeforeunload = function () {
+    
+    window.onbeforeunload = () => {
       if (player.getCurrentTime() !== 0) {
         this.saveTimeFunction(memoryVideo, player.getCurrentTime());     
       }
