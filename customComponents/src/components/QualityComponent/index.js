@@ -1,7 +1,7 @@
 import qualityHtml from './index.html'
 import qualityModal from './quality-modal.html'
 import './index.scss'
-import { parseDom } from 'utils'
+import { parseDom, cookieSet } from 'utils'
 
 /**
  * 切换清晰度组件
@@ -87,6 +87,7 @@ export default class QualityComponent {
           player.loadByUrl(url.Url, player.getCurrentTime(), true, true)          
 
           this.setCurrentQuality(url.desc, url.definition)
+          cookieSet('selectedStreamLevel', url.definition, 365);
 
           this.modalHtml.style.display = 'block'
           this.modalHtml.querySelector('span.current-quality-tag').innerText = url.desc
