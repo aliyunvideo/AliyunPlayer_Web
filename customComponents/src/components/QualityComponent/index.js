@@ -84,7 +84,7 @@ export default class QualityComponent {
       if (definition) {
         if (target.className !== 'current') {
           let url = this._urls.find(url => url.definition === definition)
-          player.loadByUrl(url.Url, player.getCurrentTime(), true, true)          
+          player.loadByUrl(url.Url, player.getCurrentTime(), true /*autoPlay*/, true /*isInner*/, true /*isSwitchLevel*/)
 
           this.setCurrentQuality(url.desc, url.definition)
           cookieSet('selectedStreamLevel', url.definition, 365);
