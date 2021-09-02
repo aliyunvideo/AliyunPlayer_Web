@@ -65,6 +65,12 @@ export default class QualityComponent {
     currentQualityEle.onclick = () => {
       qualityListEle.style.display = 'block'
     }
+    qualityListEle.addEventListener('touchend', () => {
+      let timer = setTimeout(() => {
+        qualityListEle.style.display = 'none'
+        clearTimeout(timer)
+      }, 100)
+    })
     currentQualityEle.onmouseleave = () =>{
       timeId = setTimeout(() => {
         qualityListEle.style.display = 'none'
@@ -84,10 +90,16 @@ export default class QualityComponent {
       if (definition) {
         if (target.className !== 'current') {
           let url = this._urls.find(url => url.definition === definition)
-          player.loadByUrl(url.Url, player.getCurrentTime(), true /*autoPlay*/, true /*isInner*/, true /*isSwitchLevel*/)
+          cookieSet('selectedStreamLevel', url.definition, 365);
+
+          if (player._switchLevel && !player._options.isLive) {
+            player._switchLevel(url.Url);
+          }
+          else {
+            player._loadByUrlInner(url.Url, player.getCurrentTime(), true /*autoPlay*/, true /* isSwitchLevel */);
+          }
 
           this.setCurrentQuality(url.desc, url.definition)
-          cookieSet('selectedStreamLevel', url.definition, 365);
 
           this.modalHtml.style.display = 'block'
           this.modalHtml.querySelector('span.current-quality-tag').innerText = url.desc
