@@ -12,7 +12,7 @@ export default class QualityComponent {
     this.modalHtml = parseDom(qualityModal)
     this.hasCreated = false
     this.definition = ''
-    this.getQuality = getQuality 
+    this.getQuality = getQuality
   }
 
   createEl (el, player) {
@@ -62,26 +62,31 @@ export default class QualityComponent {
     this.hasCreated = true
 
     let timeId = null
+
     currentQualityEle.onclick = () => {
-      qualityListEle.style.display = 'block'
-    }
-    qualityListEle.addEventListener('touchend', () => {
-      let timer = setTimeout(() => {
+      const listVisible = qualityListEle.style.display !== 'none'
+      if (listVisible) {
         qualityListEle.style.display = 'none'
-        clearTimeout(timer)
-      }, 100)
-    })
+      } else {
+        qualityListEle.style.display = 'block'
+      }
+    }
+
     currentQualityEle.onmouseleave = () =>{
+      if (timeId) clearTimeout(timeId)
       timeId = setTimeout(() => {
         qualityListEle.style.display = 'none'
-      }, 100);
+      }, 150);
     }
 
     qualityListEle.onmouseenter = () => {
       clearTimeout(timeId)
     }
     qualityListEle.onmouseleave = () => {
-      qualityListEle.style.display = 'none'
+      if (timeId) clearTimeout(timeId)
+      timeId = setTimeout(() => {
+        qualityListEle.style.display = 'none'
+      }, 150);
     }
 
     qualityListEle.onclick = ({target}) => {
@@ -90,19 +95,24 @@ export default class QualityComponent {
       if (definition) {
         if (target.className !== 'current') {
           let url = this._urls.find(url => url.definition === definition)
-          cookieSet('selectedStreamLevel', url.definition, 365);
-
-          if (player._switchLevel && !player._options.isLive) {
-            player._switchLevel(url.Url);
+          if (url) {
+            cookieSet('selectedStreamLevel', url.definition, 365);
+  
+            if (player._switchLevel && !player._options.isLive) {
+              player._switchLevel(url.Url);
+            }
+            else {
+              player._loadByUrlInner(url.Url, player.getCurrentTime(), true /*autoPlay*/, true /* isSwitchLevel */);
+            }
+  
+            this.setCurrentQuality(url.desc, url.definition)
+  
+            this.modalHtml.style.display = 'block'
+            this.modalHtml.querySelector('span.current-quality-tag').innerText = url.desc
+          } else {
+            // TODO: DEL
+            console.error('== 组件 quality 找不到目标 index == ', this._urls.length);
           }
-          else {
-            player._loadByUrlInner(url.Url, player.getCurrentTime(), true /*autoPlay*/, true /* isSwitchLevel */);
-          }
-
-          this.setCurrentQuality(url.desc, url.definition)
-
-          this.modalHtml.style.display = 'block'
-          this.modalHtml.querySelector('span.current-quality-tag').innerText = url.desc
         } 
       }
       //点击切换清晰度时，调用这个方法
