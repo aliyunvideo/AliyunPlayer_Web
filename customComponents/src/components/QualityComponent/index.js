@@ -92,27 +92,22 @@ export default class QualityComponent {
     qualityListEle.onclick = ({target}) => {
       let definition = target.dataset.def
       let desc = target.innerText
-      if (definition) {
-        if (target.className !== 'current') {
-          let url = this._urls.find(url => url.definition === definition)
-          if (url) {
-            cookieSet('selectedStreamLevel', url.definition, 365);
-  
-            if (player._switchLevel && !player._options.isLive) {
-              player._switchLevel(url.Url);
-            }
-            else {
-              player._loadByUrlInner(url.Url, player.getCurrentTime(), true /*autoPlay*/, true /* isSwitchLevel */);
-            }
-  
-            this.setCurrentQuality(url.desc, url.definition)
-  
-            this.modalHtml.style.display = 'block'
-            this.modalHtml.querySelector('span.current-quality-tag').innerText = url.desc
-          } else {
-            // TODO: DEL
-            console.error('== 组件 quality 找不到目标 index == ', this._urls.length);
+      if (definition && target.className !== 'current') {
+        let url = this._urls.find(url => url.definition === definition)
+        if (url) {
+          cookieSet('selectedStreamLevel', url.definition, 365);
+
+          if (player._switchLevel && !player._options.isLive) {
+            player._switchLevel(url.Url);
           }
+          else {
+            player._loadByUrlInner(url.Url, player.getCurrentTime(), true /*autoPlay*/, true /* isSwitchLevel */);
+          }
+
+          this.setCurrentQuality(url.desc, url.definition)
+
+          this.modalHtml.style.display = 'block'
+          this.modalHtml.querySelector('span.current-quality-tag').innerText = url.desc
         } 
       }
       //点击切换清晰度时，调用这个方法
