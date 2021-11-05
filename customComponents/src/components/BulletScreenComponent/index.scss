@@ -3,12 +3,13 @@
   white-space: nowrap;
   animation: bullet 10s linear infinite;
 }
+
 @keyframes bullet {
   from {
     left: 100%;
   }
   to {
-    left: 0;
+    left: 0%;
     transform: translateX(-100%) 
   }
 }
