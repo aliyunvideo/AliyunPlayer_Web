@@ -31,9 +31,6 @@ This demo illustrates the custom components of HTML5-based ApsaraVideo Player an
 - [Playback speed](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/RateComponent)
 - [Definition](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/QualityComponent)
 - [Progress marker](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/ProgressComponent)
-- [caption](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/CaptionComponent)
-- [track](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/TrackComponent)
-- [Many Video ad](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/ManyVideoADComponent)
 
 ### Others
 
@@ -86,9 +83,6 @@ You can set componentsName to any of the following values:
 - StartAD: the start ad component.
 - Staticad: the static ad component:
 - VideoAD: the video ad component.
-- Caption: the caption component.
-- Track: the track component.
-- ManyVideoAD: the many video ad component.
 
 The packaged file is `/disk/aliplayer-components/aliplayercomponents.min.js` file, which can be referenced in your page.
 
