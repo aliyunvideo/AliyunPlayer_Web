@@ -2,7 +2,7 @@
 
 其他语言: [English](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/H5VodVueDemo/README.md)
 
-基于 Vue 的播放器单页应用, 利用 web 播放器 sdk 进行视频点播，包含播放列表、字幕、多语言、自适应码率，皮肤自定义等功能 [Web播放器文档](https://help.aliyun.com/document_detail/51991.html?spm=a2c4g.11186623.6.708.Sfv1et)
+基于 Vue 的播放器单页应用, 利用 web 播放器 sdk 进行视频点播，包含播放列表、字幕、多语言、自适应码率，皮肤自定义等功能 [Web播放器文档](https://help.aliyun.com/document_detail/125570.html)
 
 ![移动版](https://player.alicdn.com/aliplayer/img/h5vuedemo.png) 
 

@@ -24,7 +24,7 @@ this.player.tag.addEventListener("x5videoexitfullscreen", ()=>{
 
 If you do not want to close the webpage when exiting the player, you can comment out the preceding code.
 
-#### [ApsaraVideo Player documentation](https://help.aliyun.com/document_detail/51991.html?spm=5176.doc62941.6.704.Lcuzlc)
+#### [ApsaraVideo Player documentation](https://help.aliyun.com/document_detail/125570.html)
 
 #### [Demo](https://player.alicdn.com/aliplayer/)
 
