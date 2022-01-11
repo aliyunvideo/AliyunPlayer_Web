@@ -30,6 +30,8 @@ import ManyVideoADComponent from './ManyVideoADComponent'
 
 import PlayerNextComponent from './playerNextComponent'
 
+import PlaySeriesListComponent from './PlaySeriesListComponent'
+
 window.AliPlayerComponent = {
   AliplayerDanmuComponent,
   BulletScreenComponent,
@@ -46,5 +48,6 @@ window.AliPlayerComponent = {
   CaptionComponent,
   TrackComponent,
   ManyVideoADComponent,
-  PlayerNextComponent
+  PlayerNextComponent,
+  PlaySeriesListComponent
 };
