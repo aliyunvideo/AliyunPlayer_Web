@@ -1,7 +1,5 @@
 ## Playlist component
 
-Other Languages: [简体中文](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/PlaylistComponent/README.zh_CN.md)
-
 This component adds the button for displaying the series btn.
 
 ### Usage

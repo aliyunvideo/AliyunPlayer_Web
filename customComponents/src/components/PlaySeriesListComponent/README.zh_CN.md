@@ -1,7 +1,5 @@
 ## 视频列表组件
 
-其他语言: [English](https://github.com/aliyunvideo/AliyunPlayer_Web/blob/master/customComponents/src/components/PlaylistComponent/README.md)
-
 在播放器控制条上增加选集。
 
 ### 使用说明
