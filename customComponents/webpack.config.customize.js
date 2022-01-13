@@ -67,13 +67,13 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    // new UglifyJSPlugin({
-    //   uglifyOptions: {
-    //     compress: {
-    //       drop_console: true
-    //     }
-    //   }
-    // }),
+    new UglifyJSPlugin({
+      uglifyOptions: {
+        compress: {
+          drop_console: true
+        }
+      }
+    }),
     new BundleAnalyzerPlugin()
   ]
 }
