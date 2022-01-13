@@ -27,8 +27,6 @@ export default class AliplayerDanmuComponent {
   }
 
   createEl (el, player) {
-    console.log(player)
-
     const lang = player._options && player._options.language
     this.isEn = lang && lang === 'en-us'
     if (this.danmuInput !== null) {
