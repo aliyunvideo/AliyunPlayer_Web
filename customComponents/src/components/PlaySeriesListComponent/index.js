@@ -11,12 +11,13 @@ export default class PlaySeriesListComponent {
    * @constructor 播放选集组件构造函数
    * @param {el id}
    */
-  constructor (el) {
+  constructor (el, chooseSeriesHandle) {
     this.controlHtml = parseDom(playlistControl)
     this.listHtml = parseDom(listContent)
     this.listHtml.appendChild(document.getElementById(el))
     this.playingVideoIndex = 0
     this.listHideTimeout = null
+    this.chooseSeriesHandle = chooseSeriesHandle
   }
 
   createEl (el, player) {
@@ -55,6 +56,7 @@ export default class PlaySeriesListComponent {
   /* 点击 controlbar 上的播放列表按钮显示隐藏播放列表 */
   tooglePlaylist () {
     this.clearHideListTimeout()
+    this.chooseSeriesHandle()
     if (this.listHtml.style.width === '30%') {
       this.listHtml.style.width = 0
     } else {

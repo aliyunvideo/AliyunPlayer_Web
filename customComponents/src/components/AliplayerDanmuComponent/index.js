@@ -9,32 +9,37 @@ import { parseDom, isElement } from 'utils'
 /**
  * 弹幕组件
  */
-export default class AliplayerDanmuComponent {
+ export default class AliplayerDanmuComponent {
   /**
    * @constructor 弹幕组件构造函数
    * @param {Array danmuList 弹幕数组, 参考 CommentCoreLibrary 文档 https://github.com/jabbany/CommentCoreLibrary/}
    * @param {id 或者 Element, sendEl, 发送弹幕的输入框, 默认为 null}  
    */
-  constructor (danmukuList, sendEl = 'controlbar') {
+  constructor (danmukuList, sendEl = 'controlbar', sendDanmu, inputEl) {
     this.sendEl = sendEl
+    this.inputEl = inputEl // 自定义input
     this.danmukuList = danmukuList
     this.html = parseDom(danmuHtml)
     this.danmuControlHtml = parseDom(danmuControl)
     this.sendEl = sendEl
-    this.danmuInput = sendEl === null ? null : parseDom(danmuInput)
+    this.danmuInput = this.inputEl ? document.getElementById(inputEl) : parseDom(danmuInput)
     this.CM = null
     this.userDanmuOpen = true     // 用户打开关闭弹幕的状态, 默认为 true 打开
+    this.sendDanmu = sendDanmu
   }
 
   createEl (el, player) {
     const lang = player._options && player._options.language
     this.isEn = lang && lang === 'en-us'
-    if (this.danmuInput !== null) {
-      this.danmuInput.querySelector('.danmu-input-enter').innerText = this.isEn ? 'Enter' : '发送'
-      this.danmuInput.querySelector('input').setAttribute('placeholder', this.isEn ? 'Input danmu' : '来个互动弹幕吧~')
+    
+    if(this.inputEl === null ) {
+      if (this.danmuInput !== null) {
+        this.danmuInput.querySelector('.danmu-input-enter').innerText = this.isEn ? 'Enter' : '发送'
+        this.danmuInput.querySelector('input').setAttribute('placeholder', this.isEn ? 'Input danmu' : '来个互动弹幕吧~')
+      }
+      this.danmuControlHtml.querySelector('.player-tooltip.close').innerText = this.isEn ? 'Close Bullect' : '关闭弹幕'
+      this.danmuControlHtml.querySelector('.player-tooltip.open').innerText = this.isEn ? 'Open Bullect' : '打开弹幕'
     }
-    this.danmuControlHtml.querySelector('.player-tooltip.close').innerText = this.isEn ? 'Close Bullect' : '关闭弹幕'
-    this.danmuControlHtml.querySelector('.player-tooltip.open').innerText = this.isEn ? 'Open Bullect' : '打开弹幕'
 
     if (this.sendEl === 'controlbar') {
       let danmuInputWrapEle = this.danmuControlHtml.querySelector('.ali-danmu-input-wrap')
@@ -74,8 +79,19 @@ export default class AliplayerDanmuComponent {
       }
     }
 
+    if(this.inputEl) {
+      let danmuCloseElement = this.danmuControlHtml.querySelector('.icon-danmu-close')
+      let danmuOpenElement = this.danmuControlHtml.querySelector('.icon-danmu-open')
+      let danmuToolTipElement = this.danmuControlHtml.querySelector('.player-tooltip')
+      danmuCloseElement.style.display = 'none'
+      danmuOpenElement.style.display = 'none'
+      danmuToolTipElement.style.display = 'none'
+      return
+    } 
+
     let danmuCloseElement = this.danmuControlHtml.querySelector('.icon-danmu-close')
     let danmuOpenElement = this.danmuControlHtml.querySelector('.icon-danmu-open')
+
     /* 绑定控制条关闭弹幕处理函数 */
     danmuCloseElement.onclick = () => {
       this.userDanmuOpen = false
@@ -109,6 +125,7 @@ export default class AliplayerDanmuComponent {
 
   // 弹幕发送按钮点击事件和弹幕输入框按下 enter 键, 处理事件
   sendDanmuHandle () {
+    
     let danmuInputEle = this.danmuInput.querySelector('.ali-danmu-input input')
     let danmuText = danmuInputEle.value
     let commentSize = [16, 18, 25, 36, 45]
@@ -145,6 +162,7 @@ export default class AliplayerDanmuComponent {
   }
 
   send (danmuku) {
+    this.sendDanmu(danmuku)
     this.CM.send(danmuku)
   }
 
