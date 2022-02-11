@@ -23,7 +23,7 @@ export default class PlaySeriesListComponent {
   createEl (el, player) {
     const lang = player._options && player._options.language
     this.isEn = lang && lang === 'en-us'
-    this.controlHtml.querySelector('.player-tooltip.list').innerText = this.isEn ? 'Playlist' : '选集'
+    // this.controlHtml.querySelector('.player-tooltip.list').innerText = this.isEn ? 'Playlist' : '选集'
     let controlbarElement = el.querySelector('.prism-controlbar')
     controlbarElement.appendChild(this.controlHtml)
     this.listHtml.onmouseleave = () => {
@@ -57,10 +57,10 @@ export default class PlaySeriesListComponent {
   tooglePlaylist () {
     this.clearHideListTimeout()
     this.chooseSeriesHandle()
-    if (this.listHtml.style.width === '30%') {
+    if (this.listHtml.style.width === '270px') {
       this.listHtml.style.width = 0
     } else {
-      this.listHtml.style.width = '30%'
+      this.listHtml.style.width = '270px'
       this.listHideTimeout = setTimeout(() => {
         this.listHtml.style.width = 0
       }, 5000)
