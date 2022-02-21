@@ -27,7 +27,7 @@ components: [{
 }]
 ```
 
-该组件接收三个参数: 
+该组件接收三个参数:
 
 > adVideoSource, adCloseFunction, closeText
 
@@ -55,5 +55,5 @@ var adCloseFunction = function (manyVideoAd) {
 ### 接口属性说明
 
 - `pauseManyVideoAd` 暂停视频广告
-- `closeManyVideoAd ` 关闭视频广告
+- `closeManyVideoAd` 关闭视频广告
 - `playManyVideoAd` 播放视频广告

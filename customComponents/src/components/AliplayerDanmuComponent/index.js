@@ -2,8 +2,9 @@ import danmuHtml from './index.html'
 import danmuControl from './danmu-control.html'
 import danmuInput from './danmu-input.html'
 import './index.scss'
-import { CommentManager } from 'comment-core-library/build/CommentCoreLibrary'; // 注意需要主动修改 里的文件 导出export { CommentManager };
-import 'comment-core-library/build/style.css'
+// import { CommentManager } from 'comment-core-library/build/CommentCoreLibrary'; // 注意需要主动修改 里的文件 导出export { CommentManager };
+import { CommentManager } from 'comment-core-library/dist/CommentCoreLibrary'; // 注意需要主动修改 里的文件 导出export { CommentManager };
+import 'comment-core-library/dist/css/style.css'
 import { parseDom, isElement } from 'utils'
 
 /**
@@ -14,8 +15,11 @@ import { parseDom, isElement } from 'utils'
    * @constructor 弹幕组件构造函数
    * @param {Array danmuList 弹幕数组, 参考 CommentCoreLibrary 文档 https://github.com/jabbany/CommentCoreLibrary/}
    * @param {id 或者 Element, sendEl, 发送弹幕的输入框, 默认为 null}  
+   * sendDanmu 发送弹幕un
+   * inputEl 自定义Btn
+   * handItemClick 点击某条弹幕
    */
-  constructor (danmukuList, sendEl = 'controlbar', sendDanmu, inputEl) {
+  constructor (danmukuList, sendEl = 'controlbar', sendDanmu, inputEl, handItemClick) {
     this.sendEl = sendEl
     this.inputEl = inputEl // 自定义input
     this.danmukuList = danmukuList
@@ -26,6 +30,7 @@ import { parseDom, isElement } from 'utils'
     this.CM = null
     this.userDanmuOpen = true     // 用户打开关闭弹幕的状态, 默认为 true 打开
     this.sendDanmu = sendDanmu
+    this.handItemClick = handItemClick
   }
 
   createEl (el, player) {
@@ -71,7 +76,22 @@ import { parseDom, isElement } from 'utils'
 
     this.CM.init()
     this.CM.load(this.danmukuList)
+    
+    let danmuEle = this.html.querySelector('.danmu')
+    
+    // 点击某条弹幕
+    danmuEle.onclick = (e) => {
+      console.log('弹幕点击=====', e.target, 'hhhhhh----', e)
+      let danmuItemEle = e.target
+      let danmuTxt = e.target.innerText
+      console.log('danmuItemEle')
+      if(danmuItemEle.className.indexOf('cmt') >= 0) {
+        this.handItemClick(danmuTxt)
+      }
+      
+    }
 
+    // let danmuItemEle = danmuEle.querySelector('')
     /* 根据视频播放器的 timeupdate 事件更新弹幕的事件轴   */
     el.querySelector('video').ontimeupdate = () => {
       if (el.querySelector('video') !== null) {
