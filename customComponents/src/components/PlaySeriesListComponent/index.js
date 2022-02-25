@@ -57,10 +57,10 @@ export default class PlaySeriesListComponent {
   tooglePlaylist () {
     this.clearHideListTimeout()
     this.chooseSeriesHandle()
-    if (this.listHtml.style.width === '270px') {
+    if (this.listHtml.style.width === '351px') {
       this.listHtml.style.width = 0
     } else {
-      this.listHtml.style.width = '270px'
+      this.listHtml.style.width = '351px'
       this.listHideTimeout = setTimeout(() => {
         this.listHtml.style.width = 0
       }, 5000)
