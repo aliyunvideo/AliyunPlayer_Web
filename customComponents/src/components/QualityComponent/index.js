@@ -76,7 +76,12 @@ export default class QualityComponent {
       if (timeId) clearTimeout(timeId)
       timeId = setTimeout(() => {
         qualityListEle.style.display = 'none'
-      }, 150);
+      }, 350);
+    }
+
+    currentQualityEle.onmouseenter = () => {
+      qualityListEle.style.display = 'block'
+      clearTimeout(timeId)
     }
 
     qualityListEle.onmouseenter = () => {
@@ -86,7 +91,7 @@ export default class QualityComponent {
       if (timeId) clearTimeout(timeId)
       timeId = setTimeout(() => {
         qualityListEle.style.display = 'none'
-      }, 150);
+      }, 350);
     }
 
     qualityListEle.onclick = ({target}) => {

@@ -32,6 +32,14 @@ import PlayerNextComponent from './playerNextComponent'
 
 import PlaySeriesListComponent from './PlaySeriesListComponent'
 
+import SettingComponent from './SettingComponent'
+
+import FastForwardComponent from './FastForwardComponent'
+
+import GetBackComponent from './GetBackComponent'
+
+import PumpkinSeriesListComponent from './PumpkinSeriesListComponent'
+
 window.AliPlayerComponent = {
   AliplayerDanmuComponent,
   BulletScreenComponent,
@@ -49,5 +57,9 @@ window.AliPlayerComponent = {
   TrackComponent,
   ManyVideoADComponent,
   PlayerNextComponent,
-  PlaySeriesListComponent
+  PlaySeriesListComponent,
+  SettingComponent,
+  FastForwardComponent,
+  GetBackComponent,
+  PumpkinSeriesListComponent
 };
