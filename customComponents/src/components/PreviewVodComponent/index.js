@@ -120,7 +120,7 @@ export default class PreviewVodComponent {
       let currentTime = player.getCurrentTime()
       if (Math.floor(previewTime) < currentTime) {
         this.previewEnd = true
-        player._el.querySelector('.center').classList.add('preview-hide')
+        player._el.querySelector('.center') && player._el.querySelector('.center').classList.add('preview-hide')
         player.seek(previewTime)
         player.pause()
         this.html.querySelector('.preview-component-layer').style.display = 'block'
