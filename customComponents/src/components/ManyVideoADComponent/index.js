@@ -165,7 +165,7 @@ class ManyVideoAdComponent {
       let flag = self.playNext(self)
       //广告结束之后自动播放主视频
       if(flag == '-1'){
-        document.getElementById('player-con').getElementsByTagName('video')[0].play()
+        document.getElementById(player._options.id).getElementsByTagName('video')[0].play()
       }
     })
   }
@@ -176,7 +176,7 @@ class ManyVideoAdComponent {
     this.html.parentNode.removeChild(this.html)
     this.html = null
     //广告结束之后自动播放主视频
-    document.getElementById('player-con').getElementsByTagName('video')[0].play()
+    document.getElementById(player._options.id).getElementsByTagName('video')[0].play()
   }
 }
 
@@ -287,7 +287,7 @@ class MbManyVideoAdComponent {
     this.html.parentNode.removeChild(this.html)
     this.html = null
     //广告结束之后自动播放主视频
-    document.getElementById('player-con').getElementsByTagName('video')[0].play()
+    document.getElementById(player._options.id).getElementsByTagName('video')[0].play()
   }
 
   // 清除视频广告倒计时
@@ -337,7 +337,7 @@ class MbManyVideoAdComponent {
       let flag = self.playNext(self)
       //广告结束之后自动播放主视频
       if(flag == '-1'){
-        document.getElementById('player-con').getElementsByTagName('video')[0].play()
+        document.getElementById(player._options.id).getElementsByTagName('video')[0].play()
         let controlBar = document.querySelector('.prism-controlbar')
         controlBar.className = controlBar.className.replace(' controlbar-element-hidden', '')
       }
