@@ -59,7 +59,7 @@
     "url-loader": "^0.5.9",
     "validate-commit-msg": "2.x",
     "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "3.1.4",
     "webpack-merge": "^1.0.2"
   },
