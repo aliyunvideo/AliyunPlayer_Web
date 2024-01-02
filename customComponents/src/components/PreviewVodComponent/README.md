@@ -28,7 +28,7 @@ This component contains the following parameters:
 
 > previewDuration, previewEndHtml, and previewBarHtml
 
-- `previewDuration`: the preview duration. Unit: seconds. The type is `Number`. A value of 0 indicates that the full video can be watched.
+- `previewDuration`: the preview duration. Unit: seconds. The type is `Number`. (value > 0).
 - `previewEndHtml`: Optional. The `DOM` string that appears in the middle of the player after the preview ends. The default value is null. You can use either of the following methods to set `previewEndHtml:`
 
 ```js

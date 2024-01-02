@@ -28,7 +28,7 @@ components: [{
 
 > previewDuration, previewEndHtml, previewBarHtml
 
-- `previewDuration`, `Number` 类型, 试看时长(单位为秒, 设置为 0 表示可以完整观看)
+- `previewDuration`, `Number` 类型, 试看时长(单位为秒, value > 0)
 - `previewEndHtml`, 试看结束后显示在播放器中间的 `DOM` 字符串, 可选参数, 默认为 null, 可以两种方式设置 `previewEndHtml`
 
 ```js
