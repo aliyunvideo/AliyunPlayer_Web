@@ -54,7 +54,7 @@
     "url-loader": "^0.5.9",
     "webpack": "^4.16.5",
     "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-cli": "^3.1.0",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "latest",
     "webpack-merge": "^1.1.2"
   },
