@@ -10,8 +10,8 @@
 
 ```js
 components: [{
-  name: 'playerNextComponent',
-  type: AliPlayerComponent.playerNextComponent,
+  name: 'PlayerNextComponent',
+  type: AliPlayerComponent.PlayerNextComponent,
   args: [clickHandle]
 }]
 ```

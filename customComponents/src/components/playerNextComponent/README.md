@@ -10,8 +10,8 @@ Reference this component and add the following code to the player configuration:
 
 ```js
 components: [{
-  name: 'playerNextComponent',
-  type: AliPlayerComponent.playerNextComponent,
+  name: 'PlayerNextComponent',
+  type: AliPlayerComponent.PlayerNextComponent,
   args: [clickHandle]
 }]
 ```
