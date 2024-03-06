@@ -45,11 +45,13 @@
 当只需要单独的某个组件时，只需要引用对应组件的JS文件，如果引用的是Aliplayer组件库文件，则通过AliPlayerComponent.XXX引用具体的组件。
 
 ### 如何打包
+**请使用 Node.js 10**
 
-**如果是Windows环境, `NODE_ENV` 环境变量的设置和在 `macOS` 和 `Linux` 下的设置不同, 要将 `package.json` 下的, `build_customize` 命令更改为:** 
+**如果是Windows环境, `NODE_ENV` 环境变量的设置和在 `macOS` 和 `Linux` 下的设置不同, 要将 `package.json` 下的, `build/build_customize` 命令更改为:** 
 
 ```
-"build_customize": set NODE_ENV=production&&webpack --config webpack.config.customize.js --progress
+"build": "build_customize.sh",
+"build_customize": "set NODE_ENV=production&&webpack --config webpack.config.customize.js --progress"
 ```
 
 #### 打包全部组件
