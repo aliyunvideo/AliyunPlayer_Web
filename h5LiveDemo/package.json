@@ -31,7 +31,7 @@
     "autoprefixer": "^6.7.7",
     "babel-preset-stage-0": "^6.24.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-clean": "^0.3.2",
     "html-loader": "^0.4.4",
     "html-webpack-externals-plugin": "^2.2.1",
