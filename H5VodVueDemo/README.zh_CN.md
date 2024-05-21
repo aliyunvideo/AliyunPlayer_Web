@@ -15,6 +15,7 @@
 ```bash
 $ npm install
 ```
+请使用 Node.js 10安装依赖
 
 ### 开发环境下
 
