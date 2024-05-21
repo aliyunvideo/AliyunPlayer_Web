@@ -15,6 +15,7 @@ This demo depends on [Vue](https://vuejs.org/), [webpack 4.X](https://webpack.js
 ```bash
 $ npm install
 ```
+Please use Node.js 10 to install dependencies
 
 ### Development environment
 
