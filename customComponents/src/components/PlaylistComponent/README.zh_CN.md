@@ -33,3 +33,24 @@ components: [{
 > playlist
 
 - `playlist`, `Array` 类型, 播放列表数组, 数组元素拥有两个属性: `name`(视频名称), `source`(视频地址)
+
+该组件提供四个回调事件:
+
+```js
+player.on('plugin-playlist-click-video', (event) => {
+  // click on VideoItem in list
+  console.log("click Item", event.paramData.currentIndex, event.paramData.clickedIndex); 
+})
+player.on('plugin-playlist-click-prev', (event) => {
+  // click on 'Prev' button
+  console.log("click Prev", event.paramData.currentIndex); 
+})
+player.on('plugin-playlist-click-next', (event) => {
+  // click on 'Next' button
+  console.log("click Next", event.paramData.currentIndex); 
+})
+player.on('plugin-playlist-change', (event) => {
+  // after click, player starts loading a new video
+  console.log("video change", event.paramData.currentIndex); 
+})
+```
