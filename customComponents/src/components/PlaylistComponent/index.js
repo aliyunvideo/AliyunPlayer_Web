@@ -4,6 +4,16 @@ import './index.scss'
 import { parseDom } from 'utils'
 
 /**
+ * 播放列表事件
+ */
+const PlaylistComponentEvent = {
+  VideoClick: 'plugin-playlist-click-video',
+  PrevClick: 'plugin-playlist-click-prev',
+  NextClick: 'plugin-playlist-click-next',
+  VideoChange: 'plugin-playlist-change',
+}
+
+/**
  * 播放列表组件
  */
 export default class PlaylistComponent {
@@ -54,6 +64,11 @@ export default class PlaylistComponent {
 
   ready (player, e) {
     this.controlHtml.querySelector('.icon-skip-previous').onclick = () => {
+
+      player && player.trigger(PlaylistComponentEvent.PrevClick, { 
+        currentIndex: Math.max(this.playingVideoIndex - 1, 0)
+      })
+
       if (this.playingVideoIndex === 0) {
         this.playlistTip(this.isEn ? 'Already the first one~' : '已经是第一个了~', player._el)
         return
@@ -62,6 +77,11 @@ export default class PlaylistComponent {
     }
 
     this.controlHtml.querySelector('.icon-skipnext').onclick = () => {
+
+      player && player.trigger(PlaylistComponentEvent.NextClick, { 
+        currentIndex: Math.min(this.playingVideoIndex + 1, this.playlist.length - 1)
+      })
+
       if (this.playingVideoIndex === this.playlist.length - 1) {
         this.playlistTip(this.isEn ? 'Already the last one~' : '已经是最后一个了~', player._el)
         return
@@ -71,8 +91,14 @@ export default class PlaylistComponent {
 
     this.listHtml.querySelector('.list').onclick = (e) => {
       let target = e.target
+      let videoIndex = parseInt(target.getAttribute('data-index'))
+
+      player && player.trigger(PlaylistComponentEvent.VideoClick, { 
+        currentIndex: this.playingVideoIndex,
+        clickedIndex: videoIndex
+      })
+
       if (target.className === 'video-item') {
-        let videoIndex = parseInt(target.getAttribute('data-index'))
         this.playVideo(player, videoIndex)
       }
     }
@@ -91,6 +117,9 @@ export default class PlaylistComponent {
     if (this.playingVideoIndex === videoIndex) {
       return 
     }
+
+    player && player.trigger(PlaylistComponentEvent.VideoChange, { currentIndex: videoIndex })
+    
     this.playingVideoIndex = parseInt(videoIndex)
     player.loadByUrl(this.playlist[videoIndex].source)
     this.listHtml.querySelector('.video-item.active').className = 'video-item'
