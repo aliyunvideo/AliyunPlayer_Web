@@ -1,6 +1,6 @@
-import PlayerNextComponent from './index.js'
+import PlaylistComponent from './index.js'
 
 if (!window.AliPlayerComponent) {
   window.AliPlayerComponent = {}
 }
-window.AliPlayerComponent.PlayerNextComponent = PlayerNextComponent
+window.AliPlayerComponent.PlaylistComponent = PlaylistComponent
