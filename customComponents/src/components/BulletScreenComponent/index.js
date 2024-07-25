@@ -34,7 +34,7 @@ export default class BulletScreenComponent {
     //字体高度
     var bulletHeight = this.html.offsetHeight
     //播放器高度
-    var playerHeight = parseInt(player.getOptions().height.replace('px', ''))
+    var playerHeight = parseInt(getComputedStyle(player.tag).height.replace('px', ''))
     //字体距离播放器底部最大高度
     var maxHeight = playerHeight - bulletHeight
 
