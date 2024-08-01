@@ -81,8 +81,6 @@ class VideoAdComponent {
         } else {
           this.closeVideoAd()
         }
-        //广告播放完了之后自动播放视频
-        document.getElementById('player-con').getElementsByTagName('video')[0].play()
       }
     }
   }
@@ -113,7 +111,7 @@ class VideoAdComponent {
       if (this.adDuration <= 0) {
         this.closeVideoAd()
         //广告播放完了之后自动播放视频
-        document.getElementById('player-con').getElementsByTagName('video')[0].play()
+        document.getElementById(this.player.id()).getElementsByTagName('video')[0].play()
       } else {
         adDuration_ele.innerText = this.adDuration
       }
@@ -199,7 +197,6 @@ class MbVideoAdComponent {
       let self = this
       function timeupdateHandle () {
         let duration = aliplayer_el.duration       
-        console.log('duration', duration)
         if (!isNaN(duration) && duration !== 0) {
           aliplayer_el.removeEventListener('timeupdate', timeupdateHandle)
           self.adDuration = Math.ceil(aliplayer_el.duration)
@@ -260,7 +257,7 @@ class MbVideoAdComponent {
           this.closeVideoAd()
         }
         //广告播放完了之后自动播放视频
-        document.getElementById('player-con').getElementsByTagName('video')[0].play()
+        document.getElementById(player.id()).getElementsByTagName('video')[0].play()
       }
     // }
   }
@@ -273,7 +270,7 @@ class MbVideoAdComponent {
       if (this.adDuration <= 0) {
         this.closeVideoAd()
         //广告播放完了之后自动播放视频
-        document.getElementById('player-con').getElementsByTagName('video')[0].play()
+        document.getElementById(this.player.id()).getElementsByTagName('video')[0].play()
       } else {
         adDuration_ele.innerText = this.adDuration
       }
