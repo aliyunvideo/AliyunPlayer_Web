@@ -29,6 +29,7 @@ class VideoAdComponent {
   }
 
   createEl (el, player) {
+    this.player = player;
     const lang = player._options && player._options.language
     this.isEn = lang && lang === 'en-us'
     this.html.querySelector('.video-ad-detail').innerText = this.isEn ? 'For more information' : '查看广告详情'
@@ -69,19 +70,21 @@ class VideoAdComponent {
     videoDetail.setAttribute('href', this.adLink)
 
     el.appendChild(this.html) 
+
+    // handle close
+    this.html.querySelector('.video-ad-close label').onclick = () => {
+      if (typeof this.adCloseFunction === 'function') {
+        this.adCloseFunction(this)
+      } else {
+        this.closeVideoAd()
+      }
+    }
   }
 
   ready (player, e) {
     if (this.html !== null) {
       player.pause()
       this.player = player
-      this.html.querySelector('.video-ad-close label').onclick = () => {
-        if (typeof this.adCloseFunction === 'function') {
-          this.adCloseFunction(this)
-        } else {
-          this.closeVideoAd()
-        }
-      }
     }
   }
 
@@ -123,7 +126,7 @@ class VideoAdComponent {
     this.clearAdInterval()
     this.html.parentNode.removeChild(this.html)
     this.html = null
-    if (this.player.getOptions().autoplay) {
+    if (this.player && this.player.getOptions().autoplay) {
       this.player.play()
     }
   }
