@@ -113,8 +113,6 @@ class VideoAdComponent {
       this.adDuration -= 1
       if (this.adDuration <= 0) {
         this.closeVideoAd()
-        //广告播放完了之后自动播放视频
-        document.getElementById(this.player.id()).getElementsByTagName('video')[0].play()
       } else {
         adDuration_ele.innerText = this.adDuration
       }
