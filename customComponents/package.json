@@ -1,6 +1,6 @@
 {
   "name": "custom-components",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "aliplayer's components",
   "main": "index.js",
   "scripts": {

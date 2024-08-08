@@ -23,6 +23,7 @@ export default class BulletScreenComponent {
   createEl (el, player) {
     this.html.innerText = this.text
     el.appendChild(this.html)
+    el.style.overflow = 'hidden'
   }
 
   ready (player, e) {
