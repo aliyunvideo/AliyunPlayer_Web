@@ -36,32 +36,34 @@
 - [多视频广告](https://github.com/aliyunvideo/AliyunPlayer_Web/tree/master/customComponents/src/components/ManyVideoADComponent)
 
 
+## 开发指南
+### 安装依赖
+**请使用 Node.js 20+**
+```sh
 
+$ cd customComponents
+$ npm install
 
-### 其他
+```
 
-## 如何使用
+### 启动项目
+```sh
 
-当只需要单独的某个组件时，只需要引用对应组件的JS文件，如果引用的是Aliplayer组件库文件，则通过AliPlayerComponent.XXX引用具体的组件。
+$ npm run dev
+# 访问：http://localhost:9000
+
+```
+
 
 ### 如何打包
-**请使用 Node.js 10**
 
-**如果是Windows环境, `NODE_ENV` 环境变量的设置和在 `macOS` 和 `Linux` 下的设置不同, 要将 `package.json` 下的, `build/build_customize` 命令更改为:** 
-
-```
-"build": "build_customize.sh",
-"build_customize": "set NODE_ENV=production&&webpack --config webpack.config.customize.js --progress"
-```
 
 #### 打包全部组件
 
-下面的两个指令中的任意一个都可以打包全部播放器组件, 打包之后的文件是 `/disk/aliplayer-components/aliplayercomponents.min.js` 
+下面的两个指令中的任意一个都可以打包全部播放器组件, 打包之后的文件是 `/dist/aliplayer-components/aliplayercomponents-[version].min.js` 
 
 ```sh
-$ npm run build 
-# 或者
-$ npm run build all
+$ npm run build
 ```
 
 #### 自定义打包组件
@@ -89,48 +91,13 @@ componentsName 可选的值有:
 - Preview 试看组件
 - RotateMirror 旋转镜像组件
 - StartAD 开始广告组件
-- Staticad 静态广告组件
 - VideoAD 视频广告组件
 - Caption字幕组件
 - Track音轨组件
 - ManyVideoAD多视频广告组件
 
-打包之后的文件在是 `/disk/aliplayer-components/aliplayercomponents.min.js` , 引用到用户的页面中即可
+打包之后的文件在是 `/dist/aliplayer-components/aliplayercomponents-[version].min.js` , 引用到用户的页面中即可
 
-### 引用具体的组件
-
-- 在html文件中引用具体的JS文件
-
-```sh
-
-<script type="text/javascript" src="js/staticAdComponent.min.js"></script>
-
-```
-
-- 给播放器注入组件
-
-```sh
-
- var option = {
-     id: "J_prismPlayer",
-     autoplay: true,
-     isLive:false,
-     playsinline:true,
-     width:"100%",
-     height:"100%",
-     useH5Prism:true, //启用H5播放器
-     useFlashPrism:false,
-     source:source,
-     vid:vid,
-     playauth:playauth,
-     cover:"",
-     components:[{type:StaticAdComponent,args:['http://cdnoss.youkouyang.com/cover.png',
-     'http://player.alicdn.com']}]                 
-};
-
-var player = new Aliplayer(option);
-
-```
 
 ### 引用Aliplayer组件库
 
@@ -138,13 +105,13 @@ var player = new Aliplayer(option);
 
 ```sh
 
-<script type="text/javascript" src="js/aliplayerComponents.min.js"></script>
+<script type="text/javascript" src="path/to/aliplayercomponents-[version].min.js"></script>
 
 ```
 
 - 给播放器注入组件
 
-提供了3个参数：
+每个组件配置项有3个参数：
 
 |名称|说明
 |-|-
@@ -154,53 +121,25 @@ var player = new Aliplayer(option);
 
 ```sh
 
- var option = {
+ let option = {
      id: "J_prismPlayer",
      autoplay: true,
-     isLive:false,
-     playsinline:true,
      width:"100%",
      height:"100%",
-     useH5Prism:true, //启用H5播放器
-     useFlashPrism:false,
      source:source,
-     vid:vid,
-     playauth:playauth,
-     cover:"",
-     components:[{type:AliPlayerComponent.StaticAdComponent,args:['http://cdnoss.youkouyang.com/cover.png',
-     'http://player.alicdn.com']},
-     notParameComponent,
-     {name:'adComponent1',type:notParameComponent}
-     ]                 
-};
-
-var player = new Aliplayer(option);
-
-```
-
-|名称|说明
-|-|-
-|name|组件名称，可用通过名称得到组件
-|type| 组件类型
-|args| 组件的参数
-
-```sh
-
- var player = new Aliplayer({
-    id: "J_prismPlayer",
-     autoplay: true,
-     isLive:false,
-     playsinline:true,
-     controlBarVisibility:"click",
-     cover:"",
      components:[
-     {name:'adComponent',type:StaticAdComponent,args:['http://cdnoss.youkouyang.com/cover.png']},
-     notParameComponent,
-     {name:'adComponent1',type:notParameComponent}
+        {
+            name: 'BulletScreenComponent',
+            type: AliPlayerComponent.BulletScreenComponent,
+            args: ['Welcome to use Aliplayer', {fontSize: '16px', color: '#00c1de'}, 'random']
+        }
      ]                 
-    });
+    };
 
+ let player = new Aliplayer(option);
 ```
+
+
 
 #### 获取组件
 
@@ -208,22 +147,7 @@ var player = new Aliplayer(option);
 
 ```sh
 
-var component = player.getComponent('adComponent');
-
-```
-
-### 安装依赖项
-
-本Demo使用了ES6、webpack、gulp等技术。
-
- - [Node.js](https://nodejs.org/en/)
- - [Webpack4.0](http://webpack.github.io) 
- - [gulp](https://gulpjs.com)
-
-```sh
-
-$ cd customComponents
-$ npm install
+let component = player.getComponent('BulletScreenComponent');
 
 ```
 

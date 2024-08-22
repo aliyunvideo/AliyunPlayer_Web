@@ -1,7 +1,13 @@
 #/bin/bash
 buildcommand=""
+npmscript="build_customize"
+last_arg="${!#}"
 
-if [ "$1" == "" ] || [ "$1" == all ]; then 
+if [ $last_arg == "--dev" ]; then
+  npmscript="build_customize_dev"
+fi
+
+if [ "$1" == "" ] || [ "$1" == all ] || [ "$1" == "--dev" ]; then # $1 == --dev means no component name is assigned, --dev is the only argument
   for file in ./src/components/*
     do
       if [ -d $file ] && [ "$file" != "./src/components/images" ]; then
@@ -11,13 +17,15 @@ if [ "$1" == "" ] || [ "$1" == all ]; then
 else
   basepath=$(cd `dirname $0`; pwd)
   for componentName in $*
-    do
-      component=$componentName"Component"
-      componentsCommand="./src/components/"$component"/export.js "
-      buildcommand+=$componentsCommand
-    done
+      do
+        if [ $componentName != "--dev" ]; then
+          component=$componentName"Component"
+          componentsCommand="./src/components/"$component"/export.js "
+          buildcommand+=$componentsCommand
+        fi
+      done
 fi 
 
 buildcommand+="./src/assets/scss/index.scss"
 
-npm run build_customize $buildcommand
+npm run $npmscript $buildcommand

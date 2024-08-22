@@ -2,9 +2,12 @@ import danmuHtml from './index.html'
 import danmuControl from './danmu-control.html'
 import danmuInput from './danmu-input.html'
 import './index.scss'
-import { CommentManager } from 'comment-core-library/build/CommentCoreLibrary'
+import CCLscript from 'comment-core-library/build/CommentCoreLibrary'
 import 'comment-core-library/build/style.css'
-import { parseDom, isElement } from 'utils'
+import { parseDom, isElement } from 'utils';
+
+// CommentCoreLibrary 不支持模块化，通过 webpack 的 asset/source 方式引入
+(0, eval)(CCLscript);// Indirect call using the comma operator to return eval
 
 /**
  * 弹幕组件
@@ -27,8 +30,6 @@ export default class AliplayerDanmuComponent {
   }
 
   createEl (el, player) {
-    console.log(player)
-
     const lang = player._options && player._options.language
     this.isEn = lang && lang === 'en-us'
     if (this.danmuInput !== null) {
