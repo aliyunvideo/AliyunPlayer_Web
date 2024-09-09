@@ -13,6 +13,7 @@ export default class QualityComponent {
     this.hasCreated = false
     this.definition = ''
     this.getQuality = getQuality
+    this._levels = [];
   }
 
   createEl (el, player) {
@@ -20,7 +21,7 @@ export default class QualityComponent {
     this.isEn = lang && lang === 'en-us'
     this.html.querySelector('.current-quality').innerText = this.isEn ? 'Resolution' : '清晰度'
     this.modalHtml.querySelector('.switchimg').innerText = this.isEn ? 'Switching to you for' : '正在为您切换到'
-    this.modalHtml.querySelector('.wait').innerText = this.isEn ? 'Please wait...' : '请稍后...'
+    this.modalHtml.querySelector('.wait').innerText = this.isEn ? 'Please wait...' : '请稍候...'
     let eleControlbar = el.querySelector('.prism-controlbar')
     eleControlbar.appendChild(this.html)
     el.appendChild(this.modalHtml)
@@ -48,13 +49,30 @@ export default class QualityComponent {
 
     let currentQualityEle = this.html.querySelector('.current-quality')
     let qualityListEle = this.html.querySelector('.quality-list')
+    qualityListEle.style.display = 'none';
+
+    player.on('selectorUpdateList', (param) => {
+      if (param.paramData.type !== 'quality') return;
+      if (!player.getOptions().isVBR) return;
+      let levels = player._qualityService.levels;
+      this._levels = (levels || []).map(item => ({ ...item, definition: item.bitrate || 'AUTO'/* 多码率的时候没有 definition */ }));
+      let lis_ele = this._levels.map(url => {
+        return `<li data-def="${url.definition}">${url.desc}</li>`
+      })
+      qualityListEle.innerHTML = lis_ele.join('')
+
+      currentQualityEle.style.width = '100px';
+      qualityListEle.style.width = '100px';
+
+      const desc = this._levels.find(level => level.definition === this.definition)?.desc;
+      this.setCurrentQuality(desc, this.definition); // later than 'sourceloaded'
+    })
 
     let lis_ele = this._urls.map(url => {
       return `<li data-def="${url.definition}">${url.desc}</li>`
     })
-    this.html.querySelector('.quality-list').innerHTML = lis_ele.join('')
+    qualityListEle.innerHTML = lis_ele.join('')
 
-    console.log(this.definition)
     if (this.hasCreated == false && this.definition) {
       let li_target = qualityListEle.querySelector(`li[data-def="${this.definition}"]`)
       li_target.className = 'current'
@@ -93,7 +111,7 @@ export default class QualityComponent {
       let definition = target.dataset.def
       let desc = target.innerText
       if (definition && target.className !== 'current') {
-        let url = this._urls.find(url => url.definition === definition)
+        let url = (this._levels || this._urls).find(url => String(url.definition) === definition)
         if (url) {
           cookieSet('selectedStreamLevel', url.definition, 365);
 
@@ -108,10 +126,15 @@ export default class QualityComponent {
 
           this.modalHtml.style.display = 'block'
           this.modalHtml.querySelector('span.current-quality-tag').innerText = url.desc
+          setTimeout(() => {
+            this.modalHtml.style.display = 'none';
+          }, 2000);
         } 
       }
-      //点击切换清晰度时，调用这个方法
-      this.getQuality(definition,desc)
+      if (typeof this.getQuality === 'function') {
+        //点击切换清晰度时，调用这个方法
+        this.getQuality(definition,desc)
+      }
     }
   }
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+  <title>Aliplayer Functions</title>
+  <link rel="stylesheet" href="https://g.alicdn.com/apsara-media-box/imp-web-player/2.26.0/skins/default/aliplayer-min.css" />
+  <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/apsara-media-box/imp-web-player/2.26.0/aliplayer-min.js"></script>
+  <script src="./aliplayercomponents-1.1.0.js"></script>
+</head>
+<body>
+<div id="player-con"></div>
+<script>
+  var player = new Aliplayer({
+    id: "player-con",
+    source: "//player.alicdn.com/video/editor.mp4",
+    width: "100%",
+    height: "500px",
+    autoplay: false,
+    isLive: false,
+    components: [{
+      name: 'PlaylistComponent',
+      type: AliPlayerComponent.PlaylistComponent,
+      args: [[{
+        name: '阿里云播放器介绍',
+        source: '//player.alicdn.com/video/editor.mp4'
+      }, {
+        name: '趣拍演示视频',
+        source: '//player.alicdn.com/resource/player/qupai.mp4'
+      }, {
+        name: '云栖大会',
+        source: 'http://player.pier39.cn/video/yunxi.mp4'
+      }, {
+        name: '4K 阿里视频云介绍',
+        source: 'https://player.alicdn.com/video/apsaravideo4k.mp4'
+      }]]
+    }]
+  }, function (player) {
+    console.log("The player is created");
+  });
+</script>
+</body>
+</html>
