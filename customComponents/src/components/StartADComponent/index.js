@@ -48,8 +48,11 @@ export default class StartADComponent {
       let durationInterval = setInterval(() => {
         duration = duration - 1
         durationElement.innerText = duration
-        if (duration === 0) {
-          clearInterval(durationInterval)
+        if (duration === 0 ) {
+          clearInterval(durationInterval);
+          if(player.__disposed == true){
+            return
+          }
           this.removeComponent()
           // 如果试看组件和记忆播放组件一起用了, 那么不让播放器播放
           let playerOptions = player.getOptions()
@@ -70,8 +73,8 @@ export default class StartADComponent {
   }
 
   removeComponent () {
-    this.html.parentNode.removeChild(this.html)
-    this.html = null
+      this.html.parentNode?.removeChild(this.html)
+      this.html = null
   }
 
   ready(player) {

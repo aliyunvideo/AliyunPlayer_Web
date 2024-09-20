@@ -67,7 +67,6 @@ export default class MemoryPlayComponent {
     document.onvisibilitychange = () => {
       if (document.visibilityState === 'hidden' && player.getCurrentTime() !== 0) {
         this.saveTimeFunction(memoryVideo, player.getCurrentTime());
-        console.log(play)
       }
     }
     
