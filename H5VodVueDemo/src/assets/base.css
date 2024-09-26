@@ -1,0 +1,50 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --color-grey: #2c3134;
+  --color-grey-light: #373d41;
+  --color-text: #fff;
+  --content-width: 1300px;
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--color-grey);
+  --color-background-light: var(--color-grey-light);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ 
