@@ -117,7 +117,7 @@ export default class QualityComponent {
 
           if (player._switchLevel && !player._options.isLive && player._options.isVBR) {
             let targetLevel = this._levels.find(level => Number(level.bitrate) === Number(definition));
-            player._switchLevel(url.Url, targetLevel || { isAuto: true });
+            player._switchLevel(url.Url, targetLevel);
           }
           else {
             player._loadByUrlInner(url.Url, player.getCurrentTime(), true /*autoPlay*/);
