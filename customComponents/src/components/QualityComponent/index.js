@@ -29,7 +29,7 @@ export default class QualityComponent {
 
   setCurrentQuality(quality, def) {
     let currentQuality = this.html.querySelector('.current-quality')
-    currentQuality.innerText = quality
+    currentQuality.innerText = quality || ''
     currentQuality.dataset.def = def
     this.definition = def
 
@@ -116,7 +116,8 @@ export default class QualityComponent {
           cookieSet('selectedStreamLevel', url.definition, 365);
 
           if (player._switchLevel && !player._options.isLive && player._options.isVBR) {
-            player._switchLevel(url.Url);
+            let targetLevel = this._levels.find(level => Number(level.bitrate) === Number(definition));
+            player._switchLevel(url.Url, targetLevel || { isAuto: true });
           }
           else {
             player._loadByUrlInner(url.Url, player.getCurrentTime(), true /*autoPlay*/);
