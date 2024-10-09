@@ -111,15 +111,15 @@ export default class QualityComponent {
       let definition = target.dataset.def
       let desc = target.innerText
       if (definition && target.className !== 'current') {
-        let url = (this._levels || this._urls).find(url => String(url.definition) === definition)
+        let url = (this._levels?.length > 0 ? this._levels : this._urls).find(url => String(url.definition) === definition)
         if (url) {
           cookieSet('selectedStreamLevel', url.definition, 365);
 
-          if (player._switchLevel && !player._options.isLive) {
+          if (player._switchLevel && !player._options.isLive && player._options.isVBR) {
             player._switchLevel(url.Url);
           }
           else {
-            player._loadByUrlInner(url.Url, player.getCurrentTime(), true /*autoPlay*/, true /* isSwitchLevel */);
+            player._loadByUrlInner(url.Url, player.getCurrentTime(), true /*autoPlay*/);
           }
 
           this.setCurrentQuality(url.desc, url.definition)
