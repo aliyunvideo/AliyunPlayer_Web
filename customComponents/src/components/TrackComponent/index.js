@@ -34,9 +34,18 @@ export default class TrackComponent {
         return `<li data-def="${v.value}">${v.text}</li>`
       })
       this.html.querySelector('.track-list').innerHTML = `<li style="background:rgba(88,87,86,.5);color:#fff">音轨</li>`+lis_ele.join('')
+
+      // default track
+      let defaultTrack = player._audioTrackService._defaultTrack;
+      if (!defaultTrack) {
+        defaultTrack = this.trackList[0];
+      }
+      this.setCurrentTrack(defaultTrack.text, defaultTrack.value);
     })
     let currentTrackEle = this.html.querySelector('.current-track')
     let trackListEle = this.html.querySelector('.track-list')
+
+
 
     if (this.hasCreated == false && this.definition) {
       let li_target = trackListEle.querySelector(`li[data-def="${this.definition}"]`)
@@ -90,14 +99,12 @@ export default class TrackComponent {
     if (currentEle) {
       currentEle.className = ''
     }
-    // let li_target = trackListEle.querySelector(`li[data-def="${def}"]`)
     let lis = trackListEle.querySelectorAll('li')
     lis.forEach(element => {
       let text = element.innerText
       if(text === track){
         element.className = 'current'
       }
-      console.log(text)
     });
     if (lis) {
       lis.className = 'current'
