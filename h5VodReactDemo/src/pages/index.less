@@ -1,0 +1,41 @@
+header {
+    height: 58px;
+    margin: 0 auto;
+    background-color: var(--color-background-light);
+  }
+  
+  .main-content {
+    width: var(--content-width);
+    margin: 0 auto;
+    height: 100%;
+  }
+  
+  .logo {
+    margin-top: 20px;
+  }
+  
+  .left-area {
+    padding: 60px 20px;
+    flex: 2;
+  }
+  .right-area {
+    flex: 1;
+  }
+  
+  @media (min-width: 768px) {
+    .content-wrap {
+      display: flex;
+    }
+  }
+  @media (max-width: 768px) {
+    .main-content {
+      width: 100%;
+      padding: 0 20px;
+    }
+    .main-content .left-area {
+      width: 100%;
+    }
+    .main-content .right-area {
+      width: 100%;
+    }
+  }
