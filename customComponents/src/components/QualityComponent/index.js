@@ -51,6 +51,9 @@ export default class QualityComponent {
     let qualityListEle = this.html.querySelector('.quality-list')
     qualityListEle.style.display = 'none';
 
+    player.on('settingListHide', () => {
+      qualityListEle.style.display = 'none';
+    })
     player.on('selectorUpdateList', (param) => {
       if (param.paramData.type !== 'quality') return;
       if (!player.getOptions().isVBR) return;
