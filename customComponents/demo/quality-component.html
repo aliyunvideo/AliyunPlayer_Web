@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+  <title>Aliplayer Functions</title>
+  <link rel="stylesheet" href="https://g.alicdn.com/apsara-media-box/imp-web-player/2.27.1/skins/default/aliplayer-min.css" />
+  <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/apsara-media-box/imp-web-player/2.27.1/aliplayer-min.js"></script>
+  <!-- 请下载之后使用 -->
+  <script src="./aliplayercomponents.js"></script>
+</head>
+<body>
+<div id="player-con"></div>
+<script>
+  var player = new Aliplayer({
+    id: "player-con",
+    source: JSON.stringify({"HD":"//player.alicdn.com/resource/player/qupai.mp4", "SD":"//player.alicdn.com/video/editor.mp4"}),
+    width: "100%",
+    autoSize: true,
+    clickPause: true,
+    components: [{
+      name: 'QualityComponent',
+      type: AliPlayerComponent.QualityComponent,
+      args: [function(definition,desc) {
+        console.log(definition + '-----' + desc)
+      }]
+    }]
+  }, function(player) {
+    console.log("The player is created");
+
+    /* Register the sourceloaded of the player, query the resolution of the video, invoke the resolution component, and call the setCurrentQuality method to set the resolution. */
+    player.on('sourceloaded', function(params) {
+      var paramData = params.paramData
+      var desc = paramData.desc
+      var definition = paramData.definition
+      player.getComponent('QualityComponent').setCurrentQuality(desc, definition)
+    })
+  });
+</script>
+</body>
+</html>
