@@ -13,7 +13,7 @@ export default class Favoriate {
 		})
 	}
 
-	favoriate() {
+	favorite() {
 		let length = this.imgNames.length;
 		this.index = (this.index < length) ? this.index : 0;
 		name = this.imgNames[this.index];
