@@ -36,6 +36,12 @@ export default class CaptionComponent {
       })
       this.html.querySelector('.caption-list').innerHTML = `<li style="background:rgba(88,87,86,.5);color:#fff">字幕</li>`+lis_ele.join('')
     })
+
+    player.on('CCChanged', ({paramData}) => {
+      var srcLang = paramData
+      this.syncCurrentCaption(player, srcLang)
+    })
+
     let currentCaptionEle = this.html.querySelector('.current-caption')
     let captionListEle = this.html.querySelector('.caption-list')
     
@@ -81,6 +87,11 @@ export default class CaptionComponent {
       }
     }
   }
+  syncCurrentCaption(player, srcLang) {
+    if (srcLang && srcLang !== 'on') {
+        this.setCurrentCaption(this.captionList.find(item => item.value === srcLang)?.text, srcLang)
+    }
+  }
 
   setCurrentCaption(caption, def) {
     let currentCaption = this.html.querySelector('.current-caption')
@@ -117,5 +128,6 @@ export default class CaptionComponent {
     if (settingEle) {
      settingEle.classList.add('player-hidden')
     }
+    this.syncCurrentCaption(player);
   }
 }
