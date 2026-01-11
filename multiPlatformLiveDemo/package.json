@@ -60,7 +60,7 @@
     "validate-commit-msg": "2.x",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "3.1.4",
+    "webpack-dev-server": "5.1.0",
     "webpack-merge": "^1.0.2"
   },
   "keywords": [
