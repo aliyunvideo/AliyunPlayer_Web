@@ -1,3 +1,5 @@
+**跑马灯组件已内置到阿里云播放器，并升级为动态水印，开箱即用。如果您没有二次开发的需求，可以直接使用，详见[API说明](https://help.aliyun.com/zh/vod/developer-reference/api-operations)**
+
 ## 跑马灯组件
 
 主要用于一些滚动文字, 可以自定义出现的位置, 文字颜色和字体大小。
